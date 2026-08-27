@@ -98,7 +98,7 @@ export default function ServicesAdmin() {
           </div>
           
           <form onSubmit={handleSave} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm text-zinc-400 mb-1">Title</label>
                 <input 
@@ -144,7 +144,7 @@ export default function ServicesAdmin() {
             </div>
             
             <div>
-              <label className="block text-sm text-zinc-400 mb-1">Order</label>
+              <label className="block text-sm text-zinc-400 mb-1">Display Order</label>
               <input 
                 type="number" 
                 value={currentService.order || 0} 
@@ -171,8 +171,8 @@ export default function ServicesAdmin() {
           </form>
         </div>
       ) : (
-        <div className="bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden">
-          <table className="w-full text-left text-sm">
+        <div className="bg-zinc-950 border border-zinc-800 rounded-xl overflow-x-auto">
+          <table className="w-full text-left text-sm min-w-[600px]">
             <thead className="bg-zinc-900 border-b border-zinc-800 text-zinc-400 uppercase">
               <tr>
                 <th className="px-6 py-4 font-medium">Title</th>

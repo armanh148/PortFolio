@@ -140,7 +140,7 @@ export default function ProjectsAdmin() {
                 required 
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm text-zinc-400 mb-1">Live URL</label>
                 <input 
@@ -159,20 +159,18 @@ export default function ProjectsAdmin() {
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white" 
                 />
               </div>
-            </div>
-            <div>
-              <label className="block text-sm text-zinc-400 mb-1">Technologies (comma separated)</label>
-              <input 
-                type="text" 
-                value={currentProject.technologies || ''} 
-                onChange={e => setCurrentProject({...currentProject, technologies: e.target.value})}
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white" 
-                required 
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-zinc-400 mb-1">Order</label>
+                <label className="block text-sm text-zinc-400 mb-1">Technologies (comma separated)</label>
+                <input 
+                  type="text" 
+                  value={currentProject.technologies || ''} 
+                  onChange={e => setCurrentProject({...currentProject, technologies: e.target.value})}
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white" 
+                  required 
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-zinc-400 mb-1">Display Order</label>
                 <input 
                   type="number" 
                   value={currentProject.order || 0} 
@@ -180,7 +178,7 @@ export default function ProjectsAdmin() {
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 text-white" 
                 />
               </div>
-              <div>
+              <div className="md:col-span-2">
                 <label className="block text-sm text-zinc-400 mb-1">Image</label>
                 <input 
                   type="file" 
@@ -212,8 +210,8 @@ export default function ProjectsAdmin() {
           </form>
         </div>
       ) : (
-        <div className="bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden">
-          <table className="w-full text-left text-sm">
+        <div className="bg-zinc-950 border border-zinc-800 rounded-xl overflow-x-auto">
+          <table className="w-full text-left text-sm min-w-[600px]">
             <thead className="bg-zinc-900 border-b border-zinc-800 text-zinc-400 uppercase">
               <tr>
                 <th className="px-6 py-4 font-medium">Title</th>
