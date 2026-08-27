@@ -240,7 +240,7 @@ export default function PricingTestimonials() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
                         <p className="pb-5 text-xs text-stone-400 font-light leading-relaxed max-w-2xl">

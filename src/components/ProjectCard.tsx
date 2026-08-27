@@ -1,4 +1,4 @@
-﻿import type { Project } from "@/lib/siteData";
+import type { Project } from "@/lib/siteData";
 
 export default function ProjectCard({
   project,
@@ -44,7 +44,7 @@ export default function ProjectCard({
         </span>
       </div>
       <p className="mt-2 text-[12px] font-light leading-relaxed text-smoke">
-        {project.tags.join("  Â·  ")}
+        {project.tags?.join("  Â·  ")}
       </p>
     </article>
   );

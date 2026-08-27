@@ -50,11 +50,13 @@ export interface Project {
   description?: string;
   coverImage?: string;
   link?: string;
+  gradient?: string;
 }
 
 export interface Skill {
   _id: string;
   title: string;
+  name?: string;
   category?: string;
   level?: number;
 }
@@ -65,5 +67,7 @@ export interface Service {
   description?: string;
   price?: string;
   tags?: string[];
+  index?: string;
+  blurb?: string;
 }
 
