@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Core palette ────────────────────────────────────── */
+  --color-ink: #09090b;
+  --color-ink-soft: #0e0e11;
+  --color-ink-muted: #18181c;
+  --color-canvas: #09090b;
+  --color-canvas-warm: #0e0e11;
+
+  /* ── Accent ──────────────────────────────────────────── */
+  --color-accent: #2f66f6;
+  --color-accent-deep: #1d4ed8;
+
+  /* ── Neutrals ────────────────────────────────────────── */
+  --color-snow: #F5F5F3;
+  --color-smoke: #a1a1aa;
+  --color-smoke-light: #d4d4d8;
+
+  /* ── Legacy (kept for component compatibility) ────── */
+  --color-night: #09090b;
+  --color-night-soft: #121216;
+  --color-panel: #18181f;
+  --color-crimson: #2f66f6;
+  --color-crimson-deep: #1d4ed8;
+  --color-charcoal: #09090b;
+  --color-ember: #2f66f6;
+  --color-ember-deep: #1d4ed8;
+
+  /* ── Typography ──────────────────────────────────────── */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-display: var(--font-space-grotesk);
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+html {
+  background: #09090b;
+  color: #F5F5F3;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: #09090b;
+  color: #F5F5F3;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.custom-cursor-active,
+body.custom-cursor-active * {
+  cursor: none !important;
+}
+
+section[id] { scroll-margin-top: 5rem; }
+
+::selection {
+  background: #2f66f6;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #09090b; }
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 999px;
+  border: 2px solid #09090b;
+}
+::-webkit-scrollbar-thumb:hover { background: #2f66f6; }
+
+/* ── Utilities ─────────────────────────────────────────── */
+@layer utilities {
+
+  /* Labels */
+  .label {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--font-display);
+    color: #2f66f6;
+  }
+
+  /* Section utilities */
+  .canvas-section {
+    background-color: #09090b;
+    color: #F5F5F3;
+  }
+  .ink-section {
+    background-color: #09090b;
+    color: #F5F5F3;
+  }
+  .ink-soft-section {
+    background-color: #0e0e11;
+    color: #F5F5F3;
+  }
+
+  /* Display typography */
+  .display-hero {
+    font-size: clamp(4.5rem, 13vw, 14rem);
+    font-weight: 900;
+    line-height: 0.87;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    color: #F5F5F3;
+  }
+
+  .display-section {
+    font-size: clamp(2.2rem, 5vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    color: #F5F5F3;
+  }
+
+  /* ── Cross / crosshair marks ─────────────────────────── */
+  .cross-mark {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 1;
+  }
+  .cross-mark-light {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 1;
+  }
+
+  /* Accent glow */
+  .glow-accent {
+    box-shadow: 0 0 40px 8px rgba(47,102,246,0.25), 0 0 100px 24px rgba(47,102,246,0.1);
+  }
+
+  /* Vertical text */
+  .text-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .hero-name {
+    font-size: clamp(5rem, 17vw, 18rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #F5F5F3;
+  }
+
+  /* Subtle noise overlay */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: 200;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    animation: grain-shift 8s steps(10) infinite;
+  }
+}
+
+/* ── Lenis Smooth Scrolling ────────────────────────────── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
