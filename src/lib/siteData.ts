@@ -28,7 +28,7 @@ export interface SiteData {
 export const siteData: SiteData = {
   name: "Arman Naqvi",
   role: "Frontend & WordPress Developer",
-  email: "arman@example.com",
+  email: "armannaqvi.tms@gmail.com",
   location: "Lahore, Pakistan",
   heroImage: "/hero-img.png",
   socials: [

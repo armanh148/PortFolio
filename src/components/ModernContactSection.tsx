@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
-export default function ModernContactSection({ email = "arman@example.com" }: { email?: string }) {
+export default function ModernContactSection({ email = "armannaqvi.tms@gmail.com" }: { email?: string }) {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
