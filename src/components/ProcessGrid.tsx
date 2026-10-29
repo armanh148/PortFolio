@@ -59,45 +59,78 @@ const PROCESS_STEPS = [
 
 export default function ProcessGrid() {
   return (
-    <section className="relative py-16 sm:py-24 md:py-36 bg-transparent text-[#F5F5F3] border-b border-white/10 px-4 sm:px-6 md:px-12 overflow-hidden select-none">
+    <section className="relative py-16 sm:py-24 md:py-36 bg-white text-[#0f172a] border-b border-slate-200 px-4 sm:px-6 md:px-12 overflow-hidden select-none">
       {/* Intersection Crosshairs */}
-      <span className="cross-mark text-white/20" style={{ left: "25%", top: "0", transform: "translate(-50%, -50%)" }}>+</span>
-      <span className="cross-mark text-white/20" style={{ left: "50%", top: "0", transform: "translate(-50%, -50%)" }}>+</span>
-      <span className="cross-mark text-white/20" style={{ left: "75%", top: "0", transform: "translate(-50%, -50%)" }}>+</span>
+      <span className="cross-mark text-slate-300" style={{ left: "25%", top: "0", transform: "translate(-50%, -50%)" }}>+</span>
+      <span className="cross-mark text-slate-300" style={{ left: "50%", top: "0", transform: "translate(-50%, -50%)" }}>+</span>
+      <span className="cross-mark text-slate-300" style={{ left: "75%", top: "0", transform: "translate(-50%, -50%)" }}>+</span>
 
       <div className="max-w-[1500px] mx-auto">
         <div className="mb-10 sm:mb-16 md:mb-20 text-center max-w-3xl mx-auto">
           <Reveal>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
               Methodology
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3 sm:mb-4">
-              Design Process <span className="text-[#2f66f6]">That Works</span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] leading-tight mb-3 sm:mb-4">
+              Design Process <span className="text-[#dc2626]">That Works</span>
             </h2>
-            <p className="text-xs sm:text-sm md:text-base font-light text-stone-400 leading-relaxed max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base font-light text-slate-600 leading-relaxed max-w-xl mx-auto">
               A systematic four-phase framework ensuring clarity, performance, and alignment from concept to final deploy.
             </p>
           </Reveal>
         </div>
 
         {/* Process Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-white/[0.02]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 bg-[#f8fafc] shadow-sm">
           {PROCESS_STEPS.map((step, i) => (
             <motion.div
               key={step.num}
-              whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+              whileHover={{ backgroundColor: "#ffffff" }}
               transition={{ duration: 0.25 }}
               className={`p-4 sm:p-8 md:p-10 relative group transition-colors duration-300 cursor-pointer flex flex-col justify-between ${
                 i % 2 === 0 ? "border-r" : ""
-              } ${i < 2 ? "border-b" : ""} lg:border-b-0 ${i < 3 ? "lg:border-r" : ""} border-white/10`}
+              } ${i < 2 ? "border-b" : ""} lg:border-b-0 ${i < 3 ? "lg:border-r" : ""} border-slate-200`}
             >
               <Reveal delay={i * 0.1}>
                 {/* Top Row: Step Number & Icon */}
                 <div className="flex items-center justify-between mb-6 sm:mb-8">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#2f66f6]/20 to-transparent border border-[#2f66f6]/30 flex items-center justify-center text-[#2f66f6] group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(47,102,246,0.4)] transition-all">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-red-50 border border-red-200 flex items-center justify-center text-[#dc2626] group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(220,38,38,0.2)] transition-all">
                     {step.icon}
                   </div>
+                  <span className="text-[10px] sm:text-xs font-mono font-bold text-[#1e3a8a] uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200">
+                    {step.num} / {step.tag}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-[#0f172a] uppercase mb-2 sm:mb-3 group-hover:text-[#dc2626] transition-colors leading-snug">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-4 sm:mb-6">
+                  {step.description}
+                </p>
+
+                {/* Corner rotating star */}
+                <div className="absolute right-4 bottom-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#dc2626]">
+                  <motion.span
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    className="inline-block text-lg"
+                  >
+                    ✳
+                  </motion.span>
+                </div>
+              </Reveal>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
                   <span className="text-[10px] sm:text-xs font-mono font-bold text-[#2f66f6] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#2f66f6]/10 border border-[#2f66f6]/20">
                     {step.num} / {step.tag}
                   </span>

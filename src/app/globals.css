@@ -1,31 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Core palette ────────────────────────────────────── */
-  --color-ink: #09090b;
-  --color-ink-soft: #0e0e11;
-  --color-ink-muted: #18181c;
-  --color-canvas: #09090b;
-  --color-canvas-warm: #0e0e11;
+  /* ── Core palette (Light Theme) ────────────────────────── */
+  --color-canvas: #ffffff;
+  --color-canvas-warm: #f8fafc;
+  --color-canvas-subtle: #f1f5f9;
+  
+  --color-ink: #0f172a;        /* Deep Midnight Navy */
+  --color-ink-soft: #1e293b;   /* Slate 800 */
+  --color-ink-muted: #475569;  /* Slate 600 */
 
-  /* ── Accent ──────────────────────────────────────────── */
-  --color-accent: #2f66f6;
-  --color-accent-deep: #1d4ed8;
+  /* ── Accent Red (Electric Crimson) ────────────────────── */
+  --color-accent: #dc2626;      /* Red 600 */
+  --color-accent-deep: #b91c1c; /* Red 700 */
+  --color-accent-soft: #fef2f2; /* Red 50 */
+
+  /* ── Dark Navy / Royal Blue ───────────────────────────── */
+  --color-navy: #1e3a8a;        /* Blue 900 */
+  --color-navy-deep: #0f172a;   /* Slate 900 */
+  --color-navy-soft: #eff6ff;   /* Blue 50 */
 
   /* ── Neutrals ────────────────────────────────────────── */
-  --color-snow: #F5F5F3;
-  --color-smoke: #a1a1aa;
-  --color-smoke-light: #d4d4d8;
+  --color-snow: #0f172a;        /* High-contrast headings */
+  --color-smoke: #64748b;       /* Slate 500 */
+  --color-smoke-light: #94a3b8; /* Slate 400 */
 
-  /* ── Legacy (kept for component compatibility) ────── */
-  --color-night: #09090b;
-  --color-night-soft: #121216;
-  --color-panel: #18181f;
-  --color-crimson: #2f66f6;
-  --color-crimson-deep: #1d4ed8;
-  --color-charcoal: #09090b;
-  --color-ember: #2f66f6;
-  --color-ember-deep: #1d4ed8;
+  /* ── Legacy tokens (adapted for Light Theme) ────── */
+  --color-night: #ffffff;
+  --color-night-soft: #f8fafc;
+  --color-panel: #ffffff;
+  --color-crimson: #dc2626;
+  --color-crimson-deep: #b91c1c;
+  --color-charcoal: #ffffff;
+  --color-ember: #1e3a8a;
+  --color-ember-deep: #0f172a;
 
   /* ── Typography ──────────────────────────────────────── */
   --font-sans: var(--font-inter);
@@ -35,14 +43,14 @@
 
 /* ── Base ──────────────────────────────────────────────── */
 html {
-  background: #09090b;
-  color: #F5F5F3;
+  background: #ffffff;
+  color: #0f172a;
   font-size: 16px;
 }
 
 body {
-  background: #09090b;
-  color: #F5F5F3;
+  background: #ffffff;
+  color: #0f172a;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -57,18 +65,18 @@ body.custom-cursor-active * {
 section[id] { scroll-margin-top: 5rem; }
 
 ::selection {
-  background: #2f66f6;
+  background: #dc2626;
   color: #ffffff;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #09090b; }
+::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #cbd5e1;
   border-radius: 999px;
-  border: 2px solid #09090b;
+  border: 2px solid #f8fafc;
 }
-::-webkit-scrollbar-thumb:hover { background: #2f66f6; }
+::-webkit-scrollbar-thumb:hover { background: #dc2626; }
 
 /* ── Utilities ─────────────────────────────────────────── */
 @layer utilities {
@@ -78,23 +86,23 @@ section[id] { scroll-margin-top: 5rem; }
     font-size: 10px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     font-family: var(--font-display);
-    color: #2f66f6;
+    color: #dc2626;
   }
 
   /* Section utilities */
   .canvas-section {
-    background-color: #09090b;
-    color: #F5F5F3;
+    background-color: #ffffff;
+    color: #0f172a;
   }
   .ink-section {
-    background-color: #09090b;
-    color: #F5F5F3;
+    background-color: #f8fafc;
+    color: #0f172a;
   }
   .ink-soft-section {
-    background-color: #0e0e11;
-    color: #F5F5F3;
+    background-color: #f1f5f9;
+    color: #0f172a;
   }
 
   /* Display typography */
@@ -105,7 +113,7 @@ section[id] { scroll-margin-top: 5rem; }
     letter-spacing: -0.04em;
     text-transform: uppercase;
     font-family: var(--font-sans);
-    color: #F5F5F3;
+    color: #0f172a;
   }
 
   .display-section {
@@ -115,15 +123,15 @@ section[id] { scroll-margin-top: 5rem; }
     letter-spacing: -0.03em;
     text-transform: uppercase;
     font-family: var(--font-sans);
-    color: #F5F5F3;
+    color: #0f172a;
   }
 
   /* ── Cross / crosshair marks ─────────────────────────── */
   .cross-mark {
     position: absolute;
     font-size: 15px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.12);
+    font-weight: 400;
+    color: rgba(15, 23, 42, 0.15);
     pointer-events: none;
     user-select: none;
     line-height: 1;
@@ -132,8 +140,8 @@ section[id] { scroll-margin-top: 5rem; }
   .cross-mark-light {
     position: absolute;
     font-size: 15px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.15);
+    font-weight: 400;
+    color: rgba(15, 23, 42, 0.18);
     pointer-events: none;
     user-select: none;
     line-height: 1;
@@ -142,7 +150,7 @@ section[id] { scroll-margin-top: 5rem; }
 
   /* Accent glow */
   .glow-accent {
-    box-shadow: 0 0 40px 8px rgba(47,102,246,0.25), 0 0 100px 24px rgba(47,102,246,0.1);
+    box-shadow: 0 0 40px 8px rgba(220, 38, 38, 0.15), 0 0 100px 24px rgba(30, 58, 138, 0.1);
   }
 
   /* Vertical text */
@@ -158,18 +166,18 @@ section[id] { scroll-margin-top: 5rem; }
     line-height: 0.85;
     letter-spacing: -0.03em;
     text-transform: uppercase;
-    color: #F5F5F3;
+    color: #0f172a;
   }
 
-  /* Subtle noise overlay */
+  /* Subtle paper grain overlay */
   .grain::after {
     content: "";
     position: fixed;
     inset: -50%;
     z-index: 200;
     pointer-events: none;
-    opacity: 0.12;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
     animation: grain-shift 8s steps(10) infinite;
   }
 
@@ -177,9 +185,9 @@ section[id] { scroll-margin-top: 5rem; }
   .text-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0.4) 100%
+      rgba(15, 23, 42, 0.6) 0%,
+      rgba(220, 38, 38, 1) 50%,
+      rgba(30, 58, 138, 0.8) 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -187,28 +195,29 @@ section[id] { scroll-margin-top: 5rem; }
     animation: shimmer 4s infinite linear;
   }
 
-  /* Glassmorphic card surfaces */
+  /* Light glassmorphic card surfaces */
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
   }
 
   .glass-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(47, 102, 246, 0.4);
-    box-shadow: 0 20px 40px -15px rgba(47, 102, 246, 0.2);
+    background: #ffffff;
+    border-color: rgba(220, 38, 38, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(220, 38, 38, 0.12);
   }
 
   .text-gradient-silver {
-    background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
+    background: linear-gradient(180deg, #0f172a 0%, #475569 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-blue {
-    background: linear-gradient(135deg, #60A5FA 0%, #2F66F6 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

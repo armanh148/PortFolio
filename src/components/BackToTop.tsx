@@ -36,9 +36,9 @@ export default function BackToTop() {
           whileHover={{ scale: 1.15, y: -4 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-[80] w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0e0e12]/90 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.4)] hover:border-[#2f66f6] hover:shadow-[0_0_25px_rgba(47,102,246,0.5)] transition-colors group cursor-pointer"
+          className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-[80] w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-xl border border-slate-300 text-slate-800 flex items-center justify-center shadow-[0_8px_30px_rgba(15,23,42,0.12)] hover:border-[#dc2626] hover:shadow-[0_0_25px_rgba(220,38,38,0.25)] transition-colors group cursor-pointer"
         >
-          <span className="text-sm font-bold transition-transform duration-300 group-hover:-translate-y-0.5 text-stone-200 group-hover:text-white">
+          <span className="text-sm font-bold transition-transform duration-300 group-hover:-translate-y-0.5 text-slate-700 group-hover:text-[#dc2626]">
             ↑
           </span>
           <span className="sr-only">Back to top</span>

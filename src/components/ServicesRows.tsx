@@ -57,21 +57,22 @@ export default function ServicesRows() {
   const [activeIdx, setActiveIdx] = useState<number>(0);
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-36 bg-[#0a0a0d] text-[#F5F5F3] border-b border-white/10 px-4 sm:px-6 md:px-12 lg:px-16 overflow-hidden select-none">
+    <section className="relative py-16 sm:py-24 md:py-36 bg-white text-[#0f172a] border-b border-slate-200 px-4 sm:px-6 md:px-12 lg:px-16 overflow-hidden select-none">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/3 w-[600px] h-[400px] bg-[#2f66f6]/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[400px] bg-red-500/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[350px] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none" />
 
       {/* Crosshair marks */}
-      <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-      <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+      <span className="cross-mark text-slate-300" style={{ left: "24px", top: "24px" }}>+</span>
+      <span className="cross-mark text-slate-300" style={{ right: "24px", top: "24px" }}>+</span>
 
       <div className="max-w-[1500px] mx-auto relative">
         {/* ── 1. GIANT LEFT-ALIGNED HEADING "SERVICES." ── */}
         <div className="mb-10 sm:mb-16 md:mb-24">
           <Reveal>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none flex items-baseline">
+            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-[#0f172a] leading-none flex items-baseline">
               <span>SERVICES</span>
-              <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#2f66f6] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(47,102,246,0.9)]" />
+              <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#dc2626] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(220,38,38,0.7)]" />
             </h2>
           </Reveal>
         </div>
@@ -91,9 +92,9 @@ export default function ServicesRows() {
                 damping: 24,
                 mass: 0.6,
               }}
-              className="relative w-56 xl:w-64 aspect-[3/4] bg-white p-3 pb-8 rounded-xs shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(47,102,246,0.25)] border border-white/40"
+              className="relative w-56 xl:w-64 aspect-[3/4] bg-white p-3 pb-8 rounded-xs shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18),0_0_35px_rgba(220,38,38,0.12)] border border-slate-200"
             >
-              <div className="relative w-full h-full overflow-hidden bg-neutral-900 rounded-2xs">
+              <div className="relative w-full h-full overflow-hidden bg-slate-900 rounded-2xs">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={SERVICES[activeIdx].image}
@@ -110,15 +111,15 @@ export default function ServicesRows() {
               </div>
 
               {/* Polaroid bottom caption */}
-              <div className="absolute bottom-2.5 left-3 right-3 flex justify-between items-center text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">
+              <div className="absolute bottom-2.5 left-3 right-3 flex justify-between items-center text-[10px] font-mono text-slate-800 font-bold uppercase tracking-wider">
                 <span>{SERVICES[activeIdx].num} / ARMAN</span>
-                <span className="w-2 h-2 rounded-full bg-[#2f66f6] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#dc2626] animate-pulse" />
               </div>
             </motion.div>
           </div>
 
           {/* ── ROWS LIST ── */}
-          <div className="flex flex-col border-t border-white/10">
+          <div className="flex flex-col border-t border-slate-200">
             {SERVICES.map((service, index) => {
               const isActive = activeIdx === index;
 
@@ -127,8 +128,8 @@ export default function ServicesRows() {
                   key={service.id}
                   onClick={() => setActiveIdx(index)}
                   onMouseEnter={() => setActiveIdx(index)}
-                  className={`group border-b border-white/10 transition-colors duration-300 ${
-                    isActive ? "bg-white/[0.04]" : "hover:bg-white/[0.015]"
+                  className={`group border-b border-slate-200 transition-colors duration-300 ${
+                    isActive ? "bg-[#f8fafc]" : "hover:bg-slate-50/70"
                   }`}
                 >
                   {/* Desktop Layout (md and up) */}
@@ -140,7 +141,7 @@ export default function ServicesRows() {
                           scale: isActive ? 1.15 : 1,
                         }}
                         transition={{ duration: 0.2 }}
-                        className="text-xl md:text-2xl font-mono font-bold tracking-tight inline-block text-[#2f66f6] drop-shadow-[0_0_12px_rgba(47,102,246,0.4)]"
+                        className="text-xl md:text-2xl font-mono font-bold tracking-tight inline-block text-[#dc2626]"
                       >
                         {service.num}
                       </motion.span>
@@ -152,7 +153,7 @@ export default function ServicesRows() {
                         animate={{ x: isActive ? 8 : 0 }}
                         transition={{ duration: 0.25 }}
                         className={`text-2xl md:text-3xl lg:text-[32px] font-black uppercase tracking-tight leading-snug transition-colors duration-300 ${
-                          isActive ? "text-[#2f66f6]" : "text-white group-hover:text-white"
+                          isActive ? "text-[#dc2626]" : "text-[#0f172a] group-hover:text-[#1e3a8a]"
                         }`}
                       >
                         {service.title}
@@ -161,7 +162,7 @@ export default function ServicesRows() {
 
                     {/* Column 3: Description */}
                     <div className="max-w-xs xl:max-w-md pr-4">
-                      <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -177,8 +178,8 @@ export default function ServicesRows() {
                         transition={{ duration: 0.2 }}
                         className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${
                           isActive
-                            ? "bg-[#2f66f6] border-[#2f66f6] text-white shadow-lg shadow-blue-600/40"
-                            : "border-white/10 text-stone-500 group-hover:text-white group-hover:border-white/30"
+                            ? "bg-[#dc2626] border-[#dc2626] text-white shadow-lg shadow-red-600/30"
+                            : "border-slate-200 text-slate-400 group-hover:text-[#dc2626] group-hover:border-[#dc2626]/40 bg-white"
                         }`}
                       >
                         <span className="text-lg leading-none">↗</span>
@@ -191,12 +192,12 @@ export default function ServicesRows() {
                     {/* Header Row: Number + Title + Arrow */}
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-start gap-3">
-                        <span className="text-base font-mono font-bold text-[#2f66f6] shrink-0 pt-0.5">
+                        <span className="text-base font-mono font-bold text-[#dc2626] shrink-0 pt-0.5">
                           {service.num}
                         </span>
                         <h3
                           className={`text-base font-black uppercase tracking-tight leading-snug transition-colors ${
-                            isActive ? "text-[#2f66f6]" : "text-white"
+                            isActive ? "text-[#dc2626]" : "text-[#0f172a]"
                           }`}
                         >
                           {service.title}
@@ -205,8 +206,8 @@ export default function ServicesRows() {
                       <div
                         className={`w-8 h-8 rounded-full shrink-0 flex items-center justify-center transition-all ${
                           isActive
-                            ? "bg-[#2f66f6] text-white shadow-md shadow-blue-600/40"
-                            : "bg-white/5 border border-white/10 text-stone-400"
+                            ? "bg-[#dc2626] text-white shadow-md shadow-red-600/30"
+                            : "bg-slate-100 border border-slate-200 text-slate-600"
                         }`}
                       >
                         <span className="text-xs font-bold leading-none">↗</span>
@@ -214,7 +215,7 @@ export default function ServicesRows() {
                     </div>
 
                     {/* Description Paragraph */}
-                    <p className="text-xs text-stone-400 font-light leading-relaxed mt-2.5 pl-7">
+                    <p className="text-xs text-slate-600 font-light leading-relaxed mt-2.5 pl-7">
                       {service.description}
                     </p>
 
@@ -228,7 +229,7 @@ export default function ServicesRows() {
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden pl-7"
                         >
-                          <div className="relative w-full h-40 rounded-xl overflow-hidden border border-white/15 shadow-lg">
+                          <div className="relative w-full h-40 rounded-xl overflow-hidden border border-slate-200 shadow-md">
                             <img
                               src={service.image}
                               alt={service.title}
@@ -241,7 +242,7 @@ export default function ServicesRows() {
                               <Link
                                 href="/contact"
                                 onClick={(e) => e.stopPropagation()}
-                                className="px-3 py-1 rounded-full bg-[#2f66f6] text-white text-[10px] font-bold uppercase tracking-widest"
+                                className="px-3 py-1 rounded-full bg-[#dc2626] text-white text-[10px] font-bold uppercase tracking-widest shadow-md"
                               >
                                 Book Now ↗
                               </Link>
@@ -258,21 +259,21 @@ export default function ServicesRows() {
         </div>
 
         {/* ── 3. BOTTOM CTA BAR ── */}
-        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-5 pt-8 border-t border-white/5 text-center sm:text-left">
-          <p className="text-xs sm:text-sm text-stone-400 font-light">
+        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-5 pt-8 border-t border-slate-200 text-center sm:text-left">
+          <p className="text-xs sm:text-sm text-slate-600 font-light">
             Need a tailored solution for your brand or agency? Let&rsquo;s talk.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <Link
               href="/services"
-              className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest transition-all border border-white/15 hover:border-white/30"
+              className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-[#0f172a] font-bold text-xs uppercase tracking-widest transition-all border border-slate-200"
             >
               View Full Services Page ↗
             </Link>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} className="w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-7 py-3.5 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/40 hover:shadow-blue-600/50"
+                className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-7 py-3.5 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-red-600/30"
               >
                 Start a Project ↗
               </Link>

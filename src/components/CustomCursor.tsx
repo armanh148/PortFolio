@@ -79,10 +79,10 @@ export default function CustomCursor() {
           width: isHovered ? 48 : 32,
           height: isHovered ? 48 : 32,
           scale: isClicked ? 0.85 : 1,
-          borderColor: isHovered ? "rgba(47, 102, 246, 0.9)" : "rgba(255, 255, 255, 0.45)",
-          backgroundColor: isHovered ? "rgba(47, 102, 246, 0.12)" : "rgba(255, 255, 255, 0)",
+          borderColor: isHovered ? "rgba(220, 38, 38, 0.9)" : "rgba(30, 58, 138, 0.45)",
+          backgroundColor: isHovered ? "rgba(220, 38, 38, 0.08)" : "rgba(30, 58, 138, 0.02)",
           boxShadow: isHovered
-            ? "0 0 20px rgba(47, 102, 246, 0.4), inset 0 0 10px rgba(47, 102, 246, 0.2)"
+            ? "0 0 20px rgba(220, 38, 38, 0.35), inset 0 0 10px rgba(220, 38, 38, 0.15)"
             : "0 0 0px rgba(0,0,0,0)",
         }}
         transition={{
@@ -100,7 +100,7 @@ export default function CustomCursor() {
           x: position.x - 4,
           y: position.y - 4,
           scale: isHovered ? 1.4 : isClicked ? 0.7 : 1,
-          backgroundColor: isHovered ? "#2f66f6" : "#ffffff",
+          backgroundColor: isHovered ? "#dc2626" : "#1e3a8a",
         }}
         transition={{
           type: "spring",
@@ -108,7 +108,7 @@ export default function CustomCursor() {
           stiffness: 850,
           mass: 0.1,
         }}
-        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] shadow-[0_0_8px_rgba(30,58,138,0.5)]"
       />
     </div>
   );
