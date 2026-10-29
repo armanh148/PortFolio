@@ -291,43 +291,43 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       : SERVICES_DATA.filter((s) => s.filterCat === selectedCategory);
 
   return (
-    <div className="bg-[#09090b] text-[#F5F5F3] min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-x-clip selection:bg-[#2f66f6] selection:text-white">
+    <div className="bg-white text-[#0f172a] min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-x-clip selection:bg-[#dc2626] selection:text-white">
       {/* ── Ambient Radial Glows (Exact portfolio signature) ── */}
-      <div className="fixed top-1/4 left-1/4 w-[600px] h-[500px] bg-[#2f66f6]/5 blur-[170px] rounded-full pointer-events-none -z-10" />
+      <div className="fixed top-1/4 left-1/4 w-[600px] h-[500px] bg-red-500/5 blur-[170px] rounded-full pointer-events-none -z-10" />
       <div className="fixed bottom-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none -z-10" />
 
       {/* ── SECTION 1: HERO HEADER ── */}
-      <section className="relative py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
+      <section className="relative py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-slate-200 select-none">
         {/* Subtle Grid Crosshairs */}
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+        <span className="cross-mark text-slate-300" style={{ left: "24px", top: "24px" }}>+</span>
+        <span className="cross-mark text-slate-300" style={{ right: "24px", top: "24px" }}>+</span>
 
         <div className="max-w-[1500px] mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 sm:gap-12 mb-10 sm:mb-16">
             <div>
               <Reveal>
-                <div className="flex items-center gap-2 mb-4 text-xs font-mono text-stone-400">
-                  <Link href="/" className="hover:text-white transition-colors">
+                <div className="flex items-center gap-2 mb-4 text-xs font-mono text-slate-500">
+                  <Link href="/" className="hover:text-[#dc2626] transition-colors">
                     HOME
                   </Link>
                   <span>/</span>
-                  <span className="text-[#2f66f6] font-semibold">SERVICES</span>
+                  <span className="text-[#dc2626] font-semibold">SERVICES</span>
                 </div>
 
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
                   Capabilities &amp; Offerings
                 </span>
 
                 {/* Giant Bold Headline with Glowing Dot */}
-                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none flex items-baseline">
+                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-[#0f172a] leading-none flex items-baseline">
                   <span>SERVICES</span>
-                  <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#2f66f6] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(47,102,246,0.9)]" />
+                  <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#dc2626] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(220,38,38,0.7)]" />
                 </h1>
               </Reveal>
 
               <Reveal delay={0.1}>
-                <p className="text-sm sm:text-base md:text-lg text-stone-400 font-light max-w-2xl leading-relaxed mt-6">
+                <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light max-w-2xl leading-relaxed mt-6">
                   End-to-end frontend engineering, bespoke WordPress architectures, and pixel-perfect design systems crafted with obsessive attention to detail for founders, brands, and agencies worldwide.
                 </p>
               </Reveal>
@@ -346,8 +346,8 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
                     onClick={() => setSelectedCategory(cat)}
                     className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all cursor-pointer ${
                       active
-                        ? "bg-[#2f66f6] border-[#2f66f6] text-white shadow-lg shadow-blue-600/40"
-                        : "bg-white/5 border-white/10 text-stone-400 hover:border-white/30 hover:text-white"
+                        ? "bg-[#dc2626] border-[#dc2626] text-white shadow-lg shadow-red-600/30"
+                        : "bg-slate-100 border-slate-200 text-slate-700 hover:border-slate-300 hover:text-[#0f172a]"
                     }`}
                   >
                     {cat}
@@ -359,22 +359,22 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
 
           {/* Quick Metrics Strip */}
           <Reveal delay={0.15}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-white/10">
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0e11] border border-white/10">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-white block">37+</span>
-                <span className="text-xs sm:text-sm text-stone-400 font-medium mt-1 block">Shipped Projects</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-slate-200">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
+                <span className="text-2xl sm:text-4xl font-mono font-black text-[#0f172a] block">37+</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Shipped Projects</span>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0e11] border border-white/10">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-[#2f66f6] block">100%</span>
-                <span className="text-xs sm:text-sm text-stone-400 font-medium mt-1 block">Client Satisfaction</span>
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
+                <span className="text-2xl sm:text-4xl font-mono font-black text-[#dc2626] block">100%</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Client Satisfaction</span>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0e11] border border-white/10">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-white block">8+</span>
-                <span className="text-xs sm:text-sm text-stone-400 font-medium mt-1 block">Years of Craft</span>
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
+                <span className="text-2xl sm:text-4xl font-mono font-black text-[#0f172a] block">8+</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Years of Craft</span>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0e11] border border-white/10">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-emerald-400 block">&lt; 1s</span>
-                <span className="text-xs sm:text-sm text-stone-400 font-medium mt-1 block">Core Web Vitals</span>
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
+                <span className="text-2xl sm:text-4xl font-mono font-black text-emerald-600 block">&lt; 1s</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Core Web Vitals</span>
               </div>
             </div>
           </Reveal>
@@ -382,10 +382,10 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       </section>
 
       {/* ── SECTION 2: BENTO SERVICES GRID (Matching CapabilitiesGrid style) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
+      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-slate-200 select-none">
         {/* Intersection Crosshairs */}
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+        <span className="cross-mark text-slate-300" style={{ left: "24px", top: "24px" }}>+</span>
+        <span className="cross-mark text-slate-300" style={{ right: "24px", top: "24px" }}>+</span>
 
         <div className="max-w-[1500px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -398,42 +398,42 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.94, y: -20 }}
                   transition={{ duration: 0.35, delay: idx * 0.05 }}
-                  className="bg-[#0e0e11] border border-white/10 hover:border-[#2f66f6]/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-xl shadow-black/40"
+                  className="bg-[#f8fafc] border border-slate-200 hover:border-[#dc2626]/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-xl hover:bg-white"
                 >
                   {/* Top subtle glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent group-hover:via-[#2f66f6]/60 transition-colors" />
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
 
                   <div>
                     {/* Top Row: Icon + Category Badge */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 text-[#2f66f6] flex items-center justify-center group-hover:scale-105 group-hover:border-[#2f66f6]/40 transition-all">
+                      <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-200 text-[#dc2626] flex items-center justify-center group-hover:scale-105 transition-all">
                         {service.icon}
                       </div>
 
-                      <span className="text-[10px] font-mono font-bold tracking-wider text-[#2f66f6] bg-[#2f66f6]/10 border border-[#2f66f6]/20 px-3 py-1 rounded-full uppercase">
+                      <span className="text-[10px] font-mono font-bold tracking-wider text-[#1e3a8a] bg-blue-50 border border-blue-200 px-3 py-1 rounded-full uppercase">
                         {service.num} / {service.categoryTag}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white group-hover:text-[#2f66f6] transition-colors mb-3">
+                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#0f172a] group-hover:text-[#dc2626] transition-colors mb-3">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
                       {service.description}
                     </p>
 
                     {/* Deliverables Bullet List */}
-                    <div className="pt-4 border-t border-white/5 mb-6">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 font-bold block mb-2.5">
+                    <div className="pt-4 border-t border-slate-200 mb-6">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold block mb-2.5">
                         Key Deliverables:
                       </span>
                       <ul className="space-y-2">
                         {service.deliverables.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-xs text-stone-300 font-light">
-                            <span className="text-[#2f66f6] font-bold text-xs mt-0.5">✦</span>
+                          <li key={i} className="flex items-start gap-2 text-xs text-slate-600 font-light">
+                            <span className="text-[#dc2626] font-bold text-xs mt-0.5">✦</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -443,11 +443,11 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
 
                   <div>
                     {/* Tech Stack Tags */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5 mb-6">
+                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-200 mb-6">
                       {service.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="text-[10px] sm:text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-stone-300"
+                          className="text-[10px] sm:text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 shadow-2xs"
                         >
                           {skill}
                         </span>
@@ -455,14 +455,14 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
                     </div>
 
                     {/* Footer: Timeline & Inquire CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                      <span className="text-[11px] font-mono text-stone-400">
-                        Est: <strong className="text-white">{service.timeline}</strong>
+                    <div className="flex items-center justify-between pt-4 border-t border-slate-200">
+                      <span className="text-[11px] font-mono text-slate-500">
+                        Est: <strong className="text-[#0f172a]">{service.timeline}</strong>
                       </span>
 
                       <Link
                         href={`/contact?service=${service.id}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#2f66f6] hover:text-white transition-colors group/link"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#dc2626] hover:text-[#b91c1c] transition-colors group/link"
                       >
                         <span>Inquire</span>
                         <span className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform">
@@ -479,21 +479,21 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       </section>
 
       {/* ── SECTION 3: COLLABORATION MODELS (Styled to theme) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-slate-200 select-none">
+        <span className="cross-mark text-slate-300" style={{ left: "24px", top: "24px" }}>+</span>
+        <span className="cross-mark text-slate-300" style={{ right: "24px", top: "24px" }}>+</span>
 
         <div className="max-w-[1500px] mx-auto">
           <div className="mb-10 sm:mb-16 max-w-2xl">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
                 Engagement Terms
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                Transparent <span className="text-[#2f66f6]">Collaboration</span>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] leading-tight mb-3">
+                Transparent <span className="text-[#dc2626]">Collaboration</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-stone-400 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base font-light text-slate-600 leading-relaxed">
                 Clear deliverables, fixed timelines, and direct engineering access without hidden overheads.
               </p>
             </Reveal>
@@ -502,13 +502,13 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {ENGAGEMENT_MODELS.map((model, idx) => (
               <Reveal key={model.title} delay={idx * 0.1}>
-                <div className="h-full bg-[#0e0e11] border border-white/10 hover:border-[#2f66f6]/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-xl">
+                <div className="h-full bg-[#f8fafc] border border-slate-200 hover:border-[#dc2626]/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-xl hover:bg-white">
                   {/* Top glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent group-hover:via-[#2f66f6]/60 transition-colors" />
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
 
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-stone-400">
+                      <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-500">
                         {model.num} / {model.tag}
                       </span>
                       <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${model.badgeColor}`}>
@@ -516,32 +516,32 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3 group-hover:text-[#2f66f6] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#0f172a] mb-3 group-hover:text-[#dc2626] transition-colors">
                       {model.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
                       {model.desc}
                     </p>
 
-                    <div className="space-y-2.5 pt-4 border-t border-white/5 mb-8">
+                    <div className="space-y-2.5 pt-4 border-t border-slate-200 mb-8">
                       {model.features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2 text-xs text-stone-300 font-light">
-                          <span className="text-[#2f66f6] font-bold text-xs">✓</span>
+                        <div key={i} className="flex items-start gap-2 text-xs text-slate-600 font-light">
+                          <span className="text-[#dc2626] font-bold text-xs">✓</span>
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-xs font-mono text-stone-400 font-medium">
+                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+                    <span className="text-xs font-mono text-slate-500 font-medium">
                       {model.turnaround}
                     </span>
 
                     <Link
                       href="/contact"
-                      className="px-4 py-2 rounded-full bg-white/5 hover:bg-[#2f66f6] text-white border border-white/10 hover:border-transparent text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm"
+                      className="px-4 py-2 rounded-full bg-slate-100 hover:bg-[#dc2626] text-[#0f172a] hover:text-white border border-slate-200 hover:border-transparent text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs"
                     >
                       Inquire ↗
                     </Link>
@@ -554,21 +554,21 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       </section>
 
       {/* ── SECTION 4: 4-PHASE PROCESS (Matching ProcessGrid) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-slate-200 select-none">
+        <span className="cross-mark text-slate-300" style={{ left: "24px", top: "24px" }}>+</span>
+        <span className="cross-mark text-slate-300" style={{ right: "24px", top: "24px" }}>+</span>
 
         <div className="max-w-[1500px] mx-auto">
           <div className="mb-10 sm:mb-16 text-center max-w-3xl mx-auto">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
                 Execution Framework
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                How Projects <span className="text-[#2f66f6]">Come to Life</span>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] leading-tight mb-3">
+                How Projects <span className="text-[#dc2626]">Come to Life</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-stone-400 leading-relaxed max-w-xl mx-auto">
+              <p className="text-xs sm:text-sm md:text-base font-light text-slate-600 leading-relaxed max-w-xl mx-auto">
                 A disciplined four-phase delivery cycle engineered for transparency, velocity, and zero surprises.
               </p>
             </Reveal>
@@ -577,18 +577,18 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {PROCESS_STEPS.map((step, idx) => (
               <Reveal key={step.num} delay={idx * 0.08}>
-                <div className="h-full p-4 sm:p-7 rounded-xl sm:rounded-2xl bg-[#0e0e11] border border-white/10 hover:border-[#2f66f6]/50 transition-all flex flex-col justify-between">
+                <div className="h-full p-4 sm:p-7 rounded-xl sm:rounded-2xl bg-[#f8fafc] border border-slate-200 hover:border-[#dc2626]/50 transition-all flex flex-col justify-between shadow-sm hover:shadow-md">
                   <div>
-                    <span className="text-xl sm:text-3xl font-mono font-black text-[#2f66f6] block mb-2 sm:mb-3">
+                    <span className="text-xl sm:text-3xl font-mono font-black text-[#dc2626] block mb-2 sm:mb-3">
                       {step.num}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-stone-400 block mb-1.5 sm:mb-2">
+                    <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 block mb-1.5 sm:mb-2">
                       {step.tag}
                     </span>
-                    <h4 className="text-xs sm:text-base font-bold uppercase text-white mb-1.5 sm:mb-2 leading-snug">
+                    <h4 className="text-xs sm:text-base font-bold uppercase text-[#0f172a] mb-1.5 sm:mb-2 leading-snug">
                       {step.title}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-stone-400 font-light leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-slate-600 font-light leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -603,32 +603,32 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       <section className="pt-16 sm:pt-24 px-4 sm:px-6 md:px-12 lg:px-16 select-none">
         <div className="max-w-[1500px] mx-auto">
           <Reveal>
-            <div className="relative rounded-3xl p-8 sm:p-14 bg-[#0e0e11] border border-[#2f66f6]/40 overflow-hidden shadow-2xl text-center">
+            <div className="relative rounded-3xl p-8 sm:p-14 bg-[#f8fafc] border-2 border-red-200 overflow-hidden shadow-xl text-center">
               {/* Decorative radial blur */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#2f66f6]/15 blur-[120px] pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-red-500/10 blur-[120px] pointer-events-none" />
 
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-bold uppercase tracking-widest mb-4">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-200 bg-red-50 text-xs text-[#dc2626] font-bold uppercase tracking-widest mb-4">
                 ✦ Ready to Start?
               </span>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white max-w-3xl mx-auto mb-4 leading-tight">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] max-w-3xl mx-auto mb-4 leading-tight">
                 HAVE A PROJECT OR SPRINT IN MIND?
               </h2>
 
-              <p className="text-xs sm:text-base text-stone-300 font-light max-w-xl mx-auto mb-8 leading-relaxed">
+              <p className="text-xs sm:text-base text-slate-600 font-light max-w-xl mx-auto mb-8 leading-relaxed">
                 Whether you need a custom WordPress build, a high-performance Next.js application, or ongoing frontend engineering bandwidth, let&rsquo;s connect.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/40 hover:scale-105"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-red-600/30 hover:scale-105"
                 >
                   Start a Project ↗
                 </Link>
                 <a
                   href={`mailto:${site.email}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/15 text-xs font-bold uppercase tracking-widest transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0f172a] border border-slate-200 text-xs font-bold uppercase tracking-widest transition-all shadow-sm"
                 >
                   Direct Email ✉
                 </a>
