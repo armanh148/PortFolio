@@ -1,39 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Core palette (Light Theme) ────────────────────────── */
-  --color-canvas: #ffffff;
-  --color-canvas-warm: #f8fafc;
-  --color-canvas-subtle: #f1f5f9;
+  /* ── Core palette (Dark Theme) ────────────────────────── */
+  --color-canvas: #09090b;
+  --color-canvas-warm: #0e0f15;
+  --color-canvas-subtle: #14151f;
   
-  --color-ink: #0f172a;        /* Deep Midnight Navy */
-  --color-ink-soft: #1e293b;   /* Slate 800 */
-  --color-ink-muted: #475569;  /* Slate 600 */
+  --color-ink: #f8fafc;        /* High-contrast pure slate */
+  --color-ink-soft: #cbd5e1;   /* Slate 300 */
+  --color-ink-muted: #94a3b8;  /* Slate 400 */
 
   /* ── Accent Red (Electric Crimson) ────────────────────── */
   --color-accent: #dc2626;      /* Red 600 */
   --color-accent-deep: #b91c1c; /* Red 700 */
-  --color-accent-soft: #fef2f2; /* Red 50 */
+  --color-accent-soft: rgba(220, 38, 38, 0.12);
 
   /* ── Dark Navy / Royal Blue ───────────────────────────── */
-  --color-navy: #1e3a8a;        /* Blue 900 */
-  --color-navy-deep: #0f172a;   /* Slate 900 */
-  --color-navy-soft: #eff6ff;   /* Blue 50 */
+  --color-navy: #2563eb;        /* Blue 600 */
+  --color-navy-deep: #1e3a8a;   /* Blue 900 */
+  --color-navy-soft: rgba(37, 99, 235, 0.12);
 
   /* ── Neutrals ────────────────────────────────────────── */
-  --color-snow: #0f172a;        /* High-contrast headings */
-  --color-smoke: #64748b;       /* Slate 500 */
-  --color-smoke-light: #94a3b8; /* Slate 400 */
+  --color-snow: #ffffff;        /* Pure white headings */
+  --color-smoke: #94a3b8;       /* Slate 400 */
+  --color-smoke-light: #64748b; /* Slate 500 */
 
-  /* ── Legacy tokens (adapted for Light Theme) ────── */
-  --color-night: #ffffff;
-  --color-night-soft: #f8fafc;
-  --color-panel: #ffffff;
+  /* ── Legacy tokens ───────────────────────────────────── */
+  --color-night: #09090b;
+  --color-night-soft: #0e0f15;
+  --color-panel: #111218;
   --color-crimson: #dc2626;
   --color-crimson-deep: #b91c1c;
-  --color-charcoal: #ffffff;
-  --color-ember: #1e3a8a;
-  --color-ember-deep: #0f172a;
+  --color-charcoal: #0e0f15;
+  --color-ember: #2563eb;
+  --color-ember-deep: #1e3a8a;
 
   /* ── Typography ──────────────────────────────────────── */
   --font-sans: var(--font-inter);
@@ -43,14 +43,14 @@
 
 /* ── Base ──────────────────────────────────────────────── */
 html {
-  background: #ffffff;
-  color: #0f172a;
+  background: #09090b;
+  color: #f8fafc;
   font-size: 16px;
 }
 
 body {
-  background: #ffffff;
-  color: #0f172a;
+  background: #09090b;
+  color: #f8fafc;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
