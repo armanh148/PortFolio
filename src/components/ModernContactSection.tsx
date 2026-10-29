@@ -365,12 +365,12 @@ export default function ModernContactSection({
               </div>
               <div>
                 <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed italic mb-3 sm:mb-4">
-                  &ldquo;We&rsquo;ve gained a 360-degree view of our web products. The unified builds allow us to personalize interactions, resulting in higher customer satisfaction.&rdquo;
+                  &ldquo;Arman&rsquo;s Next.js and GSAP implementation gave CGPlux Studios a truly cinematic showcase with instant load times and fluid editorial workflows.&rdquo;
                 </p>
                 <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-[#0f172a]">Sarah Jenkins</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#0f172a]">Farhan Siddiqui</span>
                   <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#dc2626] font-semibold">
-                    VP of Engineering
+                    Creative Producer &middot; CGPlux Studios
                   </span>
                 </div>
               </div>
@@ -394,12 +394,12 @@ export default function ModernContactSection({
               </div>
               <div>
                 <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed italic mb-3 sm:mb-4">
-                  &ldquo;Now, we truly understand our users. These high-performance Next.js profiles enable seamless interactions, boosting retention and strengthening loyalty.&rdquo;
+                  &ldquo;The custom full-stack logistics management platform engineered by Arman streamlined our operations tracking with bulletproof backend reliability.&rdquo;
                 </p>
                 <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-[#0f172a]">Marcus Sterling</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#0f172a]">Kashif Al-Hadi</span>
                   <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#dc2626] font-semibold">
-                    Founder &amp; CEO
+                    Managing Director &middot; Al-Hadi Logistics
                   </span>
                 </div>
               </div>

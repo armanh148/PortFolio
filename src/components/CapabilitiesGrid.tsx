@@ -88,13 +88,13 @@ const CAPABILITIES: Capability[] = [
     icon: <FrontendIcon />,
   },
   {
-    id: "wordpress",
+    id: "cms",
     num: "02",
-    category: "CMS ARCHITECTURE",
-    title: "WordPress Craft",
+    category: "CMS & E-COMMERCE",
+    title: "E-Commerce & Headless CMS",
     description:
-      "Custom theme engineering, headless GraphQL architectures, custom Gutenberg blocks, and high-conversion WooCommerce portals.",
-    skills: ["Custom Themes", "Headless WP", "Gutenberg", "WooCommerce", "REST API"],
+      "Custom Shopify Liquid storefronts, zero-bloat WordPress architectures, headless Sanity CMS pipelines, and high-conversion WooCommerce portals.",
+    skills: ["Shopify Liquid", "WordPress", "WooCommerce", "Sanity CMS", "Headless"],
     icon: <WordpressIcon />,
   },
   {
@@ -108,13 +108,13 @@ const CAPABILITIES: Capability[] = [
     icon: <DesignIcon />,
   },
   {
-    id: "performance",
+    id: "backend",
     num: "04",
-    category: "OPTIMIZATION",
-    title: "Performance & Web Vitals",
+    category: "BACKEND & APIS",
+    title: "Backend & Database Architecture",
     description:
-      "Benchmarking Core Web Vitals, code-splitting, payload trimming, and modern caching hierarchies to achieve 100 PageSpeed scores.",
-    skills: ["100 Lighthouse", "Core Web Vitals", "Edge Caching", "Image Tuning", "SEO Audits"],
+      "Engineering robust REST APIs, secure server workflows, and relational database systems using Node.js, Express, Django, and PostgreSQL.",
+    skills: ["Node.js", "Express.js", "Django", "PHP", "REST APIs", "PostgreSQL"],
     icon: <PerformanceIcon />,
   },
   {
