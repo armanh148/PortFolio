@@ -1,9 +1,122 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/Reveal";
+
+interface DropdownOption {
+  value: string;
+  label: string;
+}
+
+const COUNTRY_OPTIONS: DropdownOption[] = [
+  { value: "USA", label: "United States (US)" },
+  { value: "UK", label: "United Kingdom (UK)" },
+  { value: "Pakistan", label: "Pakistan (PK)" },
+  { value: "UAE", label: "United Arab Emirates (UAE)" },
+  { value: "Germany", label: "Germany (DE)" },
+  { value: "Canada", label: "Canada (CA)" },
+  { value: "Other", label: "International / Other" },
+];
+
+const ROLE_OPTIONS: DropdownOption[] = [
+  { value: "Client / Founder", label: "Client / Founder" },
+  { value: "Agency Owner", label: "Agency Owner" },
+  { value: "Recruiter", label: "Recruiter / Talent Partner" },
+  { value: "UI/UX Designer", label: "UI/UX Designer" },
+  { value: "Other", label: "Other" },
+];
+
+function CustomSelect({
+  label,
+  value,
+  options,
+  placeholder,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  options: DropdownOption[];
+  placeholder?: string;
+  onChange: (val: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value);
+  const displayText = selectedOption ? selectedOption.label : (placeholder || "Select option");
+
+  return (
+    <div className="relative" ref={ref}>
+      <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
+        {label}
+      </label>
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        className={`w-full bg-white border rounded-xl px-4 py-3 sm:py-3.5 text-left text-base sm:text-sm text-[#0f172a] outline-none transition-all flex items-center justify-between cursor-pointer shadow-2xs ${
+          open ? "border-[#dc2626] ring-2 ring-red-500/10" : "border-slate-300 hover:border-slate-400"
+        }`}
+      >
+        <span className={!selectedOption ? "text-slate-400" : "text-[#0f172a] font-medium"}>
+          {displayText}
+        </span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-slate-400 text-xs shrink-0 ml-2"
+        >
+          ▼
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.98 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-xl shadow-slate-300/40 z-50 overflow-hidden max-h-60 overflow-y-auto py-1"
+          >
+            {options.map((opt) => {
+              const isSelected = opt.value === value;
+              return (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => {
+                    onChange(opt.value);
+                    setOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-2.5 text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
+                    isSelected
+                      ? "bg-red-50 text-[#dc2626] font-bold"
+                      : "text-slate-700 hover:bg-slate-50 hover:text-[#0f172a]"
+                  }`}
+                >
+                  <span>{opt.label}</span>
+                  {isSelected && <span className="text-[#dc2626] text-xs">✓</span>}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function ModernContactSection({
   email = "armannaqvi.tms@gmail.com",
@@ -29,6 +142,10 @@ export default function ModernContactSection({
     ) => {
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
     };
+
+  const setFormField = (field: keyof typeof form, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -176,54 +293,24 @@ export default function ModernContactSection({
                         />
                       </div>
                       <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
-                          Country
-                        </label>
-                        <div className="relative">
-                          <select
-                            value={form.country}
-                            onChange={update("country")}
-                            className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-[#0f172a] outline-none focus:border-[#dc2626] hover:border-slate-400 transition-all appearance-none cursor-pointer shadow-2xs pr-10"
-                          >
-                            <option value="USA">🇺🇸 USA</option>
-                            <option value="UK">🇬🇧 United Kingdom</option>
-                            <option value="Pakistan">🇵🇰 Pakistan</option>
-                            <option value="UAE">🇦🇪 UAE</option>
-                            <option value="Germany">🇩🇪 Germany</option>
-                            <option value="Canada">🇨🇦 Canada</option>
-                            <option value="Other">🌐 International</option>
-                          </select>
-                          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
-                            ▼
-                          </div>
-                        </div>
+                        <CustomSelect
+                          label="Country"
+                          value={form.country}
+                          options={COUNTRY_OPTIONS}
+                          onChange={(val) => setFormField("country", val)}
+                        />
                       </div>
                     </div>
 
                     {/* Row 3: Your Role */}
                     <div>
-                      <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
-                        Your Role
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={form.role}
-                          onChange={update("role")}
-                          className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-[#0f172a] outline-none focus:border-[#dc2626] hover:border-slate-400 transition-all appearance-none cursor-pointer shadow-2xs pr-10"
-                        >
-                          <option value="Select your role" disabled>
-                            Select your role
-                          </option>
-                          <option value="Client / Founder">Client / Founder</option>
-                          <option value="Agency Owner">Agency Owner</option>
-                          <option value="Recruiter">Recruiter</option>
-                          <option value="UI/UX Designer">UI/UX Designer</option>
-                          <option value="Other">Other</option>
-                        </select>
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
-                          ▼
-                        </div>
-                      </div>
+                      <CustomSelect
+                        label="Your Role"
+                        value={form.role}
+                        options={ROLE_OPTIONS}
+                        placeholder="Select your role"
+                        onChange={(val) => setFormField("role", val)}
+                      />
                     </div>
 
                     {/* Row 4: Message */}
