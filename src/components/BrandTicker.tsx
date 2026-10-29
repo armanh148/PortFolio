@@ -12,7 +12,7 @@ const BRANDS = [
   "Tokio Devs",
   "Berlin Craft",
   "Zurich Brands",
-  "Lahore WordPress",
+  "Karachi Tech",
 ];
 
 export default function BrandTicker() {

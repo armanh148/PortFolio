@@ -92,7 +92,7 @@ const TIMELINE_EXPERIENCES = [
     period: "2023 — Present",
     role: "Full-Stack Web Developer & Frontend Specialist",
     company: "Techmire Solutions",
-    location: "Lahore, Pakistan • Global Client Solutions",
+    location: "Karachi, Pakistan",
     status: "Active Role",
     desc: "Architecting scalable full-stack web applications, custom e-commerce storefronts, and high-performance interactive interfaces using React, Next.js, Django, and Node.js.",
     achievements: [
@@ -196,7 +196,7 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
 
               <Reveal delay={0.1}>
                 <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light max-w-2xl leading-relaxed mt-6">
-                  Frontend engineer and WordPress craftsman based in Lahore, Pakistan. Crafting high-performance digital experiences where aesthetic refinement meets bulletproof architecture.
+                  Full-Stack Web Developer and Frontend Specialist based in Karachi, Pakistan, currently working at Techmire Solutions. Crafting high-performance digital experiences where aesthetic refinement meets bulletproof architecture.
                 </p>
               </Reveal>
             </div>
@@ -241,7 +241,7 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                       Available for projects
                     </span>
                     <span className="text-xs font-mono text-slate-500 font-bold">
-                      {site.location || "Lahore, PK"}
+                      {site.location || "Karachi, PK"}
                     </span>
                   </div>
 

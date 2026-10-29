@@ -132,7 +132,7 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
 
         {/* ── Bottom Bar: Copyright & Social Links ── */}
         <div className="pt-6 sm:pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-light text-slate-500 text-center sm:text-left">
-          <p>© 2026 {name}. Engineered with Next.js, Framer Motion &amp; Tailwind CSS.</p>
+          <p>© 2026 {name}. All rights reserved.</p>
 
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
             {SOCIAL_LINKS.map((social) => (

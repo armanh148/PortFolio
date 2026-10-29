@@ -87,7 +87,7 @@ export default function AboutSectionRef({ site }: { site: SiteData }) {
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6 max-w-sm">
-                  I help startups &amp; brands grow with smart design and high-performance frontend development, based in {site.location || "Lahore, Pakistan"}.
+                  I help startups &amp; brands grow with smart design and high-performance full-stack web development, based in {site.location || "Karachi, Pakistan"}.
                 </p>
               </Reveal>
 
