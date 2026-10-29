@@ -52,33 +52,38 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
         {/* ── Middle Row: Clean Email Channel & Refined Minimal Navigation ── */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start mb-10 sm:mb-16 pb-8 sm:pb-12 border-b border-slate-200">
           {/* Left: Direct Email Channel */}
-          <div className="md:col-span-7 flex flex-col">
-            <Reveal delay={0.1} className="flex flex-col items-start">
-              {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-medium text-emerald-700 mb-3.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>AVAILABLE FOR WORK</span>
-              </div>
-
-              {/* Email Address Link */}
-              <div className="w-full">
-                <a
-                  href={`mailto:${email}`}
-                  className="group inline-flex items-center gap-2 text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0f172a] hover:text-[#dc2626] transition-colors break-all sm:break-normal cursor-pointer"
-                >
-                  <span className="border-b border-slate-300 pb-0.5 group-hover:border-[#dc2626] transition-colors">
-                    {email}
+          <div className="md:col-span-7 flex flex-col items-start">
+            <Reveal delay={0.1}>
+              <div className="flex flex-col items-start space-y-3.5">
+                {/* Status Badge */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-[11px] sm:text-xs font-mono font-bold text-emerald-800 shadow-2xs">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
                   </span>
-                  <span className="text-[#dc2626] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5">
-                    ↗
-                  </span>
-                </a>
-              </div>
+                  <span>AVAILABLE FOR WORK</span>
+                </div>
 
-              {/* Supporting Note */}
-              <p className="text-xs sm:text-sm text-slate-600 font-light mt-3 max-w-md leading-relaxed">
-                Reach out for custom Next.js builds, WordPress craft, or scalable design systems.
-              </p>
+                {/* Email Address Link */}
+                <div className="w-full">
+                  <a
+                    href={`mailto:${email}`}
+                    className="group inline-flex items-center gap-2 text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0f172a] hover:text-[#dc2626] transition-colors break-words sm:break-normal cursor-pointer"
+                  >
+                    <span className="border-b-2 border-slate-300 pb-0.5 group-hover:border-[#dc2626] transition-colors">
+                      {email}
+                    </span>
+                    <span className="text-[#dc2626] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5">
+                      ↗
+                    </span>
+                  </a>
+                </div>
+
+                {/* Supporting Note */}
+                <p className="text-xs sm:text-sm text-slate-600 font-normal max-w-md leading-relaxed">
+                  Reach out for custom Next.js builds, WordPress craft, or scalable design systems.
+                </p>
+              </div>
             </Reveal>
           </div>
 

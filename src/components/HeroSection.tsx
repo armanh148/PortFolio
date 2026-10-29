@@ -88,6 +88,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
             alt={`Portrait of ${site.name}`}
             fill
             priority
+            loading="eager"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
             className="object-cover object-top filter contrast-105 drop-shadow-[0_15px_30px_rgba(15,23,42,0.18)]"
             style={{

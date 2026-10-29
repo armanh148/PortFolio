@@ -93,36 +93,42 @@ const TIMELINE_EXPERIENCES = [
     role: "Senior Frontend & WordPress Engineer",
     company: "Independent / Creative Studio",
     location: "Global Remote",
+    status: "Active Role",
     desc: "Engineering high-performance Next.js 16 web applications, custom headless WordPress architectures, and living design systems for tech startups and digital agencies worldwide.",
     achievements: [
       "Shipped 37+ production-grade web applications with 100% client satisfaction",
       "Architected custom headless WooCommerce portals driving 40% speed improvements",
       "Pioneered bespoke zero-bloat Gutenberg block architectures for editorial teams",
     ],
+    technologies: ["Next.js 16", "React 19", "Headless WP", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
   {
     period: "2021 — 2023",
     role: "Lead Frontend Developer",
     company: "Digital Production Agency",
     location: "Lahore, Pakistan",
+    status: "Delivered",
     desc: "Led frontend development across high-traffic client websites, oversaw Figma-to-code translations, and spearheaded Core Web Vitals performance tuning across the agency catalog.",
     achievements: [
       "Maintained 95+ average Google Lighthouse scores across all shipped client sites",
       "Implemented unified multi-brand design tokens used across 10+ client surfaces",
       "Mentored junior developers on React, modern CSS, and clean semantic markup",
     ],
+    technologies: ["React", "WordPress", "JavaScript (ES6+)", "ACF Pro", "Sass", "Core Web Vitals"],
   },
   {
     period: "2018 — 2021",
     role: "WordPress Specialist & Frontend Dev",
     company: "Web Craft Studio",
     location: "Lahore, Pakistan",
+    status: "Delivered",
     desc: "Crafted custom WordPress themes from scratch, implemented bespoke ACF Pro flexible layouts, and engineered responsive web experiences for European and North American clients.",
     achievements: [
       "Built over 25+ bespoke WordPress themes with zero heavy third-party builders",
       "Engineered secure payment gateways and custom WooCommerce checkout funnels",
       "Established foundational expertise in web standards, accessibility, and speed",
     ],
+    technologies: ["WordPress Theme Dev", "PHP", "WooCommerce", "HTML5/CSS3", "jQuery", "Bootstrap"],
   },
 ];
 
@@ -246,6 +252,7 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                       alt={site.name}
                       fill
                       priority
+                      loading="eager"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 400px"
                       className="object-cover object-top filter contrast-105"
                     />
@@ -434,44 +441,75 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="space-y-6 sm:space-y-8">
             {TIMELINE_EXPERIENCES.map((exp, idx) => (
               <Reveal key={exp.period} delay={idx * 0.1}>
-                <div className="h-full bg-[#f8fafc] border border-slate-200 hover:border-[#dc2626]/60 rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group shadow-sm hover:shadow-xl">
+                <div className="bg-[#f8fafc] border border-slate-200 hover:border-[#dc2626]/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-300 relative overflow-hidden group shadow-sm hover:shadow-xl">
                   {/* Top glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
+                  <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:via-[#dc2626]/60 transition-colors" />
 
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200">
-                      <span className="text-xs font-mono font-bold text-[#dc2626]">
-                        {exp.period}
-                      </span>
-                      <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 uppercase tracking-wider font-bold shadow-2xs">
-                        Shipped
-                      </span>
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                    {/* Left Meta Column: Period, Status, Company, Location */}
+                    <div className="lg:col-span-4 flex flex-col justify-between h-full">
+                      <div>
+                        <div className="flex items-center gap-2.5 mb-3 flex-wrap">
+                          <span className="text-xs sm:text-sm font-mono font-bold text-[#dc2626] bg-red-50 border border-red-200 px-3 py-1 rounded-full">
+                            {exp.period}
+                          </span>
+                          <span className={`text-[10px] font-mono px-2.5 py-1 rounded-full border uppercase tracking-wider font-bold ${
+                            exp.status === "Active Role"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-slate-100 text-slate-600 border-slate-200"
+                          }`}>
+                            {exp.status === "Active Role" ? "● Active Role" : "✓ Shipped"}
+                          </span>
+                        </div>
+
+                        <h4 className="text-base sm:text-lg font-bold text-[#0f172a] uppercase tracking-tight">
+                          {exp.company}
+                        </h4>
+                        <p className="text-xs text-slate-500 font-mono mt-0.5">
+                          {exp.location}
+                        </p>
+                      </div>
+
+                      {/* Tech stack tags */}
+                      <div className="mt-4 sm:mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-1.5">
+                        {exp.technologies.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-600 font-medium shadow-2xs"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-[#0f172a] mb-1 group-hover:text-[#dc2626] transition-colors leading-snug">
-                      {exp.role}
-                    </h3>
-                    <p className="text-xs text-slate-500 font-light mb-4">
-                      {exp.company} &middot; <span className="text-slate-400">{exp.location}</span>
-                    </p>
+                    {/* Right Narrative Column: Role Title, Description & Milestones */}
+                    <div className="lg:col-span-8 lg:border-l lg:border-slate-200 lg:pl-8">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-[#0f172a] mb-2 group-hover:text-[#dc2626] transition-colors leading-tight">
+                        {exp.role}
+                      </h3>
 
-                    <p className="text-xs text-slate-600 font-light leading-relaxed mb-4">
-                      {exp.desc}
-                    </p>
-                  </div>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-5">
+                        {exp.desc}
+                      </p>
 
-                  <div className="pt-4 border-t border-slate-200">
-                    <ul className="space-y-2">
-                      {exp.achievements.map((ach, i) => (
-                        <li key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-slate-600 font-light">
-                          <span className="text-[#dc2626] font-bold text-xs mt-0.5 shrink-0">✦</span>
-                          <span>{ach}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-2xs">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#1e3a8a] block mb-2.5">
+                          Key Impact &amp; Deliverables
+                        </span>
+                        <ul className="space-y-2">
+                          {exp.achievements.map((ach, i) => (
+                            <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-normal">
+                              <span className="text-[#dc2626] font-bold text-xs mt-0.5 shrink-0">✦</span>
+                              <span>{ach}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Reveal>
