@@ -17,7 +17,7 @@ function CodeIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
       <polyline points="16 18 22 12 16 6" />
       <polyline points="8 6 2 12 8 18" />
-      <line x1="14" y1="4" x2="10" y2="20" stroke="#60a5fa" />
+      <line x1="14" y1="4" x2="10" y2="20" stroke="#dc2626" />
     </svg>
   );
 }
@@ -28,8 +28,8 @@ function CmsIcon() {
       <rect x="2" y="3" width="20" height="14" rx="2" />
       <line x1="8" y1="21" x2="16" y2="21" />
       <line x1="12" y1="17" x2="12" y2="21" />
-      <circle cx="8" cy="10" r="1.5" fill="#60a5fa" />
-      <circle cx="16" cy="10" r="1.5" fill="#60a5fa" />
+      <circle cx="8" cy="10" r="1.5" fill="#dc2626" />
+      <circle cx="16" cy="10" r="1.5" fill="#dc2626" />
     </svg>
   );
 }
@@ -39,7 +39,7 @@ function PaletteIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
       <path d="M12 2L2 7l10 5 10-5-10-5z" />
       <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" stroke="#60a5fa" />
+      <path d="M2 12l10 5 10-5" stroke="#dc2626" />
     </svg>
   );
 }
