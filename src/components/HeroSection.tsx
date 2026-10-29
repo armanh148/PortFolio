@@ -23,7 +23,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[76svh] sm:min-h-[92svh] md:min-h-[100svh] w-full flex flex-col justify-between overflow-hidden bg-[#0a0a0d] text-white pt-16 sm:pt-20 md:pt-24 pb-4 sm:pb-8 md:pb-12 px-4 sm:px-8 md:px-12 select-none"
+      className="relative min-h-[90svh] sm:min-h-[94svh] md:min-h-[100svh] w-full flex flex-col justify-between overflow-hidden bg-[#0a0a0d] text-white pt-16 sm:pt-20 md:pt-24 pb-3 sm:pb-6 md:pb-12 px-4 sm:px-8 md:px-12 select-none"
     >
       {/* ── 1. BACKGROUND GLOWS (Animated & Parallax) ── */}
       <motion.div
@@ -62,13 +62,13 @@ export default function HeroSection({ site }: { site: SiteData }) {
       {/* ── 2. GIANT DISPLAY NAME (Positioned behind person's head like desktop) ── */}
       <motion.div
         style={{ y: nameY, opacity: nameOpacity }}
-        className="absolute top-[23%] sm:top-[20%] md:top-[13%] inset-x-0 z-10 text-center pointer-events-none px-2"
+        className="absolute top-[18%] sm:top-[16%] md:top-[13%] inset-x-0 z-10 text-center pointer-events-none px-2"
       >
         <motion.h1
           initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
           animate={{ opacity: 0.95, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="font-sans font-black tracking-tighter text-white text-[clamp(2.7rem,12vw,16rem)] leading-[0.88] uppercase whitespace-nowrap drop-shadow-2xl"
+          className="font-sans font-black tracking-tighter text-white text-[clamp(2.8rem,13vw,16rem)] leading-[0.88] uppercase whitespace-nowrap drop-shadow-2xl"
         >
           {firstName} {lastName}
         </motion.h1>
@@ -194,58 +194,87 @@ export default function HeroSection({ site }: { site: SiteData }) {
         </div>
 
         {/* ── MOBILE POLISHED BOTTOM DOCK (Face & portrait completely unobstructed) ── */}
-        <div className="block md:hidden w-full mt-auto mb-0.5">
+        <div className="block md:hidden w-full mt-auto mb-1">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            className="w-full bg-[#0a0a0d]/85 backdrop-blur-xl border border-white/15 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_15px_40px_-10px_rgba(0,0,0,0.8)] relative overflow-hidden"
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full bg-[#0a0a0d]/85 backdrop-blur-2xl border border-white/[0.12] p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] relative overflow-hidden"
           >
-            {/* Top glare line */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#2f66f6]/60 to-transparent" />
+            {/* Top glare line & subtle blue light leak */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#2f66f6]/80 to-transparent" />
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-44 h-20 bg-[#2f66f6]/15 blur-2xl pointer-events-none rounded-full" />
 
             {/* Status bar */}
-            <div className="flex items-center justify-between mb-2">
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Available for work
+                AVAILABLE FOR WORK
               </span>
-              <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider">
-                Lahore, PK
+              <span className="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-semibold">
+                LAHORE, PK
               </span>
             </div>
 
             {/* Concise Bio */}
-            <p className="text-[11.5px] sm:text-xs font-normal text-stone-200 leading-snug mb-2.5 sm:mb-3">
+            <p className="text-xs font-light text-stone-200 leading-relaxed mb-3.5">
               Designing interfaces that blend emotion &amp; performance — crafting intuitive, high-speed web experiences.
             </p>
 
-            {/* Bottom Row: Social Icons + Work Link */}
-            <div className="flex items-center justify-between pt-2 border-t border-white/10">
-              <div className="flex items-center gap-1.5">
-                {[
-                  { label: "X", href: "https://x.com" },
-                  { label: "In", href: "https://linkedin.com" },
-                  { label: "Yt", href: "https://youtube.com" },
-                ].map((s) => (
-                  <motion.a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileTap={{ scale: 0.9 }}
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center text-[10px] sm:text-[11px] font-bold"
-                  >
-                    {s.label}
-                  </motion.a>
-                ))}
+            {/* Bottom Row: Social Icons + Action Button */}
+            <div className="flex items-center justify-between pt-2.5 border-t border-white/10 gap-2">
+              {/* SVG Social Vector Icons */}
+              <div className="flex items-center gap-2">
+                {/* X / Twitter */}
+                <motion.a
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X / Twitter"
+                  whileTap={{ scale: 0.9 }}
+                  className="w-8 h-8 rounded-full bg-white/[0.08] hover:bg-[#2f66f6] border border-white/15 text-stone-200 hover:text-white flex items-center justify-center transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </motion.a>
+
+                {/* LinkedIn */}
+                <motion.a
+                  href="https://linkedin.com/in/arman-naqvi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  whileTap={{ scale: 0.9 }}
+                  className="w-8 h-8 rounded-full bg-white/[0.08] hover:bg-[#2f66f6] border border-white/15 text-stone-200 hover:text-white flex items-center justify-center transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </motion.a>
+
+                {/* GitHub */}
+                <motion.a
+                  href="https://github.com/armanh148"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  whileTap={{ scale: 0.9 }}
+                  className="w-8 h-8 rounded-full bg-white/[0.08] hover:bg-[#2f66f6] border border-white/15 text-stone-200 hover:text-white flex items-center justify-center transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                </motion.a>
               </div>
 
+              {/* Action Button: Explore Works */}
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 sm:py-2 rounded-full bg-[#2f66f6] text-white shadow-md shadow-blue-900/50"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white shadow-lg shadow-blue-900/50 active:scale-95 transition-all"
               >
-                Explore Works ↗
+                <span>EXPLORE WORKS</span>
+                <span className="text-sm font-bold">↗</span>
               </Link>
             </div>
           </motion.div>
