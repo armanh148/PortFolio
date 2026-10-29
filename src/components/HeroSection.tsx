@@ -230,7 +230,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
 
             {/* Concise Bio */}
             <p className="text-xs font-normal text-slate-700 leading-relaxed mb-3.5">
-              Designing interfaces that blend emotion &amp; performance — crafting intuitive, high-speed web experiences.
+              Building scalable web applications, custom e-commerce architectures, and high-performance user interfaces with modern tech.
             </p>
 
             {/* Bottom Row: Social Icons + Action Button */}
