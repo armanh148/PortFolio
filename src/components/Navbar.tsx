@@ -61,12 +61,12 @@ export default function Navbar({ site }: { site: SiteData }) {
       {/* ── Fixed Top Dynamic Header Bar ── */}
       <motion.header
         animate={{
-          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.94)" : "rgba(255, 255, 255, 0.75)",
+          backgroundColor: scrolled ? "rgba(9, 9, 11, 0.94)" : "rgba(9, 9, 11, 0.6)",
           backdropFilter: scrolled ? "blur(16px)" : "blur(8px)",
-          borderBottomColor: scrolled ? "rgba(15, 23, 42, 0.1)" : "rgba(15, 23, 42, 0.05)",
+          borderBottomColor: scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.05)",
           paddingTop: scrolled ? "0.75rem" : "1.25rem",
           paddingBottom: scrolled ? "0.75rem" : "1.25rem",
-          boxShadow: scrolled ? "0 10px 30px -10px rgba(15, 23, 42, 0.08)" : "none",
+          boxShadow: scrolled ? "0 10px 30px -10px rgba(0, 0, 0, 0.6)" : "none",
         }}
         transition={{ duration: 0.3 }}
         className="fixed top-0 left-0 right-0 z-50 border-b px-4 sm:px-8 md:px-12 lg:px-16"
@@ -105,10 +105,10 @@ export default function Navbar({ site }: { site: SiteData }) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.92 }}
               onClick={() => setOpen((v) => !v)}
-              className="flex flex-col gap-[5px] items-end justify-center p-2 sm:p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
+              className="flex flex-col gap-[5px] items-end justify-center p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors cursor-pointer"
             >
               <span
-                className={`h-[2px] w-5 sm:w-6 bg-[#0f172a] transition-all duration-300 ${
+                className={`h-[2px] w-5 sm:w-6 bg-white transition-all duration-300 ${
                   open ? "translate-y-[7px] rotate-45" : ""
                 }`}
               />
@@ -118,7 +118,7 @@ export default function Navbar({ site }: { site: SiteData }) {
                 }`}
               />
               <span
-                className={`h-[2px] w-5 sm:w-6 bg-[#0f172a] transition-all duration-300 ${
+                className={`h-[2px] w-5 sm:w-6 bg-white transition-all duration-300 ${
                   open ? "-translate-y-[7px] -rotate-45" : ""
                 }`}
               />
