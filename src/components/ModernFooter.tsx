@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import type { SiteData } from "@/lib/siteData";
 import Reveal from "@/components/Reveal";
 
@@ -8,111 +9,137 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
 ];
 
 const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "GitHub", href: "https://github.com" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/arman-naqvi" },
+  { label: "GitHub", href: "https://github.com/armanh148" },
   { label: "X / Twitter", href: "https://x.com" },
 ];
 
 export default function ModernFooter({ site }: { site?: SiteData }) {
-  const email = site?.email || "[EMAIL_ADDRESS]";
+  const email = site?.email || "armannaqvi.tms@gmail.com";
   const name = site?.name || "Arman Naqvi";
 
   return (
-    <footer className="relative bg-[#09080e] text-white pt-24 pb-8 px-6 md:px-12 overflow-hidden border-t border-white/10">
-      
+    <footer className="relative bg-[#09080e] text-white pt-16 sm:pt-24 md:pt-32 pb-8 sm:pb-12 px-4 sm:px-8 md:px-12 overflow-hidden border-t border-white/10 select-none">
       {/* ── Dark Nebula Radial Glow ── */}
-      <div className="absolute bottom-0 left-1/3 w-[600px] h-[350px] bg-gradient-to-tr from-indigo-900/30 via-purple-900/20 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/4 right-10 w-[400px] h-[300px] bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/3 w-[600px] h-[350px] bg-gradient-to-tr from-blue-900/30 via-indigo-900/20 to-transparent blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/4 right-10 w-[400px] h-[300px] bg-gradient-to-br from-[#2f66f6]/20 via-indigo-900/10 to-transparent blur-[110px] pointer-events-none" />
+
+      {/* Decorative Crosshairs */}
+      <span className="cross-mark text-white/20" style={{ left: "20px", top: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ right: "20px", top: "20px" }}>+</span>
 
       <div className="max-w-[1500px] mx-auto relative z-10">
-        
         {/* ── Top Badge ── */}
-        <div className="mb-6 flex items-center gap-2">
-          <span className="text-indigo-400 text-xs font-semibold">✦</span>
-          <span className="text-xs font-medium tracking-wider uppercase text-indigo-300">
-            Contact Us
+        <div className="mb-4 sm:mb-6 flex items-center gap-2">
+          <span className="text-[#2f66f6] text-xs font-semibold animate-pulse">✦</span>
+          <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-[#2f66f6]">
+            Get In Touch
           </span>
         </div>
 
         {/* ── Main Big Headline ── */}
         <Reveal>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-normal text-white/95 max-w-4xl tracking-tight leading-[1.15] mb-20">
-            Interested in working together, trying out the platform or simply learning more?
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-medium text-white/95 max-w-4xl tracking-tight leading-[1.2] mb-8 sm:mb-14">
+            Interested in working together, building something remarkable, or simply starting a conversation?
           </h2>
         </Reveal>
 
-        {/* ── Middle Row: Email Contact & Navigation Links ── */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-end mb-24 pb-12 border-b border-white/10">
-          
-          {/* Left: Email */}
-          <div className="md:col-span-7">
+        {/* ── Middle Row: Clean Email Channel & Refined Minimal Navigation ── */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start mb-10 sm:mb-16 pb-8 sm:pb-12 border-b border-white/10">
+          {/* Left: Direct Email Channel (Clean, no bulky box) */}
+          <div className="md:col-span-7 flex flex-col">
             <Reveal delay={0.1}>
-              <span className="text-xs font-light text-stone-400 block mb-2">
-                Contact Arman at:
-              </span>
+              <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>AVAILABLE FOR WORK</span>
+              </div>
+
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 text-xl sm:text-3xl font-medium text-white hover:text-indigo-300 transition-colors group"
+                className="group inline-flex items-center gap-2 text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white hover:text-[#2f66f6] transition-colors break-all sm:break-normal cursor-pointer"
               >
-                <span>{email}</span>
-                <span className="text-lg sm:text-2xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                <span className="border-b border-white/20 pb-0.5 group-hover:border-[#2f66f6] transition-colors">
+                  {email}
+                </span>
+                <span className="text-[#2f66f6] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5">
                   ↗
                 </span>
               </a>
+
+              <p className="text-xs sm:text-sm text-stone-400 font-light mt-3 max-w-md leading-relaxed">
+                Reach out for custom Next.js builds, WordPress craft, or scalable design systems.
+              </p>
             </Reveal>
           </div>
 
-          {/* Right: Nav Links */}
-          <div className="md:col-span-5 flex flex-wrap items-center justify-start md:justify-end gap-6 sm:gap-8">
-            <Reveal delay={0.2}>
-              <div className="flex flex-wrap items-center gap-6 sm:gap-8">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm sm:text-base font-medium text-stone-400 hover:text-white transition-colors hover:underline underline-offset-8"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+          {/* Right: Minimal Refined Nav Links in One Single Line */}
+          <div className="md:col-span-5 flex flex-col md:items-end">
+            <Reveal delay={0.15}>
+              <div className="w-full md:w-auto">
+                <span className="text-[10px] font-mono font-bold text-stone-500 uppercase tracking-widest block mb-3 md:text-right">
+                  Navigation
+                </span>
+                <ul className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 lg:gap-8 gap-y-2">
+                  {NAV_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-xs sm:text-sm font-medium text-stone-300 hover:text-white transition-colors inline-flex items-center gap-1 group py-1"
+                      >
+                        <span className="group-hover:text-[#2f66f6] transition-colors">
+                          {link.label}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </div>
-
         </div>
 
-        {/* ── Giant Display Brand Name Logo ── */}
-        <Reveal delay={0.3}>
-          <div className="my-12 text-center select-none overflow-hidden flex justify-center items-center">
-            <h1 className="whitespace-nowrap text-[min(11.5vw,170px)] font-black uppercase tracking-[-0.04em] leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#0a0a0c] via-white/90 to-white/40">
+        {/* ── Giant Display Brand Name with Radial Ambient Glow & Blue Dot ── */}
+        <Reveal delay={0.25}>
+          <div className="relative my-8 sm:my-14 text-center select-none overflow-hidden flex justify-center items-center py-4">
+            {/* Ambient blue glow behind giant name */}
+            <div className="absolute inset-0 bg-[#2f66f6]/10 blur-[100px] rounded-full pointer-events-none" />
+
+            <motion.h1
+              whileHover={{ scale: 1.015 }}
+              transition={{ duration: 0.4 }}
+              className="relative z-10 whitespace-nowrap text-[clamp(2.6rem,12vw,11.5rem)] font-black uppercase tracking-[-0.04em] leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-white/85 to-white/20 hover:drop-shadow-[0_0_40px_rgba(47,102,246,0.35)] transition-all cursor-default"
+            >
               {name}
-            </h1>
+              <span className="text-[#2f66f6] drop-shadow-[0_0_20px_rgba(47,102,246,0.9)]">.</span>
+            </motion.h1>
           </div>
         </Reveal>
 
         {/* ── Bottom Bar: Copyright & Social Links ── */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-light text-stone-400">
-          <p>© 2026 {name}. All rights reserved.</p>
+        <div className="pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-light text-stone-400 text-center sm:text-left">
+          <p>© 2026 {name}. Engineered with Next.js, Framer Motion &amp; Tailwind CSS.</p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
             {SOCIAL_LINKS.map((social) => (
-              <a
+              <motion.a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
+                whileHover={{ scale: 1.06, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone-300 hover:text-white hover:border-[#2f66f6] hover:bg-[#2f66f6]/10 transition-all font-semibold uppercase text-[11px] tracking-wider cursor-pointer"
               >
                 {social.label}
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
-
       </div>
     </footer>
   );

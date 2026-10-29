@@ -50,10 +50,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-scroll-behavior="smooth"
-      className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${cormorant.variable} ${inter.variable} min-h-screen antialiased`}
     >
-      <body className="grain min-h-full flex flex-col">
+      <body className="grain min-h-screen flex flex-col" suppressHydrationWarning>
         <SmoothScrolling>
           <CustomCursor />
           <LayoutWrapper>

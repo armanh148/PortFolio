@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const REVIEWS = [
   {
@@ -36,27 +37,69 @@ const REVIEWS = [
 ];
 
 export default function ClientTestimonialsSection() {
-  const [startIndex, setStartIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Touch swipe support
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = isDesktop ? REVIEWS.length - 2 : REVIEWS.length - 1;
+  const totalSlides = maxIndex + 1;
+
+  // Auto-play interval (pauses on hover or touch)
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused, maxIndex]);
 
   const handlePrev = () => {
-    setStartIndex((prev) => (prev === 0 ? REVIEWS.length - 3 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   };
 
   const handleNext = () => {
-    setStartIndex((prev) => (prev >= REVIEWS.length - 3 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
-  const visibleReviews = [
-    REVIEWS[startIndex % REVIEWS.length],
-    REVIEWS[(startIndex + 1) % REVIEWS.length],
-    REVIEWS[(startIndex + 2) % REVIEWS.length],
-  ];
+  // Touch gesture handlers for mobile
+  const onTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    setIsPaused(false);
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 45) {
+      handleNext();
+    } else if (distance < -45) {
+      handlePrev();
+    }
+  };
 
   return (
-    <section className="relative py-24 md:py-32 px-6 md:px-12 bg-transparent text-[#F5F5F3] overflow-hidden">
-      
+    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 bg-transparent text-[#F5F5F3] overflow-hidden select-none">
       {/* ── Soft Background Vector Curve Lines ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
+      <div className="absolute inset-0 pointer-events-none opacity-20">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none">
           <path d="M-100 200 C 400 50, 800 400, 1540 100" stroke="url(#line-grad-1)" strokeWidth="1.5" />
           <path d="M-100 350 C 500 150, 900 550, 1540 250" stroke="url(#line-grad-2)" strokeWidth="1.5" />
@@ -77,111 +120,163 @@ export default function ClientTestimonialsSection() {
       </div>
 
       <div className="max-w-[1500px] mx-auto relative z-10">
-        
-        {/* ── Top Header Row with Title & Slider Controls ── */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+        {/* ── Header Row with Title, 5.0 Rating & Arrow Controls ── */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <Reveal>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F3]">
-                What <span className="text-indigo-600 font-extrabold">Our Clients</span> Say
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+                Client Testimonials
+              </span>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight">
+                What <span className="text-[#2f66f6]">Our Clients</span> Say
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-stone-400 font-medium text-sm md:text-base mt-2">
-                Hear Directly Our Satisfied Partners
+              <p className="text-stone-400 font-light text-xs sm:text-sm md:text-base mt-2 max-w-md">
+                Direct feedback from founders, agency partners, and technical leaders worldwide.
               </p>
             </Reveal>
           </div>
 
-          {/* Navigation Arrow Buttons */}
+          {/* Controls & Rating Pill */}
           <Reveal delay={0.15}>
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label="Previous slide"
-                className="w-12 h-12 rounded-full border border-indigo-500/30 bg-transparent hover:bg-white/10 text-[#F5F5F3] flex items-center justify-center transition-all shadow-sm hover:scale-105"
-              >
-                <span className="text-lg leading-none font-bold">‹</span>
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Next slide"
-                className="w-12 h-12 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white flex items-center justify-center transition-all shadow-lg shadow-blue-600/30 hover:scale-105"
-              >
-                <span className="text-lg leading-none font-bold">›</span>
-              </button>
+            <div className="flex items-center gap-3 sm:gap-4 self-start sm:self-end pt-2 sm:pt-0">
+              {/* 5.0 Rating Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
+                <div className="flex gap-1 text-amber-400 text-xs">
+                  {"★★★★★"}
+                </div>
+                <span className="text-xs font-mono text-stone-300 font-medium">5.0 Rating</span>
+              </div>
+
+              {/* Slider Arrow Buttons */}
+              <div className="flex items-center gap-2">
+                <motion.button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="Previous testimonial"
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all shadow-md cursor-pointer"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </motion.button>
+
+                <motion.button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next testimonial"
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white flex items-center justify-center transition-all shadow-lg shadow-blue-600/40 cursor-pointer"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </motion.button>
+              </div>
             </div>
           </Reveal>
         </div>
 
-        {/* ── 3-Column Testimonial Cards Carousel ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {visibleReviews.map((rev, idx) => (
-              <motion.div
-                key={`${rev.author}-${idx}`}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="bg-[#0a0a0c] rounded-3xl p-8 md:p-10 border border-white/10 shadow-xl shadow-black/50 flex flex-col justify-between h-full relative"
+        {/* ── SMOOTH TOUCH & DESKTOP SLIDER VIEWPORT ── */}
+        <div
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="relative overflow-hidden py-2"
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{
+              transform: isDesktop
+                ? `translateX(-${currentIndex * 50}%)`
+                : `translateX(-${currentIndex * 100}%)`,
+            }}
+          >
+            {REVIEWS.map((rev) => (
+              <div
+                key={rev.author}
+                className="w-full md:w-1/2 shrink-0 px-2 sm:px-3"
               >
-                <div>
-                  {/* Top Quote & Stars Row */}
-                  <div className="flex items-start justify-between mb-6">
-                    <span className="text-6xl font-serif text-indigo-300/80 leading-none select-none">
-                      “
-                    </span>
-                    <div className="flex gap-1 text-amber-400 text-base">
-                      {"★".repeat(rev.stars).split("").map((star, i) => (
-                        <span key={i}>{star}</span>
-                      ))}
-                    </div>
-                  </div>
+                <div className="h-full min-h-[290px] sm:min-h-[310px] bg-white/[0.03] backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-[#2f66f6]/50 shadow-xl shadow-black/40 flex flex-col justify-between relative group transition-colors overflow-hidden">
+                  {/* Top glare line */}
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent group-hover:via-[#2f66f6]/60 transition-colors" />
 
-                  {/* Review Text */}
-                  <p className="text-xs md:text-sm font-normal text-stone-400 leading-relaxed mb-8">
-                    {rev.quote}
-                  </p>
-                </div>
-
-                {/* Author Info Footer */}
-                <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                  <img
-                    src={rev.avatar}
-                    alt={rev.author}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-white/20 shadow-sm"
-                  />
                   <div>
-                    <h4 className="text-sm font-bold text-[#F5F5F3] leading-tight">
-                      {rev.author}
-                    </h4>
-                    <p className="text-xs font-light text-stone-400 mt-0.5">
-                      {rev.role}
+                    {/* Top Quote & Stars Row */}
+                    <div className="flex items-start justify-between mb-4 sm:mb-5">
+                      <span className="text-4xl sm:text-5xl font-serif text-[#2f66f6]/80 leading-none select-none">
+                        “
+                      </span>
+                      <div className="flex gap-1 text-amber-400 text-xs sm:text-sm">
+                        {"★".repeat(rev.stars).split("").map((star, i) => (
+                          <span key={i}>{star}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Review Text */}
+                    <p className="text-xs sm:text-sm md:text-base font-light text-stone-300 leading-relaxed mb-6">
+                      &ldquo;{rev.quote}&rdquo;
                     </p>
                   </div>
+
+                  {/* Author Info Footer */}
+                  <div className="flex items-center gap-3.5 sm:gap-4 pt-5 border-t border-white/5">
+                    <img
+                      src={rev.avatar}
+                      alt={rev.author}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white/20 shadow-md group-hover:border-[#2f66f6] transition-colors"
+                    />
+                    <div>
+                      <h4 className="text-xs sm:text-sm md:text-base font-bold text-white leading-tight group-hover:text-[#2f66f6] transition-colors">
+                        {rev.author}
+                      </h4>
+                      <p className="text-[11px] sm:text-xs font-light text-stone-400 mt-0.5">
+                        {rev.role}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </AnimatePresence>
+          </div>
         </div>
 
-        {/* ── Bottom Carousel Pagination Dots ── */}
-        <div className="flex justify-center items-center gap-2 mt-12">
-          {Array.from({ length: REVIEWS.length - 2 }).map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setStartIndex(i)}
-              className={`transition-all duration-300 rounded-full ${
-                startIndex === i ? "w-6 h-2 bg-[#2f66f6]" : "w-2 h-2 bg-indigo-900/50 hover:bg-indigo-700"
-              }`}
-            />
-          ))}
-        </div>
+        {/* ── Bottom Slider Pagination Dots & Counter ── */}
+        <div className="flex items-center justify-between mt-6 sm:mt-10 px-2">
+          {/* Slide Counter */}
+          <span className="text-xs font-mono font-bold text-stone-400">
+            0{currentIndex + 1} <span className="text-stone-600">/</span> 0{totalSlides}
+          </span>
 
+          {/* Dots Indicator */}
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalSlides }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => setCurrentIndex(i)}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  currentIndex === i
+                    ? "w-7 sm:w-8 h-2 bg-[#2f66f6] shadow-md shadow-blue-500/50"
+                    : "w-2 h-2 bg-white/20 hover:bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Subtle Swipe Cue for Mobile */}
+          <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest sm:hidden">
+            Swipe ↔
+          </span>
+          <span className="hidden sm:inline-block text-[11px] font-mono text-stone-500 uppercase tracking-wider">
+            {isPaused ? "Paused" : "Auto-playing"}
+          </span>
+        </div>
       </div>
     </section>
   );

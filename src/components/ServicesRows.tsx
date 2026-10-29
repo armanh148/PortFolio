@@ -1,152 +1,283 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
-import { API_BASE_URL } from "@/lib/api";
-
-interface Service {
+interface ServiceItem {
   id: number;
+  num: string;
   title: string;
   description: string;
-  icon: string;
-  features: string;
-  order: number;
+  image: string;
+  rotation: number;
 }
 
-export default function ServicesRows() {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [services, setServices] = useState<Service[]>([]);
+const SERVICES: ServiceItem[] = [
+  {
+    id: 1,
+    num: "01",
+    title: "MODERN & RESPONSIVE WEB DESIGN",
+    description:
+      "I design websites that are not only visually appealing but also intuitive and user-friendly across all device form factors.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80",
+    rotation: 5,
+  },
+  {
+    id: 2,
+    num: "02",
+    title: "HIGH-VALUED WEB DEVELOPMENT",
+    description:
+      "Whether it's a personal portfolio, e-commerce site, or SaaS platform, I focus on delivering fast, secure, and production-ready code.",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
+    rotation: -4,
+  },
+  {
+    id: 3,
+    num: "03",
+    title: "BRAND IDENTITY & VISUAL SYSTEMS",
+    description:
+      "I help brands define their voice and visual presence through strategic branding, from distinctive typography to scalable design tokens.",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=80",
+    rotation: 6,
+  },
+  {
+    id: 4,
+    num: "04",
+    title: "USER EXPERIENCE & INTERFACE DESIGN",
+    description:
+      "My process involves research, wireframing, prototyping, and testing to ensure every design is both delightful and purposeful.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    rotation: -3,
+  },
+];
 
-  useEffect(() => {
-    async function fetchServices() {
-      try {
-        const res = await fetch(`${API_BASE_URL}/services/`);
-        if (res.ok) {
-          const data = await res.json();
-          setServices(data);
-        }
-      } catch (error) {
-        console.error("Error fetching services:", error);
-      }
-    }
-    fetchServices();
-  }, []);
+export default function ServicesRows() {
+  const [activeIdx, setActiveIdx] = useState<number>(0);
 
   return (
-    <section className="relative py-24 bg-transparent text-[#F5F5F3] border-b border-white/10 px-6 md:px-12">
-      {/* Corner crosshairs */}
-      <span className="cross-mark text-white/20" style={{ left: "20px", top: "20px" }}>+</span>
-      <span className="cross-mark text-white/20" style={{ right: "20px", top: "20px" }}>+</span>
+    <section className="relative py-16 sm:py-24 md:py-36 bg-[#0a0a0d] text-[#F5F5F3] border-b border-white/10 px-4 sm:px-6 md:px-12 lg:px-16 overflow-hidden select-none">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[400px] bg-[#2f66f6]/5 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1500px] mx-auto">
-        {/* Centered Top Badge */}
-        <div className="flex justify-center mb-6">
-          <Reveal>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-stone-400 font-medium uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6]" />
-              Services
-            </span>
-          </Reveal>
-        </div>
+      {/* Crosshair marks */}
+      <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
 
-        {/* Header Title */}
-        <div className="text-center max-w-4xl mx-auto mb-6">
+      <div className="max-w-[1500px] mx-auto relative">
+        {/* ── 1. GIANT LEFT-ALIGNED HEADING "SERVICES." ── */}
+        <div className="mb-10 sm:mb-16 md:mb-24">
           <Reveal>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#F5F5F3] leading-tight tracking-tight uppercase">
-              Designing digital experiences that feel simple & human
+            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none flex items-baseline">
+              <span>SERVICES</span>
+              <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#2f66f6] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(47,102,246,0.9)]" />
             </h2>
           </Reveal>
         </div>
 
-        {/* Subtitle Description */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <Reveal delay={0.1}>
-            <p className="text-stone-400 font-light text-sm sm:text-base leading-relaxed">
-              I help brands and startups create intuitive, visually engaging, and user-focused digital products that balance aesthetics with usability.
-            </p>
-          </Reveal>
-        </div>
-
-        {/* Start a project Pill Button */}
-        <div className="flex justify-center mb-20">
-          <Reveal delay={0.15}>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-900/20"
+        {/* ── 2. SERVICES ROWS CONTAINER WITH FLOATING POLAROID ── */}
+        <div className="relative">
+          {/* ── FLOATING TILTED POLAROID PHOTO (Desktop only) ── */}
+          <div className="hidden lg:block absolute right-8 xl:right-24 top-0 pointer-events-none z-30">
+            <motion.div
+              animate={{
+                y: activeIdx * 130 + 10,
+                rotate: SERVICES[activeIdx].rotation,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 220,
+                damping: 24,
+                mass: 0.6,
+              }}
+              className="relative w-56 xl:w-64 aspect-[3/4] bg-white p-3 pb-8 rounded-xs shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(47,102,246,0.25)] border border-white/40"
             >
-              Start a project ↗
-            </Link>
-          </Reveal>
-        </div>
+              <div className="relative w-full h-full overflow-hidden bg-neutral-900 rounded-2xs">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={SERVICES[activeIdx].image}
+                    src={SERVICES[activeIdx].image}
+                    alt={SERVICES[activeIdx].title}
+                    initial={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.04 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover filter contrast-110 brightness-105"
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+              </div>
 
-        {/* Services Rows List */}
-        <div className="flex flex-col border-t border-white/10">
-          {services.map((srv, i) => (
-            <div
-              key={srv.id}
-              onMouseEnter={() => setHoveredIdx(i)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              className="group border-b border-white/10 transition-colors hover:bg-white/[0.02] px-4"
-            >
-              <Reveal delay={i * 0.05}>
-                <Link
-                  href="#projects"
-                  className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-10"
+              {/* Polaroid bottom caption */}
+              <div className="absolute bottom-2.5 left-3 right-3 flex justify-between items-center text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">
+                <span>{SERVICES[activeIdx].num} / ARMAN</span>
+                <span className="w-2 h-2 rounded-full bg-[#2f66f6] animate-pulse" />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── ROWS LIST ── */}
+          <div className="flex flex-col border-t border-white/10">
+            {SERVICES.map((service, index) => {
+              const isActive = activeIdx === index;
+
+              return (
+                <div
+                  key={service.id}
+                  onClick={() => setActiveIdx(index)}
+                  onMouseEnter={() => setActiveIdx(index)}
+                  className={`group border-b border-white/10 transition-colors duration-300 ${
+                    isActive ? "bg-white/[0.04]" : "hover:bg-white/[0.015]"
+                  }`}
                 >
-                  {/* Left: Index, Title & Description */}
-                  <div className="flex-1 max-w-3xl">
-                    <div className="flex items-baseline gap-3 mb-3">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#F5F5F3] tracking-tight uppercase group-hover:text-[#2f66f6] transition-colors">
-                        0{i + 1} — {srv.title}
-                      </h3>
-                      {srv.icon && (
-                        <span className="text-xs font-mono text-stone-500 bg-white/10 px-2 py-1 rounded">
-                          {srv.icon}
-                        </span>
-                      )}
+                  {/* Desktop Layout (md and up) */}
+                  <div className="hidden md:flex md:items-center justify-between gap-6 py-10 md:py-14 px-4 md:px-6 cursor-pointer">
+                    {/* Column 1: Index Number */}
+                    <div className="shrink-0 w-16 md:w-20">
+                      <motion.span
+                        animate={{
+                          scale: isActive ? 1.15 : 1,
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className="text-xl md:text-2xl font-mono font-bold tracking-tight inline-block text-[#2f66f6] drop-shadow-[0_0_12px_rgba(47,102,246,0.4)]"
+                      >
+                        {service.num}
+                      </motion.span>
                     </div>
-                    <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed max-w-2xl mb-4">
-                      {srv.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {srv.features.split(',').map((f, fIdx) => (
-                        <span key={fIdx} className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-[#2f66f6]/10 text-[#2f66f6] rounded-md">
-                          {f.trim()}
-                        </span>
-                      ))}
+
+                    {/* Column 2: Service Title */}
+                    <div className="flex-1 max-w-xl pr-4">
+                      <motion.h3
+                        animate={{ x: isActive ? 8 : 0 }}
+                        transition={{ duration: 0.25 }}
+                        className={`text-2xl md:text-3xl lg:text-[32px] font-black uppercase tracking-tight leading-snug transition-colors duration-300 ${
+                          isActive ? "text-[#2f66f6]" : "text-white group-hover:text-white"
+                        }`}
+                      >
+                        {service.title}
+                      </motion.h3>
+                    </div>
+
+                    {/* Column 3: Description */}
+                    <div className="max-w-xs xl:max-w-md pr-4">
+                      <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    {/* Column 4: Arrow Icon */}
+                    <div className="shrink-0 flex items-center justify-end w-12">
+                      <motion.div
+                        animate={{
+                          x: isActive ? 4 : 0,
+                          y: isActive ? -4 : 0,
+                          scale: isActive ? 1.2 : 1,
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className={`w-10 h-10 rounded-full border flex items-center justify-center transition-colors ${
+                          isActive
+                            ? "bg-[#2f66f6] border-[#2f66f6] text-white shadow-lg shadow-blue-600/40"
+                            : "border-white/10 text-stone-500 group-hover:text-white group-hover:border-white/30"
+                        }`}
+                      >
+                        <span className="text-lg leading-none">↗</span>
+                      </motion.div>
                     </div>
                   </div>
 
-                  {/* Right: Floating Previews & Arrow */}
-                  <div className="flex items-center gap-6 shrink-0 relative">
-                    <AnimatePresence>
-                      {hoveredIdx === i && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.8, x: 20 }}
-                          animate={{ opacity: 1, scale: 1, x: 0 }}
-                          exit={{ opacity: 0, scale: 0.8, x: 20 }}
-                          transition={{ duration: 0.3 }}
-                          className="hidden lg:flex items-center gap-4 z-10 mr-4"
+                  {/* Mobile Compact Editorial Layout (Under md) */}
+                  <div className="block md:hidden py-5 px-3">
+                    {/* Header Row: Number + Title + Arrow */}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-3">
+                        <span className="text-base font-mono font-bold text-[#2f66f6] shrink-0 pt-0.5">
+                          {service.num}
+                        </span>
+                        <h3
+                          className={`text-base font-black uppercase tracking-tight leading-snug transition-colors ${
+                            isActive ? "text-[#2f66f6]" : "text-white"
+                          }`}
                         >
-                           <div className={`w-44 h-32 rounded-xl overflow-hidden border border-white/15 shadow-xl relative transform bg-zinc-800 flex items-center justify-center`}>
-                              <span className="text-[#2f66f6] font-bold">Preview coming soon</span>
-                           </div>
+                          {service.title}
+                        </h3>
+                      </div>
+                      <div
+                        className={`w-8 h-8 rounded-full shrink-0 flex items-center justify-center transition-all ${
+                          isActive
+                            ? "bg-[#2f66f6] text-white shadow-md shadow-blue-600/40"
+                            : "bg-white/5 border border-white/10 text-stone-400"
+                        }`}
+                      >
+                        <span className="text-xs font-bold leading-none">↗</span>
+                      </div>
+                    </div>
+
+                    {/* Description Paragraph */}
+                    <p className="text-xs text-stone-400 font-light leading-relaxed mt-2.5 pl-7">
+                      {service.description}
+                    </p>
+
+                    {/* Mobile Preview Photo (Expands smoothly on tap) */}
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                          animate={{ opacity: 1, height: "auto", marginTop: 14 }}
+                          exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden pl-7"
+                        >
+                          <div className="relative w-full h-40 rounded-xl overflow-hidden border border-white/15 shadow-lg">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover filter contrast-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end justify-between p-3.5">
+                              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white">
+                                {service.num} / EXPLORE SERVICE
+                              </span>
+                              <Link
+                                href="/contact"
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-3 py-1 rounded-full bg-[#2f66f6] text-white text-[10px] font-bold uppercase tracking-widest"
+                              >
+                                Book Now ↗
+                              </Link>
+                            </div>
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-
-                    {/* Arrow Icon */}
-                    <span className="text-2xl sm:text-3xl text-stone-400 group-hover:text-white transition-colors">
-                      ↗
-                    </span>
                   </div>
-                </Link>
-              </Reveal>
-            </div>
-          ))}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── 3. BOTTOM CTA BAR ── */}
+        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-5 pt-8 border-t border-white/5 text-center sm:text-left">
+          <p className="text-xs sm:text-sm text-stone-400 font-light">
+            Need a tailored solution for your brand or agency? Let&rsquo;s talk.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest transition-all border border-white/15 hover:border-white/30"
+            >
+              View Full Services Page ↗
+            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} className="w-full sm:w-auto">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center w-full sm:w-auto gap-2 px-7 py-3.5 rounded-full bg-[#2f66f6] hover:bg-[#1d4ed8] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/40 hover:shadow-blue-600/50"
+              >
+                Start a Project ↗
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

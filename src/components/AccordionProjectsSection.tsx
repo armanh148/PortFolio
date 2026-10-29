@@ -17,9 +17,52 @@ interface Project {
   order: number;
 }
 
+const DEFAULT_PROJECTS: Project[] = [
+  {
+    id: 1,
+    title: "Hyperion Digital Agency",
+    description: "Editorial-grade interactive portfolio with smooth WebGL transitions and dynamic theme switcher.",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&q=80",
+    live_url: "https://github.com/armanh148",
+    github_url: "https://github.com/armanh148",
+    technologies: "Next.js, TypeScript, Framer Motion",
+    order: 1,
+  },
+  {
+    id: 2,
+    title: "Lumina Headless E-Commerce",
+    description: "High-performance headless WooCommerce platform featuring custom cart flows and instant product search.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+    live_url: "https://github.com/armanh148",
+    github_url: "https://github.com/armanh148",
+    technologies: "WordPress, WooCommerce, React",
+    order: 2,
+  },
+  {
+    id: 3,
+    title: "Vanguard Design System",
+    description: "Unified multi-brand design tokens and Figma-to-code component library used across 12 product surfaces.",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&q=80",
+    live_url: "https://github.com/armanh148",
+    github_url: "https://github.com/armanh148",
+    technologies: "Tailwind CSS, UI/UX, Storybook",
+    order: 3,
+  },
+  {
+    id: 4,
+    title: "Aetheria Analytics SaaS",
+    description: "Real-time interactive dashboard with customizable widgets, chart analytics, and team collaboration.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+    live_url: "https://github.com/armanh148",
+    github_url: "https://github.com/armanh148",
+    technologies: "React 19, Turbopack, Tailwind CSS",
+    order: 4,
+  },
+];
+
 export default function AccordionProjectsSection() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>(DEFAULT_PROJECTS);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -27,33 +70,47 @@ export default function AccordionProjectsSection() {
         const res = await fetch(`${API_BASE_URL}/projects/`);
         if (res.ok) {
           const data = await res.json();
-          // Sort by order if needed, assuming backend already orders them
-          setProjects(data.slice(0, 4)); // Get up to 4 projects for this section
+          if (Array.isArray(data) && data.length > 0) {
+            setProjects(data.slice(0, 4));
+          }
         }
       } catch (error) {
-        console.error("Error fetching projects:", error);
+        console.warn("Using offline projects catalog:", error);
       }
     }
     fetchProjects();
   }, []);
 
-  if (projects.length === 0) return null;
-
   return (
-    <section className="relative py-20 md:py-28 px-6 md:px-12 bg-transparent text-[#F5F5F3] overflow-hidden">
+    <section className="relative py-20 sm:py-28 px-4 sm:px-6 md:px-12 bg-transparent text-[#F5F5F3] overflow-hidden select-none">
       <div className="max-w-[1500px] mx-auto">
-        
         {/* ── Top Section Header ── */}
-        <div className="mb-10 md:mb-14">
+        <div className="mb-10 sm:mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
           <Reveal>
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#2f66f6]">
-              OUR PROJECTS
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+              Selected Works
             </span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight">
+              Featured <span className="text-[#2f66f6]">Projects</span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-400 hover:text-white transition-colors group"
+            >
+              <span>View all projects</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
           </Reveal>
         </div>
 
         {/* ── Desktop Horizontal Accordion Layout ── */}
-        <div className="hidden md:flex gap-4 lg:gap-6 h-[600px] lg:h-[640px] items-stretch">
+        <div className="hidden md:flex gap-4 lg:gap-6 h-[620px] lg:h-[660px] items-stretch">
           {projects.map((project, index) => {
             const isActive = activeIndex === index;
 
@@ -62,110 +119,122 @@ export default function AccordionProjectsSection() {
                 key={project.id}
                 onMouseEnter={() => setActiveIndex(index)}
                 layout
-                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                className={`relative rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-between p-8 transition-shadow duration-500 ${
+                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                className={`relative rounded-3xl overflow-hidden cursor-pointer flex flex-col justify-between p-8 transition-all duration-500 ${
                   isActive
-                    ? "flex-[2.4] shadow-2xl border border-white/20"
-                    : "flex-1 bg-white/5 border border-white/10 hover:border-white/30"
+                    ? "flex-[2.6] shadow-[0_20px_60px_-15px_rgba(47,102,246,0.3)] border-2 border-[#2f66f6]/60"
+                    : "flex-1 bg-white/5 border border-white/10 hover:border-white/25 hover:bg-white/[0.07]"
                 }`}
               >
-                {/* ── Background Image & Dark Overlay for Active State ── */}
+                {/* Background Image & Dark Overlay */}
                 <AnimatePresence mode="wait">
                   {isActive && project.image && (
                     <motion.div
-                      initial={{ opacity: 0, scale: 1.05 }}
+                      initial={{ opacity: 0, scale: 1.06 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.02 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.55 }}
                       className="absolute inset-0 z-0"
                     >
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover filter brightness-95"
                       />
-                      {/* Gradient overlay for perfect contrast */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/30" />
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                {/* ── Top Header Area in Card ── */}
-                <div className="relative z-10 flex justify-between items-start min-h-[24px]">
-                  {isActive && (
+                {/* Top Header Area in Card */}
+                <div className="relative z-10 flex justify-between items-start min-h-[28px]">
+                  {isActive ? (
                     <motion.span
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-[10px] uppercase font-bold tracking-[0.2em] px-3.5 py-1.5 rounded-full bg-[#2f66f6] text-white backdrop-blur-md shadow-md"
+                      transition={{ delay: 0.15 }}
+                      className="text-[10px] uppercase font-bold tracking-[0.2em] px-4 py-1.5 rounded-full bg-[#2f66f6] text-white backdrop-blur-md shadow-lg shadow-blue-900/50"
                     >
-                      {project.technologies.split(',')[0]}
+                      {project.technologies.split(",")[0]}
                     </motion.span>
+                  ) : (
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500">
+                      0{index + 1}
+                    </span>
                   )}
                 </div>
 
-                {/* ── Center Giant Display Number ── */}
+                {/* Center Giant Display Number */}
                 <div className="relative z-10 flex items-center justify-center my-auto pointer-events-none select-none">
-                  <span
-                    className={`font-sans font-light text-9xl lg:text-[180px] leading-none transition-colors duration-500 ${
-                      isActive ? "text-white/95 drop-shadow-md" : "text-stone-500"
+                  <motion.span
+                    animate={{ scale: isActive ? 1.05 : 1 }}
+                    transition={{ duration: 0.4 }}
+                    className={`font-sans font-light text-8xl lg:text-[170px] leading-none transition-colors duration-500 ${
+                      isActive
+                        ? "text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
+                        : "text-stone-600 group-hover:text-stone-400"
                     }`}
                   >
                     {index + 1}
-                  </span>
+                  </motion.span>
                 </div>
 
-                {/* ── Bottom Content Row ── */}
+                {/* Bottom Content Row */}
                 <div className="relative z-10 flex items-end justify-between gap-4">
                   <div>
                     <h3
-                      className={`text-xl lg:text-2xl font-medium tracking-tight transition-colors duration-500 ${
+                      className={`text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-300 ${
                         isActive ? "text-white" : "text-[#F5F5F3]"
                       }`}
                     >
                       {project.title}
                     </h3>
                     <p
-                      className={`text-xs lg:text-sm font-light mt-1 transition-colors duration-500 ${
-                        isActive ? "text-stone-400" : "text-stone-400"
+                      className={`text-xs lg:text-sm font-light mt-1.5 transition-colors duration-300 max-w-sm line-clamp-2 ${
+                        isActive ? "text-stone-300" : "text-stone-400"
                       }`}
                     >
-                      {project.description.slice(0, 50)}...
+                      {project.description}
                     </p>
                   </div>
 
-                  {/* Arrow Icon */}
-                  <Link
-                    href={project.live_url || "/projects"}
-                    target="_blank"
-                    className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${
-                      isActive
-                        ? "text-white bg-[#2f66f6] hover:bg-[#1d4ed8]"
-                        : "text-stone-400 hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    <span className="text-xl leading-none">↗</span>
-                  </Link>
+                  <motion.div whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.9 }}>
+                    <Link
+                      href={project.live_url || "/projects"}
+                      target="_blank"
+                      className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
+                        isActive
+                          ? "text-white bg-[#2f66f6] hover:bg-[#1d4ed8] shadow-lg shadow-blue-600/40"
+                          : "text-stone-400 hover:text-white hover:bg-white/10 border border-white/10"
+                      }`}
+                    >
+                      <span className="text-xl leading-none">↗</span>
+                    </Link>
+                  </motion.div>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* ── Mobile Vertical Accordion Layout ── */}
-        <div className="flex md:hidden flex-col gap-5">
+        {/* ── Mobile Vertical Accordion Layout (Silky tap expand & collapse) ── */}
+        <div className="flex md:hidden flex-col gap-3">
           {projects.map((project, index) => {
             const isActive = activeIndex === index;
 
             return (
-              <div
+              <motion.div
                 key={project.id}
                 onClick={() => setActiveIndex(index)}
-                className={`relative rounded-2xl overflow-hidden p-6 transition-all duration-500 ${
+                layout
+                transition={{ type: "spring", stiffness: 240, damping: 25 }}
+                className={`relative rounded-2xl overflow-hidden transition-all duration-400 cursor-pointer ${
                   isActive
-                    ? "h-[380px] text-white shadow-xl border border-white/20"
-                    : "h-[180px] bg-white/5 border border-white/10 text-[#F5F5F3]"
+                    ? "h-[340px] border-2 border-[#2f66f6]/60 shadow-xl shadow-blue-950/40"
+                    : "h-[84px] bg-white/[0.03] border border-white/10 hover:border-white/20"
                 }`}
               >
+                {/* Background Image on Active */}
                 {isActive && project.image && (
                   <div className="absolute inset-0 z-0">
                     <img
@@ -173,55 +242,71 @@ export default function AccordionProjectsSection() {
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/30" />
                   </div>
                 )}
 
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div className="flex justify-end">
-                    <span
-                      className={`text-6xl font-light ${
-                        isActive ? "text-white/90" : "text-stone-500"
-                      }`}
-                    >
-                      {index + 1}
-                    </span>
-                  </div>
-
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <h3
-                        className={`text-xl font-medium ${
-                          isActive ? "text-white" : "text-[#F5F5F3]"
-                        }`}
-                      >
-                        {project.title}
-                      </h3>
-                      <p
-                        className={`text-xs ${
-                          isActive ? "text-stone-400" : "text-stone-400"
-                        }`}
-                      >
-                        {project.description.slice(0, 50)}...
-                      </p>
+                <div className="relative z-10 h-full p-5 flex flex-col justify-between">
+                  {/* Top Bar on Mobile */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-mono font-bold text-[#2f66f6]">
+                        0{index + 1}
+                      </span>
+                      {!isActive && (
+                        <h4 className="text-base font-bold text-white truncate max-w-[200px]">
+                          {project.title}
+                        </h4>
+                      )}
+                      {isActive && (
+                        <span className="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-[#2f66f6] text-white">
+                          {project.technologies.split(",")[0]}
+                        </span>
+                      )}
                     </div>
 
-                    <Link
-                      href={project.live_url || "/projects"}
-                      target="_blank"
-                      className={`text-xl ${
-                        isActive ? "text-white" : "text-stone-400"
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm transition-colors ${
+                        isActive
+                          ? "bg-[#2f66f6] text-white"
+                          : "bg-white/10 text-stone-400"
                       }`}
                     >
-                      ↗
-                    </Link>
+                      {isActive ? "↗" : "+"}
+                    </div>
                   </div>
+
+                  {/* Bottom Content when Active */}
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-end justify-between pt-4"
+                    >
+                      <div className="pr-4">
+                        <h3 className="text-xl font-bold text-white leading-tight mb-1">
+                          {project.title}
+                        </h3>
+                        <p className="text-xs text-stone-300 line-clamp-2">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <Link
+                        href={project.live_url || "/projects"}
+                        target="_blank"
+                        onClick={(e) => e.stopPropagation()}
+                        className="shrink-0 px-4 py-2 rounded-xl bg-[#2f66f6] text-white text-xs font-bold uppercase tracking-wider"
+                      >
+                        View ↗
+                      </Link>
+                    </motion.div>
+                  )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

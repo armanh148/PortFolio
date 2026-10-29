@@ -7,6 +7,8 @@ import Reveal from "@/components/Reveal";
 interface FaqCategory {
   id: string;
   name: string;
+  shortName: string;
+  icon: string;
   faqs: {
     q: string;
     a: string;
@@ -17,6 +19,8 @@ const FAQ_DATA: FaqCategory[] = [
   {
     id: "general",
     name: "General Questions",
+    shortName: "General",
+    icon: "💬",
     faqs: [
       {
         q: "What services do you provide for web development?",
@@ -38,7 +42,9 @@ const FAQ_DATA: FaqCategory[] = [
   },
   {
     id: "support",
-    name: "Support team",
+    name: "Support & Collaboration",
+    shortName: "Support",
+    icon: "🤝",
     faqs: [
       {
         q: "What is your response time for support queries?",
@@ -56,7 +62,9 @@ const FAQ_DATA: FaqCategory[] = [
   },
   {
     id: "miscellaneous",
-    name: "Miscellaneous",
+    name: "Payment & Hosting",
+    shortName: "Payment & Host",
+    icon: "💳",
     faqs: [
       {
         q: "What payment methods do you accept?",
@@ -71,6 +79,8 @@ const FAQ_DATA: FaqCategory[] = [
   {
     id: "process",
     name: "Development Process",
+    shortName: "Process & Flow",
+    icon: "⚡",
     faqs: [
       {
         q: "What is your step-by-step workflow?",
@@ -82,125 +92,152 @@ const FAQ_DATA: FaqCategory[] = [
       },
     ],
   },
-  {
-    id: "pricing",
-    name: "Pricing & Retainers",
-    faqs: [
-      {
-        q: "Are project estimates fixed or hourly?",
-        a: "I primarily work on fixed-price project milestones so you have full budget predictability upfront. Retainers are billed monthly based on dedicated development hours.",
-      },
-      {
-        q: "Can I request custom feature add-ons mid-project?",
-        a: "Yes, additional features can be scoped seamlessly via simple change requests with upfront time and cost estimates.",
-      },
-    ],
-  },
 ];
 
 export default function ModernFaqSection() {
   const [activeCategory, setActiveCategory] = useState<string>("general");
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0); // First item expanded by default
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const currentCategory = FAQ_DATA.find((cat) => cat.id === activeCategory) || FAQ_DATA[0];
+  const currentCategory =
+    FAQ_DATA.find((cat) => cat.id === activeCategory) || FAQ_DATA[0];
 
   return (
-    <section className="relative py-24 md:py-32 px-6 md:px-12 bg-transparent overflow-hidden text-[#F5F5F3]">
-      
-      {/* ── Soft Decorative Glow Particles ── */}
-      <div className="absolute top-12 left-10 w-4 h-4 rounded-full bg-cyan-400/40 blur-sm pointer-events-none" />
-      <div className="absolute top-1/3 left-6 w-6 h-6 rounded-full bg-rose-400/30 blur-sm pointer-events-none" />
-      <div className="absolute bottom-20 right-12 w-5 h-5 rounded-full bg-sky-400/40 blur-sm pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 w-7 h-7 rounded-full bg-indigo-300/30 blur-sm pointer-events-none" />
+    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-8 md:px-12 bg-transparent overflow-hidden text-[#F5F5F3]">
+      {/* ── Soft Decorative Glow Particles with Breathing Motion ── */}
+      <motion.div
+        animate={{ y: [0, -15, 0], scale: [1, 1.2, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-12 left-10 w-5 h-5 rounded-full bg-cyan-400/40 blur-md pointer-events-none"
+      />
+      <motion.div
+        animate={{ y: [0, 20, 0], scale: [1, 1.3, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-1/3 left-6 w-7 h-7 rounded-full bg-rose-400/30 blur-md pointer-events-none"
+      />
+      <motion.div
+        animate={{ y: [0, -20, 0], scale: [1, 1.2, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-20 right-12 w-6 h-6 rounded-full bg-sky-400/40 blur-md pointer-events-none"
+      />
+      <motion.div
+        animate={{ y: [0, 15, 0], scale: [1, 1.25, 1] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute top-1/2 right-1/4 w-8 h-8 rounded-full bg-indigo-300/30 blur-md pointer-events-none"
+      />
 
       <div className="max-w-[1500px] mx-auto relative z-10">
-        
         {/* ── Section Header ── */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-[#F5F5F3] tracking-tight mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-[11px] sm:text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
               Frequently Asked Questions
+            </span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
+              Got <span className="text-[#2f66f6]">Questions?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-sm md:text-base font-light text-stone-400 leading-relaxed max-w-2xl mx-auto">
-              Our platform is built to help you work smarter, not harder. It adapts to your needs and supports your goals. Make the most of every feature.
+            <p className="text-xs sm:text-sm md:text-base font-light text-stone-400 leading-relaxed max-w-2xl mx-auto">
+              Clear answers about working together, workflow process, delivery timelines, and post-launch maintenance.
             </p>
           </Reveal>
         </div>
 
         {/* ── 2-Column Main FAQ Container ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
-          {/* Left Column: Category Tabs Menu */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+          {/* Left Column: 2x2 Grid on Mobile, Vertical Stack on Desktop (No horizontal cutoff!) */}
+          <div className="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col gap-2 sm:gap-3">
             {FAQ_DATA.map((cat) => {
               const isActive = activeCategory === cat.id;
 
               return (
-                <button
+                <motion.button
                   key={cat.id}
                   type="button"
+                  whileTap={{ scale: 0.96 }}
                   onClick={() => {
                     setActiveCategory(cat.id);
-                    setOpenFaqIndex(0); // Open first question of selected category
+                    setOpenFaqIndex(0);
                   }}
-                  className={`w-full text-left px-6 py-4 rounded-2xl flex items-center justify-between transition-all duration-300 font-medium text-sm md:text-base ${
+                  className={`text-left p-3 sm:px-5 sm:py-3.5 lg:px-6 lg:py-4 rounded-xl lg:rounded-2xl flex items-center justify-between transition-all duration-300 font-medium text-xs sm:text-sm lg:text-base cursor-pointer ${
                     isActive
-                      ? "bg-white/10 text-[#F5F5F3] shadow-lg font-semibold border border-white/20"
-                      : "bg-white/5 text-stone-400 hover:bg-white/10 hover:text-[#F5F5F3] border border-white/5"
+                      ? "bg-[#2f66f6] text-white shadow-lg shadow-blue-600/35 font-semibold border border-blue-400/40"
+                      : "bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white border border-white/10"
                   }`}
                 >
-                  <span>{cat.name}</span>
-                  <span className={`text-base transition-transform duration-300 ${isActive ? "text-[#F5F5F3] translate-x-1" : "text-stone-400"}`}>
+                  <div className="flex items-center gap-2 truncate">
+                    <span className="text-sm shrink-0">{cat.icon}</span>
+                    <span className="truncate">
+                      <span className="block sm:hidden truncate">{cat.shortName}</span>
+                      <span className="hidden sm:block truncate">{cat.name}</span>
+                    </span>
+                  </div>
+                  <span
+                    className={`hidden lg:inline-block text-base transition-transform duration-300 shrink-0 ${
+                      isActive ? "text-white translate-x-1" : "text-stone-400"
+                    }`}
+                  >
                     ›
                   </span>
-                </button>
+                </motion.button>
               );
             })}
           </div>
 
           {/* Right Column: Accordion Questions Cards */}
-          <div className="lg:col-span-8 flex flex-col gap-4">
+          <div className="lg:col-span-8 flex flex-col gap-3 sm:gap-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCategory}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
+                exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-3 sm:gap-4"
               >
                 {currentCategory.faqs.map((faq, idx) => {
                   const isOpen = openFaqIndex === idx;
 
                   return (
-                    <div
+                    <motion.div
                       key={faq.q}
-                      className={`rounded-2xl transition-all duration-300 border ${
+                      className={`rounded-xl sm:rounded-2xl transition-all duration-300 border cursor-pointer ${
                         isOpen
-                          ? "bg-white/10 shadow-xl border-white/20 p-6 md:p-8"
-                          : "bg-white/5 hover:bg-white/10 border-white/10 p-5 md:p-6"
+                          ? "bg-white/[0.08] shadow-xl border-[#2f66f6]/50 p-4 sm:p-6 md:p-8"
+                          : "bg-white/5 hover:bg-white/[0.08] border-white/10 p-4 sm:p-5 md:p-6 hover:border-white/20"
                       }`}
                     >
                       <button
                         type="button"
                         onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                        className="w-full flex items-center justify-between text-left gap-4 group"
+                        className="w-full flex items-center justify-between text-left gap-3 group cursor-pointer"
                       >
-                        <h3 className={`text-base md:text-lg font-semibold tracking-tight leading-snug ${
-                          isOpen ? "text-[#F5F5F3]" : "text-stone-300 group-hover:text-white"
-                        }`}>
+                        <h3
+                          className={`text-sm sm:text-base md:text-lg font-semibold tracking-tight leading-snug transition-colors ${
+                            isOpen
+                              ? "text-white"
+                              : "text-stone-300 group-hover:text-white"
+                          }`}
+                        >
                           {faq.q}
                         </h3>
 
-                        {/* Plus / Close Icon */}
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                          isOpen ? "bg-white/20 text-[#F5F5F3]" : "bg-white/5 text-stone-400 group-hover:bg-white/10"
-                        }`}>
-                          <span className="text-lg leading-none font-light">
-                            {isOpen ? "✕" : "+"}
-                          </span>
+                        {/* Plus / Close Icon with smooth spring rotation */}
+                        <div
+                          className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                            isOpen
+                              ? "bg-[#2f66f6] text-white shadow-md shadow-blue-500/50"
+                              : "bg-white/10 text-stone-300 group-hover:bg-white/20 group-hover:text-white"
+                          }`}
+                        >
+                          <motion.span
+                            animate={{ rotate: isOpen ? 45 : 0 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="text-base sm:text-xl leading-none font-light inline-block"
+                          >
+                            +
+                          </motion.span>
                         </div>
                       </button>
 
@@ -214,21 +251,19 @@ export default function ModernFaqSection() {
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <p className="pt-4 text-xs md:text-sm font-light text-stone-400 leading-relaxed max-w-3xl">
+                            <p className="pt-3 sm:pt-4 text-xs sm:text-sm font-light text-stone-300 leading-relaxed max-w-3xl border-t border-white/5 mt-3 sm:mt-4">
                               {faq.a}
                             </p>
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </motion.div>
             </AnimatePresence>
           </div>
-
         </div>
-
       </div>
     </section>
   );
