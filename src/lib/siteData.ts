@@ -31,7 +31,7 @@ export const siteData: SiteData = {
   role: "Full-Stack Web Developer & Frontend Specialist",
   company: "Techmire Solutions",
   email: "armannaqvi.tms@gmail.com",
-  location: "Lahore, Pakistan",
+  location: "Karachi, Pakistan",
   heroImage: "/hero-img.png",
   socials: [
     { label: "LinkedIn", href: "https://linkedin.com/in/arman-naqvi" },
