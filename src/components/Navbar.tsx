@@ -87,26 +87,6 @@ export default function Navbar({ site }: { site: SiteData }) {
             </motion.div>
           </Link>
 
-          {/* ── Center Desktop Nav Links (High-End Dynamic Pill) ── */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 p-1.5 rounded-full border border-slate-200 shadow-2xs backdrop-blur-md">
-            {NAV_ITEMS.map((item) => {
-              const active = pathname === item.href;
-              return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                    active
-                      ? "text-white bg-[#0f172a] shadow-xs"
-                      : "text-slate-600 hover:text-[#0f172a] hover:bg-white"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
           {/* ── Right Side: 3-Line Hamburger Menu Icon & Quick CTA ── */}
           <div className="flex items-center gap-2.5 sm:gap-4">
             <Link
