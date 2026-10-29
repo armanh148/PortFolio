@@ -132,8 +132,8 @@ export default function ProjectsFilter() {
             </Reveal>
           </div>
 
-          {/* Clean Category Filters with Hover Animation */}
-          <div className="flex flex-wrap gap-2 sm:gap-2.5">
+          {/* Clean Category Filters in ONE SINGLE LINE */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar py-1 shrink-0 max-w-full">
             {CATEGORIES.map((cat) => {
               const active = selectedFilter === cat;
               return (
@@ -143,7 +143,7 @@ export default function ProjectsFilter() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedFilter(cat)}
-                  className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all cursor-pointer ${
+                  className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                     active
                       ? "bg-[#dc2626] border-[#dc2626] text-white shadow-lg shadow-red-600/30"
                       : "bg-slate-100 border-slate-200 text-slate-700 hover:border-slate-300 hover:text-[#0f172a]"
