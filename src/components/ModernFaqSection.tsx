@@ -102,43 +102,38 @@ export default function ModernFaqSection() {
     FAQ_DATA.find((cat) => cat.id === activeCategory) || FAQ_DATA[0];
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-8 md:px-12 bg-transparent overflow-hidden text-[#F5F5F3]">
+    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-8 md:px-12 bg-white overflow-hidden text-[#0f172a] border-b border-slate-200">
       {/* ── Soft Decorative Glow Particles with Breathing Motion ── */}
       <motion.div
         animate={{ y: [0, -15, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-12 left-10 w-5 h-5 rounded-full bg-cyan-400/40 blur-md pointer-events-none"
+        className="absolute top-12 left-10 w-5 h-5 rounded-full bg-red-400/20 blur-md pointer-events-none"
       />
       <motion.div
         animate={{ y: [0, 20, 0], scale: [1, 1.3, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute top-1/3 left-6 w-7 h-7 rounded-full bg-rose-400/30 blur-md pointer-events-none"
+        className="absolute top-1/3 left-6 w-7 h-7 rounded-full bg-blue-500/15 blur-md pointer-events-none"
       />
       <motion.div
         animate={{ y: [0, -20, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-20 right-12 w-6 h-6 rounded-full bg-sky-400/40 blur-md pointer-events-none"
-      />
-      <motion.div
-        animate={{ y: [0, 15, 0], scale: [1, 1.25, 1] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute top-1/2 right-1/4 w-8 h-8 rounded-full bg-indigo-300/30 blur-md pointer-events-none"
+        className="absolute bottom-20 right-12 w-6 h-6 rounded-full bg-red-400/20 blur-md pointer-events-none"
       />
 
       <div className="max-w-[1500px] mx-auto relative z-10">
         {/* ── Section Header ── */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
           <Reveal>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2f66f6]/30 bg-[#2f66f6]/10 text-[11px] sm:text-xs text-[#2f66f6] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2f66f6] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-[11px] sm:text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
               Frequently Asked Questions
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-              Got <span className="text-[#2f66f6]">Questions?</span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] leading-tight mb-3">
+              Got <span className="text-[#dc2626]">Questions?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-xs sm:text-sm md:text-base font-light text-stone-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base font-light text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Clear answers about working together, workflow process, delivery timelines, and post-launch maintenance.
             </p>
           </Reveal>
@@ -146,7 +141,7 @@ export default function ModernFaqSection() {
 
         {/* ── 2-Column Main FAQ Container ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-          {/* Left Column: 2x2 Grid on Mobile, Vertical Stack on Desktop (No horizontal cutoff!) */}
+          {/* Left Column: 2x2 Grid on Mobile, Vertical Stack on Desktop */}
           <div className="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col gap-2 sm:gap-3">
             {FAQ_DATA.map((cat) => {
               const isActive = activeCategory === cat.id;
@@ -162,8 +157,8 @@ export default function ModernFaqSection() {
                   }}
                   className={`text-left p-3 sm:px-5 sm:py-3.5 lg:px-6 lg:py-4 rounded-xl lg:rounded-2xl flex items-center justify-between transition-all duration-300 font-medium text-xs sm:text-sm lg:text-base cursor-pointer ${
                     isActive
-                      ? "bg-[#2f66f6] text-white shadow-lg shadow-blue-600/35 font-semibold border border-blue-400/40"
-                      : "bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white border border-white/10"
+                      ? "bg-[#dc2626] text-white shadow-lg shadow-red-600/30 font-semibold border border-red-500"
+                      : "bg-[#f8fafc] text-slate-700 hover:bg-slate-100 hover:text-[#0f172a] border border-slate-200"
                   }`}
                 >
                   <div className="flex items-center gap-2 truncate">
@@ -175,7 +170,7 @@ export default function ModernFaqSection() {
                   </div>
                   <span
                     className={`hidden lg:inline-block text-base transition-transform duration-300 shrink-0 ${
-                      isActive ? "text-white translate-x-1" : "text-stone-400"
+                      isActive ? "text-white translate-x-1" : "text-slate-400"
                     }`}
                   >
                     ›
@@ -204,8 +199,8 @@ export default function ModernFaqSection() {
                       key={faq.q}
                       className={`rounded-xl sm:rounded-2xl transition-all duration-300 border cursor-pointer ${
                         isOpen
-                          ? "bg-white/[0.08] shadow-xl border-[#2f66f6]/50 p-4 sm:p-6 md:p-8"
-                          : "bg-white/5 hover:bg-white/[0.08] border-white/10 p-4 sm:p-5 md:p-6 hover:border-white/20"
+                          ? "bg-[#f8fafc] shadow-lg border-[#dc2626]/50 p-4 sm:p-6 md:p-8"
+                          : "bg-white hover:bg-[#f8fafc] border-slate-200 p-4 sm:p-5 md:p-6 hover:border-slate-300 shadow-2xs"
                       }`}
                     >
                       <button
@@ -216,8 +211,8 @@ export default function ModernFaqSection() {
                         <h3
                           className={`text-sm sm:text-base md:text-lg font-semibold tracking-tight leading-snug transition-colors ${
                             isOpen
-                              ? "text-white"
-                              : "text-stone-300 group-hover:text-white"
+                              ? "text-[#0f172a]"
+                              : "text-slate-800 group-hover:text-[#dc2626]"
                           }`}
                         >
                           {faq.q}
@@ -227,8 +222,8 @@ export default function ModernFaqSection() {
                         <div
                           className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                             isOpen
-                              ? "bg-[#2f66f6] text-white shadow-md shadow-blue-500/50"
-                              : "bg-white/10 text-stone-300 group-hover:bg-white/20 group-hover:text-white"
+                              ? "bg-[#dc2626] text-white shadow-md shadow-red-500/40"
+                              : "bg-slate-100 text-slate-600 group-hover:bg-slate-200 group-hover:text-[#0f172a]"
                           }`}
                         >
                           <motion.span
@@ -251,7 +246,7 @@ export default function ModernFaqSection() {
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <p className="pt-3 sm:pt-4 text-xs sm:text-sm font-light text-stone-300 leading-relaxed max-w-3xl border-t border-white/5 mt-3 sm:mt-4">
+                            <p className="pt-3 sm:pt-4 text-xs sm:text-sm font-light text-slate-600 leading-relaxed max-w-3xl border-t border-slate-200 mt-3 sm:mt-4">
                               {faq.a}
                             </p>
                           </motion.div>
