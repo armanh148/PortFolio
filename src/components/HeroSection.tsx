@@ -88,8 +88,8 @@ export default function HeroSection({ site }: { site: SiteData }) {
             alt={`Portrait of ${site.name}`}
             fill
             priority
-            sizes="100vw"
-            className="object-cover object-top filter brightness-105 contrast-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+            className="object-cover object-top filter contrast-105 drop-shadow-[0_15px_30px_rgba(15,23,42,0.18)]"
             style={{
               maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
