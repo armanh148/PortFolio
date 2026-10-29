@@ -129,6 +129,7 @@ export default function AboutSectionRef({ site }: { site: SiteData }) {
                   src={site.heroImage || "/hero-img.png"}
                   alt={site.name}
                   fill
+                  sizes="48px"
                   className="object-cover"
                 />
               </div>

@@ -88,6 +88,7 @@ export default function ProjectsFilter() {
 
   useEffect(() => {
     async function fetchProjects() {
+      if (!process.env.NEXT_PUBLIC_API_URL) return;
       try {
         const res = await fetch(`${API_BASE_URL}/projects/`);
         if (res.ok) {

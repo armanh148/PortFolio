@@ -36,13 +36,14 @@ export default function CustomCursor() {
         target.tagName === "TEXTAREA" ||
         target.tagName === "SELECT" ||
         target.onclick !== null ||
+        target.getAttribute("role") === "button" ||
         target.closest("a") !== null ||
         target.closest("button") !== null ||
         target.closest("input") !== null ||
         target.closest("textarea") !== null ||
         target.closest("select") !== null ||
-        target.closest(".cursor-pointer") !== null ||
-        target.closest(".group") !== null;
+        target.closest('[role="button"]') !== null ||
+        target.closest(".cursor-pointer") !== null;
 
       setIsHovered(!!isClickable);
     };
