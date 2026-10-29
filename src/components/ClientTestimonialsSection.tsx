@@ -97,9 +97,9 @@ export default function ClientTestimonialsSection() {
   };
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 bg-[#f8fafc] text-[#0f172a] border-b border-slate-200 overflow-hidden select-none">
+    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-6 md:px-12 bg-[#09090b] text-white border-b border-white/10 overflow-hidden select-none">
       {/* ── Soft Background Vector Curve Lines ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-15">
+      <div className="absolute inset-0 pointer-events-none opacity-20">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none">
           <path d="M-100 200 C 400 50, 800 400, 1540 100" stroke="url(#line-grad-1)" strokeWidth="1.5" />
           <path d="M-100 350 C 500 150, 900 550, 1540 250" stroke="url(#line-grad-2)" strokeWidth="1.5" />
@@ -107,13 +107,13 @@ export default function ClientTestimonialsSection() {
           <defs>
             <linearGradient id="line-grad-1" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#dc2626" stopOpacity="0" />
-              <stop offset="50%" stopColor="#dc2626" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#dc2626" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.4" />
             </linearGradient>
             <linearGradient id="line-grad-2" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#1e3a8a" stopOpacity="0" />
-              <stop offset="50%" stopColor="#1e3a8a" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#dc2626" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#1e3a8a" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#dc2626" stopOpacity="0.4" />
             </linearGradient>
           </defs>
         </svg>
@@ -124,16 +124,16 @@ export default function ClientTestimonialsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
                 Client Testimonials
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] leading-tight">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight">
                 What <span className="text-[#dc2626]">Our Clients</span> Say
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-slate-600 font-light text-xs sm:text-sm md:text-base mt-2 max-w-md">
+              <p className="text-zinc-400 font-light text-xs sm:text-sm md:text-base mt-2 max-w-md">
                 Direct feedback from founders, agency partners, and technical leaders worldwide.
               </p>
             </Reveal>
@@ -143,11 +143,11 @@ export default function ClientTestimonialsSection() {
           <Reveal delay={0.15}>
             <div className="flex items-center gap-3 sm:gap-4 self-start sm:self-end pt-2 sm:pt-0">
               {/* 5.0 Rating Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-slate-200 bg-white shadow-2xs">
-                <div className="flex gap-1 text-amber-500 text-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/10 bg-white/5 shadow-2xs">
+                <div className="flex gap-1 text-amber-400 text-xs">
                   {"★★★★★"}
                 </div>
-                <span className="text-xs font-mono text-slate-700 font-semibold">5.0 Rating</span>
+                <span className="text-xs font-mono text-zinc-300 font-semibold">5.0 Rating</span>
               </div>
 
               {/* Slider Arrow Buttons */}
@@ -158,7 +158,7 @@ export default function ClientTestimonialsSection() {
                   aria-label="Previous testimonial"
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.92 }}
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-slate-200 bg-white hover:bg-slate-100 text-slate-800 flex items-center justify-center transition-all shadow-sm cursor-pointer"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all shadow-sm cursor-pointer"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </motion.button>
@@ -200,17 +200,17 @@ export default function ClientTestimonialsSection() {
                 key={rev.author}
                 className="w-full md:w-1/2 shrink-0 px-2 sm:px-3"
               >
-                <div className="h-full min-h-[290px] sm:min-h-[310px] bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-[#dc2626]/50 shadow-sm hover:shadow-xl flex flex-col justify-between relative group transition-all duration-300 overflow-hidden">
+                <div className="h-full min-h-[290px] sm:min-h-[310px] bg-[#0e0f15] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-[#dc2626]/50 shadow-xl flex flex-col justify-between relative group transition-all duration-300 overflow-hidden">
                   {/* Top glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
 
                   <div>
                     {/* Top Quote & Stars Row */}
                     <div className="flex items-start justify-between mb-4 sm:mb-5">
-                      <span className="text-4xl sm:text-5xl font-serif text-[#dc2626]/80 leading-none select-none">
+                      <span className="text-4xl sm:text-5xl font-serif text-[#dc2626] leading-none select-none">
                         “
                       </span>
-                      <div className="flex gap-1 text-amber-500 text-xs sm:text-sm">
+                      <div className="flex gap-1 text-amber-400 text-xs sm:text-sm">
                         {"★".repeat(rev.stars).split("").map((star, i) => (
                           <span key={i}>{star}</span>
                         ))}
@@ -218,23 +218,23 @@ export default function ClientTestimonialsSection() {
                     </div>
 
                     {/* Review Text */}
-                    <p className="text-xs sm:text-sm md:text-base font-light text-slate-700 leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm md:text-base font-light text-zinc-300 leading-relaxed mb-6">
                       &ldquo;{rev.quote}&rdquo;
                     </p>
                   </div>
 
                   {/* Author Info Footer */}
-                  <div className="flex items-center gap-3.5 sm:gap-4 pt-5 border-t border-slate-100">
+                  <div className="flex items-center gap-3.5 sm:gap-4 pt-5 border-t border-white/10">
                     <img
                       src={rev.avatar}
                       alt={rev.author}
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-slate-200 shadow-sm group-hover:border-[#dc2626] transition-colors"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white/15 shadow-sm group-hover:border-[#dc2626] transition-colors"
                     />
                     <div>
-                      <h4 className="text-xs sm:text-sm md:text-base font-bold text-[#0f172a] leading-tight group-hover:text-[#dc2626] transition-colors">
+                      <h4 className="text-xs sm:text-sm md:text-base font-bold text-white leading-tight group-hover:text-[#dc2626] transition-colors">
                         {rev.author}
                       </h4>
-                      <p className="text-[11px] sm:text-xs font-light text-slate-500 mt-0.5">
+                      <p className="text-[11px] sm:text-xs font-light text-zinc-400 mt-0.5">
                         {rev.role}
                       </p>
                     </div>
@@ -248,8 +248,8 @@ export default function ClientTestimonialsSection() {
         {/* ── Bottom Slider Pagination Dots & Counter ── */}
         <div className="flex items-center justify-between mt-6 sm:mt-10 px-2">
           {/* Slide Counter */}
-          <span className="text-xs font-mono font-bold text-slate-600">
-            0{currentIndex + 1} <span className="text-slate-400">/</span> 0{totalSlides}
+          <span className="text-xs font-mono font-bold text-zinc-400">
+            0{currentIndex + 1} <span className="text-zinc-600">/</span> 0{totalSlides}
           </span>
 
           {/* Dots Indicator */}
@@ -263,17 +263,17 @@ export default function ClientTestimonialsSection() {
                 className={`transition-all duration-300 rounded-full cursor-pointer ${
                   currentIndex === i
                     ? "w-7 sm:w-8 h-2 bg-[#dc2626] shadow-md shadow-red-500/40"
-                    : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                    : "w-2 h-2 bg-white/20 hover:bg-white/40"
                 }`}
               />
             ))}
           </div>
 
           {/* Subtle Swipe Cue for Mobile */}
-          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest sm:hidden">
+          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest sm:hidden">
             Swipe ↔
           </span>
-          <span className="hidden sm:inline-block text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+          <span className="hidden sm:inline-block text-[11px] font-mono text-zinc-400 uppercase tracking-wider">
             {isPaused ? "Paused" : "Auto-playing"}
           </span>
         </div>

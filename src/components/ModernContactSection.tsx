@@ -59,23 +59,23 @@ function CustomSelect({
 
   return (
     <div className="relative" ref={ref}>
-      <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
+      <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
         {label}
       </label>
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className={`w-full bg-white border rounded-xl px-4 py-3 sm:py-3.5 text-left text-base sm:text-sm text-[#0f172a] outline-none transition-all flex items-center justify-between cursor-pointer shadow-2xs ${
-          open ? "border-[#dc2626] ring-2 ring-red-500/10" : "border-slate-300 hover:border-slate-400"
+        className={`w-full bg-[#13141c] border rounded-xl px-4 py-3 sm:py-3.5 text-left text-base sm:text-sm text-white outline-none transition-all flex items-center justify-between cursor-pointer ${
+          open ? "border-[#dc2626] ring-2 ring-red-500/20" : "border-white/10 hover:border-white/20"
         }`}
       >
-        <span className={!selectedOption ? "text-slate-400" : "text-[#0f172a] font-medium"}>
+        <span className={!selectedOption ? "text-zinc-500" : "text-white font-medium"}>
           {displayText}
         </span>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-slate-400 text-xs shrink-0 ml-2"
+          className="text-zinc-400 text-xs shrink-0 ml-2"
         >
           ▼
         </motion.span>
@@ -88,7 +88,7 @@ function CustomSelect({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-xl shadow-slate-300/40 z-50 overflow-hidden max-h-60 overflow-y-auto py-1"
+            className="absolute left-0 right-0 top-full mt-1.5 bg-[#13141c] border border-white/15 rounded-xl shadow-2xl z-50 overflow-hidden max-h-60 overflow-y-auto py-1"
           >
             {options.map((opt) => {
               const isSelected = opt.value === value;
@@ -102,8 +102,8 @@ function CustomSelect({
                   }}
                   className={`w-full text-left px-4 py-2.5 text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-red-50 text-[#dc2626] font-bold"
-                      : "text-slate-700 hover:bg-slate-50 hover:text-[#0f172a]"
+                      ? "bg-red-950/60 text-[#dc2626] font-bold"
+                      : "text-zinc-300 hover:bg-white/5 hover:text-white"
                   }`}
                 >
                   <span>{opt.label}</span>
@@ -160,12 +160,12 @@ export default function ModernContactSection({
   };
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-28 px-4 sm:px-6 md:px-12 bg-white text-[#0f172a] overflow-hidden border-t border-slate-200">
+    <section className="relative py-16 sm:py-24 md:py-28 px-4 sm:px-6 md:px-12 bg-[#09090b] text-white overflow-hidden border-t border-white/10">
       {/* Dynamic Background Glow with Float Motion */}
       <motion.div
         animate={{
           scale: [1, 1.15, 1],
-          opacity: [0.06, 0.12, 0.06],
+          opacity: [0.08, 0.16, 0.08],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-0 left-1/4 w-[800px] h-[500px] bg-red-500 blur-[140px] rounded-full pointer-events-none"
@@ -173,7 +173,7 @@ export default function ModernContactSection({
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.05, 0.1, 0.05],
+          opacity: [0.06, 0.12, 0.06],
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute bottom-0 right-1/4 w-[600px] h-[400px] bg-blue-600 blur-[120px] rounded-full pointer-events-none"
@@ -185,15 +185,15 @@ export default function ModernContactSection({
           {/* Left Column: Heading & Description */}
           <div className="lg:col-span-6 pt-2 sm:pt-6">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-xs font-semibold uppercase tracking-widest text-[#dc2626] mb-5 sm:mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs font-semibold uppercase tracking-widest text-[#dc2626] mb-5 sm:mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
                 Let&rsquo;s Connect
               </div>
-              <h2 className="text-3xl sm:text-5xl lg:text-[64px] font-black uppercase tracking-tight leading-[1.05] mb-5 sm:mb-8 text-transparent bg-clip-text bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-slate-500">
+              <h2 className="text-3xl sm:text-5xl lg:text-[64px] font-black uppercase tracking-tight leading-[1.05] mb-5 sm:mb-8 text-white">
                 Let&rsquo;s build high-performance web experiences
               </h2>
-              <p className="text-slate-600 font-normal text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xl">
-                Reach out to discuss new projects, custom Next.js builds, WordPress theme craft, or component design systems. I personalize experiences and deliver quality at every touchpoint.
+              <p className="text-zinc-400 font-normal text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xl">
+                Reach out to discuss new projects, custom Next.js builds, full-stack web applications, or scalable UI architectures. I personalize experiences and deliver quality at every touchpoint.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -205,9 +205,9 @@ export default function ModernContactSection({
                     Explore Works ↗
                   </Link>
                 </motion.div>
-                <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-semibold text-emerald-800 uppercase tracking-widest">
+                  <span className="text-xs font-semibold text-emerald-400 uppercase tracking-widest">
                     Available for work
                   </span>
                 </div>
@@ -215,10 +215,10 @@ export default function ModernContactSection({
             </Reveal>
           </div>
 
-          {/* Right Column: Clean Form Card */}
+          {/* Right Column: Dark Glass Form Card */}
           <div className="lg:col-span-6">
             <Reveal delay={0.15}>
-              <div className="bg-[#f8fafc] p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50 relative overflow-hidden">
+              <div className="bg-[#0e0f15] p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#dc2626]/40 to-transparent" />
 
                 {sent ? (
@@ -231,10 +231,10 @@ export default function ModernContactSection({
                     >
                       ✓
                     </motion.div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#0f172a] mb-2 sm:mb-3">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
                       Message Ready!
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 max-w-xs mx-auto mb-6 sm:mb-8 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-zinc-400 max-w-xs mx-auto mb-6 sm:mb-8 leading-relaxed">
                       Thank you for reaching out. Your default email client has been opened to finalize the message.
                     </p>
                     <button
@@ -250,7 +250,7 @@ export default function ModernContactSection({
                     {/* Row 1: First Name & Last Name */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
+                        <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
                           First Name
                         </label>
                         <input
@@ -259,11 +259,11 @@ export default function ModernContactSection({
                           value={form.firstName}
                           onChange={update("firstName")}
                           placeholder="James"
-                          className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-[#0f172a] placeholder:text-slate-400 outline-none focus:border-[#dc2626] hover:border-slate-400 transition-all shadow-2xs"
+                          className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all shadow-2xs"
                         />
                       </div>
                       <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
+                        <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
                           Last Name
                         </label>
                         <input
@@ -272,7 +272,7 @@ export default function ModernContactSection({
                           value={form.lastName}
                           onChange={update("lastName")}
                           placeholder="Smith"
-                          className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-[#0f172a] placeholder:text-slate-400 outline-none focus:border-[#dc2626] hover:border-slate-400 transition-all shadow-2xs"
+                          className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all shadow-2xs"
                         />
                       </div>
                     </div>
@@ -280,7 +280,7 @@ export default function ModernContactSection({
                     {/* Row 2: Email & Country */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
+                        <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
                           Email
                         </label>
                         <input
@@ -289,7 +289,7 @@ export default function ModernContactSection({
                           value={form.email}
                           onChange={update("email")}
                           placeholder="james@company.com"
-                          className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-[#0f172a] placeholder:text-slate-400 outline-none focus:border-[#dc2626] hover:border-slate-400 transition-all shadow-2xs"
+                          className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all shadow-2xs"
                         />
                       </div>
                       <div>
@@ -315,7 +315,7 @@ export default function ModernContactSection({
 
                     {/* Row 4: Message */}
                     <div>
-                      <label className="text-[11px] uppercase tracking-widest font-semibold text-slate-700 block mb-1.5 ml-1">
+                      <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
                         Message
                       </label>
                       <textarea
@@ -324,7 +324,7 @@ export default function ModernContactSection({
                         value={form.message}
                         onChange={update("message")}
                         placeholder="Tell me about your project..."
-                        className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-[#0f172a] placeholder:text-slate-400 outline-none focus:border-[#dc2626] hover:border-slate-400 transition-all resize-none shadow-2xs"
+                        className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all resize-none shadow-2xs"
                       />
                     </div>
 
@@ -347,28 +347,28 @@ export default function ModernContactSection({
         </div>
 
         {/* Middle Banner: Testimonials Row with Hover Lift */}
-        <div className="py-8 sm:py-12 border-y border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-12 sm:mb-16">
+        <div className="py-8 sm:py-12 border-y border-white/10 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-12 sm:mb-16">
           <Reveal delay={0.1}>
             <motion.div
-              whileHover={{ y: -6, backgroundColor: "#ffffff" }}
-              className="bg-[#f8fafc] border border-slate-200 p-5 sm:p-8 rounded-2xl flex items-start gap-4 sm:gap-5 transition-all shadow-sm hover:shadow-md cursor-pointer"
+              whileHover={{ y: -6, backgroundColor: "#13141c" }}
+              className="bg-[#0e0f15] border border-white/10 p-5 sm:p-8 rounded-2xl flex items-start gap-4 sm:gap-5 transition-all shadow-xl cursor-pointer"
             >
               <div className="relative shrink-0">
                 <img
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
                   alt="Client avatar"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-slate-200 shadow-sm"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-white/15 shadow-sm"
                 />
                 <span className="absolute -bottom-1 -right-1 bg-[#dc2626] text-white w-5 h-5 sm:w-6 sm:h-6 rounded-full text-xs flex items-center justify-center font-bold shadow-md">
                   💬
                 </span>
               </div>
               <div>
-                <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed italic mb-3 sm:mb-4">
+                <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed italic mb-3 sm:mb-4">
                   &ldquo;Arman&rsquo;s Next.js and GSAP implementation gave CGPlux Studios a truly cinematic showcase with instant load times and fluid editorial workflows.&rdquo;
                 </p>
                 <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-[#0f172a]">Farhan Siddiqui</span>
+                  <span className="text-xs sm:text-sm font-bold text-white">Farhan Siddiqui</span>
                   <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#dc2626] font-semibold">
                     Creative Producer &middot; CGPlux Studios
                   </span>
@@ -379,25 +379,25 @@ export default function ModernContactSection({
 
           <Reveal delay={0.2}>
             <motion.div
-              whileHover={{ y: -6, backgroundColor: "#ffffff" }}
-              className="bg-[#f8fafc] border border-slate-200 p-5 sm:p-8 rounded-2xl flex items-start gap-4 sm:gap-5 transition-all shadow-sm hover:shadow-md cursor-pointer"
+              whileHover={{ y: -6, backgroundColor: "#13141c" }}
+              className="bg-[#0e0f15] border border-white/10 p-5 sm:p-8 rounded-2xl flex items-start gap-4 sm:gap-5 transition-all shadow-xl cursor-pointer"
             >
               <div className="relative shrink-0">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
                   alt="Client avatar"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-slate-200 shadow-sm"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-white/15 shadow-sm"
                 />
                 <span className="absolute -bottom-1 -right-1 bg-[#dc2626] text-white w-5 h-5 sm:w-6 sm:h-6 rounded-full text-xs flex items-center justify-center font-bold shadow-md">
                   ⚡
                 </span>
               </div>
               <div>
-                <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed italic mb-3 sm:mb-4">
+                <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed italic mb-3 sm:mb-4">
                   &ldquo;The custom full-stack logistics management platform engineered by Arman streamlined our operations tracking with bulletproof backend reliability.&rdquo;
                 </p>
                 <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-[#0f172a]">Kashif Al-Hadi</span>
+                  <span className="text-xs sm:text-sm font-bold text-white">Kashif Al-Hadi</span>
                   <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#dc2626] font-semibold">
                     Managing Director &middot; Al-Hadi Logistics
                   </span>
@@ -418,17 +418,17 @@ export default function ModernContactSection({
             <Reveal key={item.title} delay={0.08 * (idx + 1)}>
               <motion.div
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#f8fafc] border border-slate-200 hover:border-[#dc2626]/40 hover:bg-white transition-all group cursor-pointer flex flex-col justify-between h-full shadow-2xs hover:shadow-md"
+                className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/40 hover:bg-[#13141c] transition-all group cursor-pointer flex flex-col justify-between h-full shadow-xl"
               >
                 <div>
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-50 border border-red-200 text-[#dc2626] flex items-center justify-center text-lg sm:text-xl font-bold mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-950/60 border border-red-500/30 text-[#dc2626] flex items-center justify-center text-lg sm:text-xl font-bold mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
-                  <h4 className="text-xs sm:text-base font-bold text-[#0f172a] mb-1.5 sm:mb-2 group-hover:text-[#dc2626] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
+                  <h4 className="text-xs sm:text-base font-bold text-white mb-1.5 sm:mb-2 group-hover:text-[#dc2626] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
                     {item.title}
                   </h4>
                 </div>
-                <p className="text-[11px] sm:text-sm text-slate-600 font-normal leading-relaxed line-clamp-2 sm:line-clamp-none">
+                <p className="text-[11px] sm:text-sm text-zinc-400 font-normal leading-relaxed line-clamp-2 sm:line-clamp-none">
                   {item.desc}
                 </p>
               </motion.div>

@@ -24,15 +24,15 @@ const FAQ_DATA: FaqCategory[] = [
     faqs: [
       {
         q: "What services do you provide for web development?",
-        a: "I provide end-to-end frontend development using React and Next.js, custom WordPress theme and plugin craft, headless CMS integrations, and responsive UI/UX design systems.",
+        a: "I provide end-to-end full-stack web development using React, Next.js, Node.js, and Django, custom WordPress theme and plugin craft, headless CMS integrations (Sanity), and responsive UI/UX design systems.",
       },
       {
         q: "How long does a typical website project take?",
-        a: "A custom landing page or portfolio design typically takes 1 to 2 weeks. Larger web applications or custom WordPress portals range between 3 and 5 weeks depending on scope.",
+        a: "A custom landing page or portfolio design typically takes 1 to 2 weeks. Larger web applications or custom WordPress/e-commerce portals range between 3 and 5 weeks depending on scope.",
       },
       {
         q: "Do you offer post-launch support and maintenance?",
-        a: "Yes! Every project includes 30 days of post-launch warranty. Monthly retainer plans are also available for continuous feature updates, security patches, and SEO optimization.",
+        a: "Yes! Every project includes 30 days of post-launch warranty. Monthly retainer plans are also available for continuous feature updates, security patches, and performance optimization.",
       },
       {
         q: "Can you turn my Figma designs into production code?",
@@ -102,12 +102,12 @@ export default function ModernFaqSection() {
     FAQ_DATA.find((cat) => cat.id === activeCategory) || FAQ_DATA[0];
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-8 md:px-12 bg-white overflow-hidden text-[#0f172a] border-b border-slate-200">
+    <section className="relative py-16 sm:py-24 md:py-36 px-4 sm:px-8 md:px-12 bg-[#09090b] overflow-hidden text-white border-b border-white/10">
       {/* ── Soft Decorative Glow Particles with Breathing Motion ── */}
       <motion.div
         animate={{ y: [0, -15, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-12 left-10 w-5 h-5 rounded-full bg-red-400/20 blur-md pointer-events-none"
+        className="absolute top-12 left-10 w-5 h-5 rounded-full bg-red-500/20 blur-md pointer-events-none"
       />
       <motion.div
         animate={{ y: [0, 20, 0], scale: [1, 1.3, 1] }}
@@ -117,23 +117,23 @@ export default function ModernFaqSection() {
       <motion.div
         animate={{ y: [0, -20, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-20 right-12 w-6 h-6 rounded-full bg-red-400/20 blur-md pointer-events-none"
+        className="absolute bottom-20 right-12 w-6 h-6 rounded-full bg-red-500/20 blur-md pointer-events-none"
       />
 
       <div className="max-w-[1500px] mx-auto relative z-10">
         {/* ── Section Header ── */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
           <Reveal>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-200 bg-red-50 text-[11px] sm:text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-[11px] sm:text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
               Frequently Asked Questions
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#0f172a] leading-tight mb-3">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
               Got <span className="text-[#dc2626]">Questions?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-xs sm:text-sm md:text-base font-light text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed max-w-2xl mx-auto">
               Clear answers about working together, workflow process, delivery timelines, and post-launch maintenance.
             </p>
           </Reveal>
@@ -158,7 +158,7 @@ export default function ModernFaqSection() {
                   className={`text-left p-3 sm:px-5 sm:py-3.5 lg:px-6 lg:py-4 rounded-xl lg:rounded-2xl flex items-center justify-between transition-all duration-300 font-medium text-xs sm:text-sm lg:text-base cursor-pointer ${
                     isActive
                       ? "bg-[#dc2626] text-white shadow-lg shadow-red-600/30 font-semibold border border-red-500"
-                      : "bg-[#f8fafc] text-slate-700 hover:bg-slate-100 hover:text-[#0f172a] border border-slate-200"
+                      : "bg-[#0e0f15] text-zinc-300 hover:bg-[#13141c] hover:text-white border border-white/10"
                   }`}
                 >
                   <div className="flex items-center gap-2 truncate">
@@ -170,7 +170,7 @@ export default function ModernFaqSection() {
                   </div>
                   <span
                     className={`hidden lg:inline-block text-base transition-transform duration-300 shrink-0 ${
-                      isActive ? "text-white translate-x-1" : "text-slate-400"
+                      isActive ? "text-white translate-x-1" : "text-zinc-400"
                     }`}
                   >
                     ›
@@ -199,8 +199,8 @@ export default function ModernFaqSection() {
                       key={faq.q}
                       className={`rounded-xl sm:rounded-2xl transition-all duration-300 border cursor-pointer ${
                         isOpen
-                          ? "bg-[#f8fafc] shadow-lg border-[#dc2626]/50 p-4 sm:p-6 md:p-8"
-                          : "bg-white hover:bg-[#f8fafc] border-slate-200 p-4 sm:p-5 md:p-6 hover:border-slate-300 shadow-2xs"
+                          ? "bg-[#0e0f15] shadow-xl border-[#dc2626]/50 p-4 sm:p-6 md:p-8"
+                          : "bg-[#0e0f15]/80 hover:bg-[#0e0f15] border-white/10 p-4 sm:p-5 md:p-6 hover:border-white/20 shadow-2xs"
                       }`}
                     >
                       <button
@@ -211,8 +211,8 @@ export default function ModernFaqSection() {
                         <h3
                           className={`text-sm sm:text-base md:text-lg font-semibold tracking-tight leading-snug transition-colors ${
                             isOpen
-                              ? "text-[#0f172a]"
-                              : "text-slate-800 group-hover:text-[#dc2626]"
+                              ? "text-white"
+                              : "text-zinc-200 group-hover:text-[#dc2626]"
                           }`}
                         >
                           {faq.q}
@@ -223,7 +223,7 @@ export default function ModernFaqSection() {
                           className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                             isOpen
                               ? "bg-[#dc2626] text-white shadow-md shadow-red-500/40"
-                              : "bg-slate-100 text-slate-600 group-hover:bg-slate-200 group-hover:text-[#0f172a]"
+                              : "bg-white/5 text-zinc-300 group-hover:bg-white/10 group-hover:text-white border border-white/10"
                           }`}
                         >
                           <motion.span
@@ -246,7 +246,7 @@ export default function ModernFaqSection() {
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <p className="pt-3 sm:pt-4 text-xs sm:text-sm font-light text-slate-600 leading-relaxed max-w-3xl border-t border-slate-200 mt-3 sm:mt-4">
+                            <p className="pt-3 sm:pt-4 text-xs sm:text-sm font-light text-zinc-400 leading-relaxed max-w-3xl border-t border-white/10 mt-3 sm:mt-4">
                               {faq.a}
                             </p>
                           </motion.div>
