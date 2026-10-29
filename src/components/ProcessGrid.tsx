@@ -131,36 +131,3 @@ export default function ProcessGrid() {
     </section>
   );
 }
-                  <span className="text-[10px] sm:text-xs font-mono font-bold text-[#2f66f6] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#2f66f6]/10 border border-[#2f66f6]/20">
-                    {step.num} / {step.tag}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-white uppercase mb-2 sm:mb-3 group-hover:text-[#2f66f6] transition-colors leading-snug">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed mb-4 sm:mb-6">
-                  {step.description}
-                </p>
-
-                {/* Corner rotating star */}
-                <div className="absolute right-4 bottom-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#2f66f6]">
-                  <motion.span
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                    className="inline-block text-lg"
-                  >
-                    ✳
-                  </motion.span>
-                </div>
-              </Reveal>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}

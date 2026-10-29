@@ -561,5 +561,4 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
     </div>
   );
 }
-}
 

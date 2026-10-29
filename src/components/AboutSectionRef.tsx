@@ -243,9 +243,5 @@ export default function AboutSectionRef({ site }: { site: SiteData }) {
         </div>
       </div>
     </section>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }

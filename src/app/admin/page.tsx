@@ -57,7 +57,7 @@ export default function AdminDashboard() {
               <Briefcase className="w-6 h-6" />
             </div>
           </div>
-          <Link href="/admin/projects" className="text-sm text-[#2f66f6] hover:underline font-medium">
+          <Link href="/admin/projects" className="text-sm text-[#dc2626] hover:underline font-medium">
             Manage Projects →
           </Link>
         </div>
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
               <Box className="w-6 h-6" />
             </div>
           </div>
-          <Link href="/admin/services" className="text-sm text-[#2f66f6] hover:underline font-medium">
+          <Link href="/admin/services" className="text-sm text-[#dc2626] hover:underline font-medium">
             Manage Services →
           </Link>
         </div>
