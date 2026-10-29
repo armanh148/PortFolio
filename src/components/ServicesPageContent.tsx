@@ -16,7 +16,7 @@ function FrontendIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
       <polyline points="16 18 22 12 16 6" />
       <polyline points="8 6 2 12 8 18" />
-      <line x1="14" y1="4" x2="10" y2="20" stroke="#60a5fa" />
+      <line x1="14" y1="4" x2="10" y2="20" stroke="#dc2626" />
     </svg>
   );
 }
@@ -27,8 +27,8 @@ function WordpressIcon() {
       <rect x="2" y="3" width="20" height="14" rx="2" />
       <line x1="8" y1="21" x2="16" y2="21" />
       <line x1="12" y1="17" x2="12" y2="21" />
-      <circle cx="8" cy="10" r="1.5" fill="#60a5fa" />
-      <circle cx="16" cy="10" r="1.5" fill="#60a5fa" />
+      <circle cx="8" cy="10" r="1.5" fill="#dc2626" />
+      <circle cx="16" cy="10" r="1.5" fill="#dc2626" />
     </svg>
   );
 }
@@ -38,7 +38,7 @@ function DesignIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
       <path d="M12 2L2 7l10 5 10-5-10-5z" />
       <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" stroke="#60a5fa" />
+      <path d="M2 12l10 5 10-5" stroke="#dc2626" />
     </svg>
   );
 }
@@ -56,8 +56,8 @@ function MotionIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
       <path d="M12 3v18" />
       <path d="M3 12h18" />
-      <circle cx="12" cy="12" r="7" stroke="#60a5fa" />
-      <circle cx="12" cy="12" r="3" fill="#2f66f6" />
+      <circle cx="12" cy="12" r="7" stroke="#1e3a8a" />
+      <circle cx="12" cy="12" r="3" fill="#dc2626" />
     </svg>
   );
 }
@@ -66,8 +66,8 @@ function StrategyIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
       <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" stroke="#60a5fa" />
-      <circle cx="12" cy="12" r="2" fill="#2f66f6" />
+      <circle cx="12" cy="12" r="6" stroke="#1e3a8a" />
+      <circle cx="12" cy="12" r="2" fill="#dc2626" />
     </svg>
   );
 }
@@ -210,7 +210,7 @@ const ENGAGEMENT_MODELS = [
     tag: "FIXED SCOPE",
     title: "Project-Based Sprint",
     badge: "MOST POPULAR",
-    badgeColor: "text-[#2f66f6] border-[#2f66f6]/30 bg-[#2f66f6]/10",
+    badgeColor: "text-[#dc2626] border-red-200 bg-red-50",
     desc: "Fixed timeline and milestones for new website builds, redesigns, or specific feature launches.",
     features: [
       "Clearly defined scope & milestones",
@@ -226,7 +226,7 @@ const ENGAGEMENT_MODELS = [
     tag: "MONTHLY BANDWIDTH",
     title: "Dedicated Retainer",
     badge: "HIGH DEMAND",
-    badgeColor: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+    badgeColor: "text-emerald-700 border-emerald-200 bg-emerald-50",
     desc: "Reliable weekly frontend & WordPress development horsepower for growing startups and creative agencies.",
     features: [
       "Guaranteed weekly development hours",
@@ -242,7 +242,7 @@ const ENGAGEMENT_MODELS = [
     tag: "RAPID DIAGNOSTIC",
     title: "Speed & Performance Audit",
     badge: "48H SPRINT",
-    badgeColor: "text-amber-400 border-amber-500/30 bg-amber-500/10",
+    badgeColor: "text-amber-700 border-amber-200 bg-amber-50",
     desc: "Rapid diagnostic sprint to identify bottlenecks, boost Lighthouse scores, and recover organic SEO ranking.",
     features: [
       "Complete Core Web Vitals diagnostic breakdown",
