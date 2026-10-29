@@ -19,19 +19,19 @@ export default function BrandTicker() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="relative py-10 sm:py-16 bg-[#fafafa] text-[#0f172a] border-b border-slate-200 overflow-hidden select-none">
+    <section className="relative py-10 sm:py-16 bg-[#0c0d12] text-white border-b border-white/10 overflow-hidden select-none">
       {/* Corner crosshairs */}
-      <span className="cross-mark text-slate-400" style={{ left: "20px", top: "20px" }}>+</span>
-      <span className="cross-mark text-slate-400" style={{ right: "20px", top: "20px" }}>+</span>
-      <span className="cross-mark text-slate-400" style={{ left: "20px", bottom: "20px" }}>+</span>
-      <span className="cross-mark text-slate-400" style={{ right: "20px", bottom: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ left: "20px", top: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ right: "20px", top: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ left: "20px", bottom: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ right: "20px", bottom: "20px" }}>+</span>
 
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-12 text-center mb-6 sm:mb-8">
         <Reveal>
           <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#dc2626] block mb-1.5 sm:mb-2">
             Brand Collaborations
           </span>
-          <h2 className="text-base sm:text-xl md:text-2xl font-bold tracking-tight text-[#0f172a] uppercase">
+          <h2 className="text-base sm:text-xl md:text-2xl font-bold tracking-tight text-white uppercase">
             Trusted by brands &amp; agencies across the globe
           </h2>
         </Reveal>
@@ -43,10 +43,10 @@ export default function BrandTicker() {
         onMouseLeave={() => setIsPaused(false)}
       >
         {/* Soft edge shadow overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#fafafa] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#fafafa] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#0c0d12] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#0c0d12] to-transparent z-10 pointer-events-none" />
 
-        <div className="flex whitespace-nowrap overflow-hidden py-4 sm:py-5 border-y border-slate-200">
+        <div className="flex whitespace-nowrap overflow-hidden py-4 sm:py-5 border-y border-white/10">
           <motion.div
             animate={{ x: isPaused ? undefined : ["0%", "-50%"] }}
             transition={{
@@ -60,7 +60,7 @@ export default function BrandTicker() {
             {[...BRANDS, ...BRANDS].map((brand, i) => (
               <span
                 key={i}
-                className="text-sm sm:text-lg md:text-2xl font-black uppercase tracking-widest text-slate-400 hover:text-[#1e3a8a] hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(30,58,138,0.3)] transition-all duration-300 cursor-pointer select-none"
+                className="text-sm sm:text-lg md:text-2xl font-black uppercase tracking-widest text-zinc-500 hover:text-white hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(220,38,38,0.5)] transition-all duration-300 cursor-pointer select-none"
               >
                 {brand}
               </span>
