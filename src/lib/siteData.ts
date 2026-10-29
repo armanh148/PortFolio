@@ -19,6 +19,7 @@ export interface Social {
 export interface SiteData {
   name: string;
   role: string;
+  company?: string;
   email: string;
   location: string;
   heroImage: string;
@@ -27,7 +28,8 @@ export interface SiteData {
 
 export const siteData: SiteData = {
   name: "Arman Naqvi",
-  role: "Frontend & WordPress Developer",
+  role: "Full-Stack Web Developer & Frontend Specialist",
+  company: "Techmire Solutions",
   email: "armannaqvi.tms@gmail.com",
   location: "Lahore, Pakistan",
   heroImage: "/hero-img.png",
