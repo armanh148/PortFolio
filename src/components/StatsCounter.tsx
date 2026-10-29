@@ -6,24 +6,24 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 
 const STATS = [
   {
-    value: "37+",
-    label: "Projects Completed",
-    description: "Production-ready next-gen web applications shipped.",
-  },
-  {
-    value: "70+",
-    label: "Happy Clients",
-    description: "WordPress partners and creative agencies worldwide.",
-  },
-  {
-    value: "8+",
-    label: "Years of Craft",
-    description: "Specialized in frontend engineering, layout design and styling.",
+    value: "3+",
+    label: "Real-Time Projects",
+    description: "Full-stack platforms and creative web applications deployed.",
   },
   {
     value: "100%",
-    label: "Satisfaction Rate",
-    description: "Delivering quality products on time with meticulous care.",
+    label: "Client Satisfaction",
+    description: "Delivering quality products with meticulous care and precision.",
+  },
+  {
+    value: "1+",
+    label: "Year of Experience",
+    description: "Professional full-stack engineering at Techmire Solutions.",
+  },
+  {
+    value: "95+",
+    label: "Lighthouse Score",
+    description: "High-performance Core Web Vitals and sub-second load times.",
   },
 ];
 

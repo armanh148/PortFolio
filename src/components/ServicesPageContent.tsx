@@ -361,16 +361,16 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
           <Reveal delay={0.15}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-slate-200">
               <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-[#0f172a] block">37+</span>
-                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Shipped Projects</span>
+                <span className="text-2xl sm:text-4xl font-mono font-black text-[#0f172a] block">3+</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Real Projects</span>
               </div>
               <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
                 <span className="text-2xl sm:text-4xl font-mono font-black text-[#dc2626] block">100%</span>
                 <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Client Satisfaction</span>
               </div>
               <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-[#0f172a] block">8+</span>
-                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Years of Craft</span>
+                <span className="text-2xl sm:text-4xl font-mono font-black text-[#0f172a] block">1+</span>
+                <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">Year of Craft</span>
               </div>
               <div className="p-4 sm:p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 shadow-2xs">
                 <span className="text-2xl sm:text-4xl font-mono font-black text-emerald-600 block">&lt; 1s</span>

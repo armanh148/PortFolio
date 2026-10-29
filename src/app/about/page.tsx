@@ -4,7 +4,7 @@ import AboutPageContent from "@/components/AboutPageContent";
 
 export const metadata: Metadata = {
   title: `About — ${siteData.name}`,
-  description: `Frontend Engineer & WordPress Architect with 8+ years of expertise crafting high-performance, purposeful digital experiences.`,
+  description: `Full-Stack Web Developer & Frontend Specialist at Techmire Solutions (Karachi, Pakistan) specializing in modern web applications, scalable backends, and responsive UI.`,
 };
 
 export default function AboutPage() {

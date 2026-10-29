@@ -96,39 +96,40 @@ const TIMELINE_EXPERIENCES = [
     status: "Active Role",
     desc: "Architecting scalable full-stack web applications, custom e-commerce storefronts, and high-performance interactive interfaces using React, Next.js, Django, and Node.js.",
     achievements: [
-      "Engineered full-stack platforms including CGPlux Studios, Tawakkal & Echo Pride, and Al-Hadi Logistics",
-      "Architected custom high-conversion Shopify Liquid & WooCommerce storefronts for Kynetic Wear & Ecotexinc",
-      "Pioneered clean component design systems and sub-second Core Web Vitals optimization across all client deployments",
+      "Developing and deploying full-stack web applications, custom e-commerce storefronts, and client-specific solutions",
+      "Architecting frontend interfaces using React, Next.js, and Tailwind CSS with responsive, high-contrast UI designs",
+      "Managing backend integrations, database workflows, and server deployments using Node.js, Express.js, Django, and PHP",
+      "Delivering custom WordPress plugins, WooCommerce setups, and Sanity CMS integrations for seamless content management",
     ],
-    technologies: ["React", "Next.js", "Node.js", "Django", "Tailwind CSS", "Shopify Liquid", "PostgreSQL"],
+    technologies: ["React", "Next.js", "Node.js", "Express", "Django", "Tailwind CSS", "PostgreSQL"],
   },
   {
-    period: "2021 — 2023",
-    role: "Lead Frontend Developer",
-    company: "Digital Production Agency",
-    location: "Lahore, Pakistan",
+    period: "2023 — 2024",
+    role: "Full-Stack & Frontend Lead (Featured Deployments)",
+    company: "Flagship Real-Time Client Projects",
+    location: "CGPlux • Tawakkal & Echo Pride • Al-Hadi Logistics",
     status: "Delivered",
-    desc: "Led frontend development across high-traffic client websites, oversaw Figma-to-code translations, and spearheaded Core Web Vitals performance tuning across the agency catalog.",
+    desc: "End-to-end development and production deployment of 3 flagship real-time platforms across creative showcase, enterprise corporate, and fleet logistics systems.",
     achievements: [
-      "Maintained 95+ average Google Lighthouse scores across all shipped client sites",
-      "Implemented unified multi-brand design tokens used across 10+ client surfaces",
-      "Mentored junior developers on React, modern CSS, and clean semantic markup",
+      "CGPlux Studios: Built cinematic showcase web application with fluid GSAP scroll animations and headless Sanity CMS",
+      "Tawakkal & Echo Pride: Developed robust web applications with optimized server deployment workflows and scalable architectures",
+      "Al-Hadi Logistics: Engineered specialized logistics management application with secure operations tracking and backend database services",
     ],
-    technologies: ["React", "WordPress", "JavaScript (ES6+)", "ACF Pro", "Sass", "Core Web Vitals"],
+    technologies: ["Next.js", "GSAP Animations", "Sanity CMS", "Django REST", "Express.js", "Shopify Liquid"],
   },
   {
-    period: "2018 — 2021",
-    role: "WordPress Specialist & Frontend Dev",
-    company: "Web Craft Studio",
-    location: "Lahore, Pakistan",
+    period: "2023 — 2024",
+    role: "Utility & Assessment Tooling Developer",
+    company: "Custom Tooling & Assessment Projects",
+    location: "Karachi, Pakistan • Open Solutions",
     status: "Delivered",
-    desc: "Crafted custom WordPress themes from scratch, implemented bespoke ACF Pro flexible layouts, and engineered responsive web experiences for European and North American clients.",
+    desc: "Engineering custom utility tools, WordPress OOP plugins, and serverless document generators for production workflows.",
     achievements: [
-      "Built over 25+ bespoke WordPress themes with zero heavy third-party builders",
-      "Engineered secure payment gateways and custom WooCommerce checkout funnels",
-      "Established foundational expertise in web standards, accessibility, and speed",
+      "Site Toolkit WordPress Plugin: Engineered modular OOP PHP plugin with custom hooks, security hardening, and admin dashboard tools",
+      "Dynamic Resume Builder: Built live-preview React application with headless Node.js/Puppeteer service for vector A4 PDF export",
+      "E-Commerce Tailoring: Developed custom Shopify storefronts for Kynetic Wear & Ecotexinc with optimized checkout funnels",
     ],
-    technologies: ["WordPress Theme Dev", "PHP", "WooCommerce", "HTML5/CSS3", "jQuery", "Bootstrap"],
+    technologies: ["PHP (OOP)", "Puppeteer", "React", "Node.js", "WordPress Plugin API", "Tailwind CSS"],
   },
 ];
 
@@ -204,15 +205,15 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
             {/* Quick Metrics Badges */}
             <div className="flex items-center gap-3 sm:gap-4 self-start lg:self-end">
               <div className="px-4 py-2.5 rounded-2xl bg-[#f8fafc] border border-slate-200 flex items-center gap-3 shadow-sm">
-                <span className="text-2xl sm:text-3xl font-mono font-black text-[#dc2626]">8+</span>
+                <span className="text-2xl sm:text-3xl font-mono font-black text-[#dc2626]">1+</span>
                 <span className="text-[11px] font-mono uppercase text-slate-500 font-bold leading-tight">
-                  Years of<br />Experience
+                  Year of<br />Experience
                 </span>
               </div>
               <div className="px-4 py-2.5 rounded-2xl bg-[#f8fafc] border border-slate-200 flex items-center gap-3 shadow-sm">
-                <span className="text-2xl sm:text-3xl font-mono font-black text-[#0f172a]">37+</span>
+                <span className="text-2xl sm:text-3xl font-mono font-black text-[#0f172a]">3+</span>
                 <span className="text-[11px] font-mono uppercase text-slate-500 font-bold leading-tight">
-                  Projects<br />Shipped
+                  Real Projects<br />Shipped
                 </span>
               </div>
             </div>
@@ -305,10 +306,10 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                 <Reveal delay={0.15}>
                   <div className="space-y-4 text-xs sm:text-sm md:text-base text-slate-600 font-light leading-relaxed mb-8">
                     <p>
-                      Hello, I&rsquo;m {firstName}. Over the past 8+ years, I&rsquo;ve honed my craft in frontend engineering, UI/UX implementation, and WordPress architecture. I don&rsquo;t believe in cookie-cutter templates, sluggish page builders, or messy dependencies.
+                      Hello, I&rsquo;m {firstName}. As a passionate Full-Stack Web Developer and Frontend Specialist at Techmire Solutions (Karachi, Pakistan), I specialize in turning complex requirements into clean, high-performance web applications using modern JavaScript frameworks, robust backends, and headless CMS solutions.
                     </p>
                     <p>
-                      I partner directly with founders, seed-stage startups, and top-tier digital agencies to build production-grade web applications with modern React 19, Next.js 16, and clean, bespoke WordPress architectures.
+                      I have a strong eye for minimalist modern aesthetics, dark-mode styling, and optimized user experiences. I write clean, maintainable code across React, Next.js, Node.js, Express, Django, and modern e-commerce architectures.
                     </p>
                     <p>
                       Every millisecond of latency and every pixel of misaligned layout represents friction. My goal is simple: deliver web experiences that load instantly, feel remarkably tactile through fluid motion, and convert visitors into long-term champions.
@@ -436,7 +437,7 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                 Experience &amp; <span className="text-[#dc2626]">Milestones</span>
               </h2>
               <p className="text-xs sm:text-sm md:text-base font-light text-slate-600 leading-relaxed">
-                A chronology of roles, shipped platforms, and architectural contributions across 8+ years.
+                A chronology of real-world roles, shipped platforms, and architectural contributions.
               </p>
             </Reveal>
           </div>

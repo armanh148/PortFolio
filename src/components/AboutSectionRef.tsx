@@ -164,10 +164,10 @@ export default function AboutSectionRef({ site }: { site: SiteData }) {
                 <Reveal delay={0.3}>
                   <div className="group">
                     <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f172a] tracking-tight mb-1 group-hover:text-[#dc2626] transition-colors">
-                      <AnimatedCounter value="8+" />
+                      <AnimatedCounter value="1+" />
                     </div>
                     <p className="text-[11px] sm:text-xs text-slate-500 font-medium uppercase tracking-wider">
-                      Years experience
+                      Year experience
                     </p>
                   </div>
                 </Reveal>
@@ -175,10 +175,10 @@ export default function AboutSectionRef({ site }: { site: SiteData }) {
                 <Reveal delay={0.4}>
                   <div className="group">
                     <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f172a] tracking-tight mb-1 group-hover:text-[#dc2626] transition-colors">
-                      <AnimatedCounter value="37+" />
+                      <AnimatedCounter value="3+" />
                     </div>
                     <p className="text-[11px] sm:text-xs text-slate-500 font-medium uppercase tracking-wider">
-                      Projects shipped
+                      Real projects
                     </p>
                   </div>
                 </Reveal>
@@ -214,7 +214,7 @@ export default function AboutSectionRef({ site }: { site: SiteData }) {
                       <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
                       <text className="text-[8px] font-bold uppercase tracking-widest">
                         <textPath href="#circlePath">
-                          AWARD WINNING DEVELOPER • SINCE 2018 •
+                          FULL-STACK DEVELOPER • TECHMIRE SOLUTIONS •
                         </textPath>
                       </text>
                     </svg>
