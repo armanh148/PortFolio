@@ -92,10 +92,10 @@ export default function ProjectsFilter() {
         );
 
   return (
-    <section className="relative py-12 sm:py-20 md:py-24 bg-white text-[#0f172a] px-4 sm:px-6 md:px-12">
+    <section className="relative py-12 sm:py-20 md:py-24 bg-[#09090b] text-white px-4 sm:px-6 md:px-12">
       {/* Corner crosshairs */}
-      <span className="cross-mark text-slate-300" style={{ left: "20px", top: "20px" }}>+</span>
-      <span className="cross-mark text-slate-300" style={{ right: "20px", top: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ left: "20px", top: "20px" }}>+</span>
+      <span className="cross-mark text-white/20" style={{ right: "20px", top: "20px" }}>+</span>
 
       <div className="max-w-[1500px] mx-auto">
         {/* Header and filters */}
@@ -105,7 +105,7 @@ export default function ProjectsFilter() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#dc2626] block mb-2 sm:mb-3">
                 Portfolio Showcase
               </span>
-              <h2 className="display-section text-[#0f172a] text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight">
+              <h2 className="display-section text-white text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight">
                 Selected Works <br />
                 <span className="text-[#dc2626]">&amp; Case Studies</span>
               </h2>
@@ -126,7 +126,7 @@ export default function ProjectsFilter() {
                   className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                     active
                       ? "bg-[#dc2626] border-[#dc2626] text-white shadow-lg shadow-red-600/30"
-                      : "bg-slate-100 border-slate-200 text-slate-700 hover:border-slate-300 hover:text-[#0f172a]"
+                      : "bg-[#0e0f15] border-white/10 text-zinc-300 hover:border-white/20 hover:text-white"
                   }`}
                 >
                   {cat}
@@ -154,7 +154,7 @@ export default function ProjectsFilter() {
                 className="group flex flex-col cursor-pointer"
               >
                 {/* Image Container with Zoom effect */}
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 mb-4 bg-slate-100 shadow-sm">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 mb-4 bg-[#13141c] shadow-xl">
                   {item.image && (
                     <img
                       src={item.image}
@@ -186,10 +186,10 @@ export default function ProjectsFilter() {
 
                 {/* Metadata */}
                 <div className="flex items-center justify-between mb-1 px-1">
-                  <h3 className="text-lg font-bold text-[#0f172a] uppercase tracking-tight group-hover:text-[#dc2626] transition-colors">
+                  <h3 className="text-lg font-bold text-white uppercase tracking-tight group-hover:text-[#dc2626] transition-colors">
                     {item.title}
                   </h3>
-                  <span className="text-xs font-mono text-slate-400">
+                  <span className="text-xs font-mono text-zinc-500">
                     {item.created_at
                       ? new Date(item.created_at).getFullYear()
                       : "2026"}
@@ -200,7 +200,7 @@ export default function ProjectsFilter() {
                   {item.technologies.split(",").map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] font-bold tracking-wider text-[#1e3a8a]"
+                      className="text-[10px] font-mono font-medium tracking-wider text-blue-400"
                     >
                       /{t.trim()}
                     </span>
