@@ -11,7 +11,7 @@ interface Project {
   description: string;
   image: string | null;
   live_url: string;
-  github_url: string;
+  github_url?: string;
   technologies: string;
   order: number;
   created_at?: string;
@@ -26,6 +26,7 @@ const FALLBACK_PROJECTS: Project[] = [
     description: "Cinematic and creative showcase web application featuring fluid GSAP scroll animations, dynamic media loading, and a headless Sanity CMS backend.",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
     live_url: "https://cgpluxstudios.com/",
+    github_url: "https://github.com/armanh148",
     technologies: "Next.js, GSAP, Sanity CMS, Tailwind CSS",
     order: 1,
   },
