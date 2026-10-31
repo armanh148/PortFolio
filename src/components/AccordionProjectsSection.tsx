@@ -12,7 +12,7 @@ interface Project {
   description: string;
   image: string | null;
   live_url: string;
-  github_url: string;
+  github_url?: string;
   technologies: string;
   order: number;
 }
@@ -23,37 +23,37 @@ const DEFAULT_PROJECTS: Project[] = [
     title: "CGPlux Studios",
     description: "Cinematic creative showcase web application featuring fluid GSAP animations, dynamic media loading, and a headless Sanity CMS backend.",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
-    live_url: "https://github.com/armanh148",
+    live_url: "https://cgpluxstudios.com/",
     github_url: "https://github.com/armanh148",
     technologies: "Next.js, GSAP, Sanity CMS, Tailwind CSS",
     order: 1,
   },
   {
     id: 2,
-    title: "Tawakkal & Echo Pride",
+    title: "Tawakkal",
     description: "Robust full-stack enterprise web platforms with optimized deployment workflows, scalable architecture, and seamless interactive user experiences.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
-    live_url: "https://github.com/armanh148",
+    live_url: "https://tawakkal.store/",
     github_url: "https://github.com/armanh148",
     technologies: "React, Next.js, Node.js, Express.js, TypeScript",
     order: 2,
   },
   {
     id: 3,
-    title: "Al-Hadi Logistics",
-    description: "Specialized logistics and fleet management web application designed for real-time operations tracking, secure data handling, and transport routing.",
+    title: "Echo Pride",
+    description: "Specialized logistics and business management web application designed for real-time operations tracking, secure data handling, and transport routing.",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80",
-    live_url: "https://github.com/armanh148",
+    live_url: "https://echopride.site/",
     github_url: "https://github.com/armanh148",
     technologies: "Django, Python, PostgreSQL, React, REST APIs",
     order: 3,
   },
   {
     id: 4,
-    title: "Kynetic Wear & Ecotexinc",
+    title: "Kynetic Wear",
     description: "Custom-built e-commerce storefronts featuring tailored checkout experiences, responsive apparel product grids, optimized speed, and modern UI layouts.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80",
-    live_url: "https://github.com/armanh148",
+    live_url: "https://kyneticwear-store.myshopify.com/",
     github_url: "https://github.com/armanh148",
     technologies: "Shopify Liquid, Tailwind CSS, JavaScript, E-commerce",
     order: 4,
