@@ -22,7 +22,7 @@ const CATEGORIES = ["All", "Next.js", "React", "Django", "Shopify"];
 const FALLBACK_PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Ecotexinc",
+    title: "CGPlux Studios",
     description: "Cinematic and creative showcase web application featuring fluid GSAP scroll animations, dynamic media loading, and a headless Sanity CMS backend.",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
     live_url: "https://cgpluxstudios.com/",

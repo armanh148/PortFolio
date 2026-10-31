@@ -203,6 +203,7 @@ export default function AccordionProjectsSection() {
                     <Link
                       href={project.live_url || "/projects"}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
                         isActive
                           ? "text-white bg-[#dc2626] hover:bg-[#b91c1c] shadow-lg shadow-red-600/30"
@@ -296,6 +297,7 @@ export default function AccordionProjectsSection() {
                       <Link
                         href={project.live_url || "/projects"}
                         target="_blank"
+                        rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="shrink-0 px-4 py-2 rounded-xl bg-[#dc2626] text-white text-xs font-bold uppercase tracking-wider shadow-md"
                       >
