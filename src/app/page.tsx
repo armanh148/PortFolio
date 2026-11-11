@@ -8,8 +8,8 @@ import BrandTicker from "@/components/BrandTicker";
 import AboutSectionRef from "@/components/AboutSectionRef";
 import CapabilitiesGrid from "@/components/CapabilitiesGrid";
 import ProcessGrid from "@/components/ProcessGrid";
-import ClientTestimonialsSection from "@/components/ClientTestimonialsSection";
 import ModernFaqSection from "@/components/ModernFaqSection";
+import BrutalistReviewsContactSection from "@/components/BrutalistReviewsContactSection";
 
 export const metadata: Metadata = {
   title: `${siteData.name} — ${siteData.role}`,
@@ -54,11 +54,13 @@ export default function HomePage() {
       {/* 8. DESIGN PROCESS GRID */}
       <ProcessGrid />
 
-      {/* 9. CLIENT TESTIMONIALS */}
-      <ClientTestimonialsSection />
-
-      {/* 10. FAQ SECTION */}
+      {/* 9. FAQ SECTION */}
       <ModernFaqSection />
+
+      {/* 10. REVIEWS & GET IN TOUCH CONTACT */}
+      <section id="contact">
+        <BrutalistReviewsContactSection />
+      </section>
     </>
   );
 }
