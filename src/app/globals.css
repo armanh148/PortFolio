@@ -36,9 +36,9 @@
   --color-ember-deep: #1e3a8a;
 
   /* ── Typography ──────────────────────────────────────── */
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-cormorant);
-  --font-display: var(--font-space-grotesk);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-display: 'Anton', Impact, 'Arial Black', sans-serif;
 }
 
 /* ── Base ──────────────────────────────────────────────── */

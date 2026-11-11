@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
 import { siteData } from "@/lib/siteData";
 import TransitionWrapper from "@/components/TransitionWrapper";
 import CustomCursor from "@/components/CustomCursor";
@@ -7,29 +6,13 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  preload: false,
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  preload: false,
-});
-
 export const metadata: Metadata = {
   title: `${siteData.name} — ${siteData.role}`,
   description:
-    "Frontend & WordPress Developer crafting high-performance, purposeful web experiences.",
+    "Full-Stack Web Developer & Frontend Specialist crafting high-performance, purposeful web experiences.",
   keywords: [
     "frontend developer",
+    "full-stack developer",
     "wordpress developer",
     "arman naqvi",
     "portfolio",
@@ -37,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: `${siteData.name} — ${siteData.role}`,
-    description: "Editorial-grade frontend engineering and WordPress craft.",
+    description: "Editorial-grade web engineering and full-stack architecture.",
     type: "website",
   },
 };
@@ -51,7 +34,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${cormorant.variable} ${inter.variable} min-h-screen antialiased`}
+      className="min-h-screen antialiased font-sans"
     >
       <body className="grain min-h-screen flex flex-col" suppressHydrationWarning>
         <SmoothScrolling>
@@ -64,4 +47,3 @@ export default function RootLayout({
     </html>
   );
 }
-

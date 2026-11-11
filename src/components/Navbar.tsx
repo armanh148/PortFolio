@@ -13,11 +13,11 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: "home", label: "Home", href: "/" },
-  { id: "about", label: "About", href: "/about" },
-  { id: "services", label: "Services", href: "/services" },
-  { id: "projects", label: "Projects", href: "/projects" },
-  { id: "contact", label: "Contact", href: "/contact" },
+  { id: "work", label: "WORK", href: "#projects" },
+  { id: "about", label: "ABOUT", href: "#about" },
+  { id: "services", label: "SERVICES", href: "#services" },
+  { id: "projects", label: "PROJECTS", href: "/projects" },
+  { id: "contact", label: "CONTACT", href: "/contact" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -58,67 +58,75 @@ export default function Navbar({ site }: { site: SiteData }) {
 
   return (
     <>
-      {/* ── Fixed Top Dynamic Header Bar ── */}
+      {/* ── Editorial Brutalist Top Bar ── */}
       <motion.header
         animate={{
-          backgroundColor: scrolled ? "rgba(9, 9, 11, 0.94)" : "rgba(9, 9, 11, 0.6)",
-          backdropFilter: scrolled ? "blur(16px)" : "blur(8px)",
-          borderBottomColor: scrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.05)",
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.94)" : "rgba(255, 255, 255, 1)",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottomColor: scrolled ? "rgba(0, 0, 0, 0.08)" : "transparent",
+          boxShadow: scrolled ? "0 4px 20px -2px rgba(0, 0, 0, 0.05)" : "none",
           paddingTop: scrolled ? "0.75rem" : "1.25rem",
           paddingBottom: scrolled ? "0.75rem" : "1.25rem",
-          boxShadow: scrolled ? "0 10px 30px -10px rgba(0, 0, 0, 0.6)" : "none",
         }}
-        transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 right-0 z-50 border-b px-4 sm:px-8 md:px-12 lg:px-16"
+        transition={{ duration: 0.25 }}
+        className="fixed top-0 left-0 right-0 z-50 border-b px-5 sm:px-8 md:px-12 lg:px-16 transition-colors"
       >
         <div className="w-full flex items-center justify-between max-w-[1600px] mx-auto">
-          {/* ── Left Side: Logo with Hover Glow ── */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="relative"
-            >
-              <img
-                src="/logo.png"
-                alt={site?.name || "Arman Naqvi"}
-                className="h-7 sm:h-8 md:h-10 w-auto object-contain transition-all duration-300 drop-shadow-[0_0_15px_rgba(220,38,38,0.2)] group-hover:drop-shadow-[0_0_20px_rgba(30,58,138,0.4)]"
-              />
-            </motion.div>
+          {/* ── Left Side: Brutalist Brand Mark ── */}
+          <Link href="/" className="flex flex-col group">
+            <span className="font-['Anton',Impact,sans-serif] text-xl sm:text-2xl tracking-tight text-black group-hover:text-[#ff4a00] transition-colors leading-none uppercase">
+              {site?.name?.toUpperCase() || "ARMAN NAQVI"}®
+            </span>
+            <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.22em] text-[#ff4a00] uppercase pt-0.5">
+              FULL-STACK DEVELOPER
+            </span>
           </Link>
 
-          {/* ── Right Side: 3-Line Hamburger Menu Icon & Quick CTA ── */}
-          <div className="flex items-center gap-2.5 sm:gap-4">
+          {/* ── Center: Desktop Navigation Links ── */}
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                className="font-['Space_Grotesk',sans-serif] text-xs font-black tracking-[0.16em] uppercase text-black hover:text-[#ff4a00] transition-colors cursor-pointer"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* ── Right Side: Solid Orange Rectangular CTA + Mobile Toggle ── */}
+          <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-widest px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white transition-all shadow-md shadow-red-600/30 hover:shadow-red-600/40 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#ff4a00] hover:bg-[#e04000] text-white text-[11px] sm:text-xs md:text-sm font-['Space_Grotesk',sans-serif] font-black uppercase tracking-wider px-4 sm:px-6 py-2.5 sm:py-3 transition-all hover:shadow-md cursor-pointer select-none"
             >
-              Let&rsquo;s Talk
-              <span className="text-xs sm:text-sm">↗</span>
+              <span>START A PROJECT</span>
+              <span className="text-sm font-black">↗</span>
             </Link>
 
+            {/* Mobile / Tablet Drawer Toggle */}
             <motion.button
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="site-drawer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.92 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setOpen((v) => !v)}
-              className="flex flex-col gap-[5px] items-end justify-center p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="lg:hidden flex flex-col gap-[5px] items-center justify-center p-2.5 bg-black text-white hover:bg-neutral-800 transition-colors cursor-pointer"
             >
               <span
-                className={`h-[2px] w-5 sm:w-6 bg-white transition-all duration-300 ${
+                className={`h-[2px] w-5 bg-white transition-all duration-300 ${
                   open ? "translate-y-[7px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`h-[2px] w-3.5 sm:w-4 bg-[#dc2626] transition-all duration-300 ${
+                className={`h-[2px] w-5 bg-[#ff4a00] transition-all duration-300 ${
                   open ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`h-[2px] w-5 sm:w-6 bg-white transition-all duration-300 ${
+                className={`h-[2px] w-5 bg-white transition-all duration-300 ${
                   open ? "-translate-y-[7px] -rotate-45" : ""
                 }`}
               />
@@ -136,9 +144,9 @@ export default function Navbar({ site }: { site: SiteData }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[65] bg-slate-900/40 backdrop-blur-sm"
+              className="fixed inset-0 z-[65] bg-black/60 backdrop-blur-sm"
             />
             <motion.aside
               key="drawer"
@@ -146,15 +154,17 @@ export default function Navbar({ site }: { site: SiteData }) {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.5, ease }}
-              className="fixed inset-y-0 right-0 z-[75] flex w-[360px] sm:w-[440px] max-w-[88vw] flex-col justify-between border-l border-slate-200 bg-white p-6 sm:p-8 md:p-12 backdrop-blur-2xl shadow-2xl"
+              transition={{ duration: 0.45, ease }}
+              className="fixed inset-y-0 right-0 z-[75] flex w-[340px] sm:w-[400px] max-w-[88vw] flex-col justify-between border-l border-neutral-200 bg-white p-6 sm:p-8 backdrop-blur-2xl shadow-2xl"
             >
               {/* Drawer Top Row */}
-              <div className="flex justify-between items-center pb-6 border-b border-slate-200">
-                <div className="flex items-center gap-2">
-                  <span className="text-[#dc2626] text-lg font-bold animate-pulse">✱</span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#0f172a]">
-                    Navigation
+              <div className="flex justify-between items-center pb-6 border-b border-neutral-200">
+                <div className="flex flex-col">
+                  <span className="font-['Anton',Impact,sans-serif] text-xl tracking-tight text-black uppercase">
+                    ARMAN NAQVI®
+                  </span>
+                  <span className="font-mono text-[9px] font-bold tracking-widest text-[#ff4a00] uppercase">
+                    NAVIGATION
                   </span>
                 </div>
 
@@ -163,38 +173,38 @@ export default function Navbar({ site }: { site: SiteData }) {
                   whileHover={{ rotate: 90, scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setOpen(false)}
-                  className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 text-sm hover:bg-slate-100 hover:text-black transition-colors cursor-pointer"
+                  className="w-10 h-10 border border-neutral-300 flex items-center justify-center text-black text-base hover:bg-black hover:text-white transition-colors cursor-pointer font-bold"
                 >
                   ✕
                 </motion.button>
               </div>
 
-              {/* Navigation Links with Staggered Entrance */}
-              <div className="flex flex-col gap-2 py-8">
+              {/* Navigation Links */}
+              <div className="flex flex-col gap-2 py-6">
                 {NAV_ITEMS.map((item, i) => {
                   const active = pathname === item.href;
 
                   return (
                     <motion.div
                       key={item.id}
-                      initial={{ opacity: 0, x: 30 }}
+                      initial={{ opacity: 0, x: 25 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + i * 0.07, duration: 0.45, ease }}
+                      transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease }}
                     >
-                      <Link
+                      <a
                         href={item.href}
                         onClick={() => setOpen(false)}
-                        className={`group flex items-center justify-between py-3.5 px-3 rounded-xl hover:bg-slate-50 border-b border-slate-100 transition-all cursor-pointer ${
-                          active ? "text-[#dc2626] bg-red-50/70" : "text-slate-700 hover:text-[#1e3a8a]"
+                        className={`group flex items-center justify-between py-3.5 px-3 border-b border-neutral-100 hover:bg-neutral-50 transition-all cursor-pointer ${
+                          active ? "text-[#ff4a00]" : "text-black hover:text-[#ff4a00]"
                         }`}
                       >
-                        <span className="font-sans text-2xl md:text-3xl font-bold uppercase tracking-tight transition-transform duration-300 group-hover:translate-x-3 group-hover:text-[#dc2626]">
+                        <span className="font-['Anton',Impact,sans-serif] text-2xl font-bold uppercase tracking-tight transition-transform duration-300 group-hover:translate-x-2">
                           {item.label}
                         </span>
-                        <span className="text-xs font-mono text-slate-400 group-hover:text-[#1e3a8a] transition-colors">
+                        <span className="text-xs font-mono text-neutral-400 group-hover:text-[#ff4a00] transition-colors">
                           0{i + 1} ↗
                         </span>
-                      </Link>
+                      </a>
                     </motion.div>
                   );
                 })}
@@ -204,39 +214,43 @@ export default function Navbar({ site }: { site: SiteData }) {
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.5, ease }}
-                className="flex flex-col gap-4 border-t border-slate-200 pt-6"
+                transition={{ delay: 0.4, duration: 0.45, ease }}
+                className="flex flex-col gap-3 border-t border-neutral-200 pt-6"
               >
-                <span className="text-xs font-bold uppercase tracking-widest text-[#dc2626]">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#ff4a00]">
                   Get in touch
                 </span>
                 <a
                   href={`mailto:${site?.email || "armannaqvi.tms@gmail.com"}`}
-                  className="text-base font-medium text-slate-900 hover:text-[#dc2626] transition-colors"
+                  className="text-sm font-semibold text-black hover:text-[#ff4a00] transition-colors"
                 >
                   {site?.email || "armannaqvi.tms@gmail.com"}
                 </a>
-                <div className="flex gap-5 pt-2">
-                  {(site?.socials?.length
-                    ? site.socials
-                    : [
-                        { label: "LinkedIn", href: "https://linkedin.com" },
-                        { label: "GitHub", href: "https://github.com" },
-                        { label: "X", href: "https://x.com" },
-                      ]
-                  ).map((social) => (
-                    <motion.a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="text-xs text-slate-500 hover:text-[#1e3a8a] transition-colors uppercase tracking-wider font-semibold"
-                    >
-                      {social.label}
-                    </motion.a>
-                  ))}
+                <div className="flex gap-4 pt-2">
+                  <a
+                    href="https://github.com/armanh148"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-neutral-600 hover:text-black uppercase font-bold"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/arman-naqvi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-neutral-600 hover:text-black uppercase font-bold"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://x.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-neutral-600 hover:text-black uppercase font-bold"
+                  >
+                    Twitter / X
+                  </a>
                 </div>
               </motion.div>
             </motion.aside>
