@@ -56,18 +56,18 @@ export default function BrutalistProjectsGrid() {
   return (
     <section
       id="featured-work"
-      className="relative w-full bg-black text-white border-t border-neutral-900 select-none overflow-hidden"
+      className="relative w-full bg-white text-black border-t border-black/10 select-none overflow-hidden"
     >
       <div className="w-full flex flex-col md:flex-row min-h-[640px] lg:min-h-[720px]">
         {/* ── 1. LEFT VERTICAL RAIL: "FEATURED WORK" ── */}
-        <div className="w-full md:w-16 lg:w-20 shrink-0 border-b md:border-b-0 md:border-r border-neutral-800 py-4 md:py-8 px-4 flex items-center justify-center bg-black">
-          <span className="font-['Space_Grotesk',sans-serif] text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-neutral-300 md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
+        <div className="w-full md:w-16 lg:w-20 shrink-0 border-b md:border-b-0 md:border-r border-black/10 py-4 md:py-8 px-4 flex items-center justify-center bg-white">
+          <span className="font-['Space_Grotesk',sans-serif] text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-black md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
             FEATURED WORK
           </span>
         </div>
 
         {/* ── 2. CENTER ASYMMETRIC BENTO GRID ── */}
-        <div className="flex-1 p-3 sm:p-4 md:p-5 lg:p-6 bg-black">
+        <div className="flex-1 p-3 sm:p-4 md:p-5 lg:p-6 bg-white">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 lg:gap-5 h-full">
             {/* ── CARD 01: Left Tall Column (Full Height / 2 Rows) ── */}
             <motion.div
@@ -75,7 +75,7 @@ export default function BrutalistProjectsGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="md:col-span-4 md:row-span-2 relative group overflow-hidden rounded-sm bg-[#f2f2f2] text-black flex flex-col justify-between p-6 sm:p-7 md:p-8 min-h-[440px] md:min-h-[600px] lg:min-h-[660px]"
+              className="md:col-span-4 md:row-span-2 relative group overflow-hidden rounded-xl bg-[#f8f8f9] border border-black/10 hover:border-black/30 hover:shadow-xl transition-all text-black flex flex-col justify-between p-6 sm:p-7 md:p-8 min-h-[440px] md:min-h-[600px] lg:min-h-[660px]"
             >
               {/* Card 01 Background Monochrome Visual (Architectural Angle / Paper Fold) */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -85,7 +85,7 @@ export default function BrutalistProjectsGrid() {
                   preserveAspectRatio="xMidYMid slice"
                   className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                 >
-                  <rect width="400" height="650" fill="#f4f4f5" />
+                  <rect width="400" height="650" fill="#f8f8f9" />
                   <path
                     d="M 120 650 L 400 220 L 400 650 Z"
                     fill="#18181b"
@@ -139,7 +139,7 @@ export default function BrutalistProjectsGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="md:col-span-4 relative group overflow-hidden rounded-sm bg-[#ff4a00] text-black flex flex-col justify-between p-6 sm:p-7 min-h-[240px] md:min-h-[290px] lg:min-h-[320px]"
+              className="md:col-span-4 relative group overflow-hidden rounded-xl bg-[#ff4a00] hover:shadow-xl transition-all text-black flex flex-col justify-between p-6 sm:p-7 min-h-[240px] md:min-h-[290px] lg:min-h-[320px]"
             >
               {/* Black Skyscraper / Triangular Building Silhouette */}
               <div className="absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none z-0 overflow-hidden">
@@ -149,17 +149,14 @@ export default function BrutalistProjectsGrid() {
                   preserveAspectRatio="xMidYMax slice"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 >
-                  {/* Skyscraper Perspective lines */}
                   <path
                     d="M 130 40 L 260 320 H 0 L 130 40 Z"
                     fill="#09090b"
                   />
-                  {/* Facade Stripes */}
                   <line x1="130" y1="40" x2="60" y2="320" stroke="#18181b" strokeWidth="3" />
                   <line x1="130" y1="40" x2="100" y2="320" stroke="#18181b" strokeWidth="3" />
                   <line x1="130" y1="40" x2="160" y2="320" stroke="#18181b" strokeWidth="3" />
                   <line x1="130" y1="40" x2="200" y2="320" stroke="#18181b" strokeWidth="3" />
-                  {/* Cross braces */}
                   <line x1="40" y1="240" x2="220" y2="240" stroke="#27272a" strokeWidth="2" opacity="0.6" />
                   <line x1="65" y1="180" x2="195" y2="180" stroke="#27272a" strokeWidth="2" opacity="0.6" />
                   <line x1="90" y1="120" x2="170" y2="120" stroke="#27272a" strokeWidth="2" opacity="0.6" />
@@ -202,7 +199,7 @@ export default function BrutalistProjectsGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="md:col-span-4 relative group overflow-hidden rounded-sm bg-[#f2f2f2] text-black flex flex-col justify-between p-6 sm:p-7 min-h-[240px] md:min-h-[290px] lg:min-h-[320px]"
+              className="md:col-span-4 relative group overflow-hidden rounded-xl bg-[#f8f8f9] border border-black/10 hover:border-black/30 hover:shadow-xl transition-all text-black flex flex-col justify-between p-6 sm:p-7 min-h-[240px] md:min-h-[290px] lg:min-h-[320px]"
             >
               {/* Minimalist Architectural Shadows */}
               <div className="absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none z-0 overflow-hidden">
@@ -214,7 +211,7 @@ export default function BrutalistProjectsGrid() {
                 >
                   <path
                     d="M 260 0 L 100 320 H 260 Z"
-                    fill="#09090b"
+                    fill="#18181b"
                   />
                   <path
                     d="M 260 0 L 60 320 L 100 320 Z"
@@ -254,13 +251,13 @@ export default function BrutalistProjectsGrid() {
               />
             </motion.div>
 
-            {/* ── CARD 04: Bottom Wide Card (Dark Concrete Spiral/Archway) ── */}
+            {/* ── CARD 04: Bottom Wide Card (Deep Obsidian Architectural Archway) ── */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="md:col-span-8 relative group overflow-hidden rounded-sm bg-[#0d0d0d] text-white flex flex-col justify-between p-6 sm:p-7 md:p-8 min-h-[240px] md:min-h-[290px] lg:min-h-[320px] border border-neutral-900"
+              className="md:col-span-8 relative group overflow-hidden rounded-xl bg-[#09090b] text-white flex flex-col justify-between p-6 sm:p-7 md:p-8 min-h-[240px] md:min-h-[290px] lg:min-h-[320px] shadow-xl hover:shadow-2xl transition-all"
             >
               {/* Concrete Archway / Spiral Graphic on Right Half */}
               <div className="absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none z-0 overflow-hidden">
@@ -270,21 +267,20 @@ export default function BrutalistProjectsGrid() {
                   preserveAspectRatio="xMidYMid slice"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 >
-                  {/* Curving Concrete Tunnels */}
                   <path
                     d="M 120 320 C 150 140 280 80 450 80 V 220 C 320 220 240 250 200 320 Z"
-                    fill="#3f3f46"
-                    opacity="0.85"
+                    fill="#27272a"
+                    opacity="0.9"
                   />
                   <path
                     d="M 220 320 C 250 180 340 130 450 130 V 280 C 380 280 320 290 280 320 Z"
-                    fill="#71717a"
-                    opacity="0.75"
+                    fill="#52525b"
+                    opacity="0.8"
                   />
                   <path
                     d="M 320 320 C 350 230 390 190 450 190 V 320 Z"
-                    fill="#a1a1aa"
-                    opacity="0.65"
+                    fill="#71717a"
+                    opacity="0.7"
                   />
                 </svg>
               </div>
@@ -324,9 +320,9 @@ export default function BrutalistProjectsGrid() {
         {/* ── 3. RIGHT VERTICAL RAIL: "VIEW ALL PROJECTS ↗" ── */}
         <Link
           href="/projects"
-          className="group w-full md:w-16 lg:w-20 shrink-0 bg-[#ff4a00] hover:bg-[#e04000] border-t md:border-t-0 md:border-l border-neutral-900 py-5 md:py-8 px-4 flex items-center justify-center transition-colors cursor-pointer select-none"
+          className="group w-full md:w-16 lg:w-20 shrink-0 bg-[#ff4a00] hover:bg-[#e04000] border-t md:border-t-0 md:border-l border-black/10 py-5 md:py-8 px-4 flex items-center justify-center transition-colors cursor-pointer select-none"
         >
-          <div className="flex items-center md:[writing-mode:vertical-rl] gap-2 md:gap-3 text-black">
+          <div className="flex items-center md:[writing-mode:vertical-rl] gap-2 md:gap-3 text-white">
             <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-black uppercase tracking-[0.2em] whitespace-nowrap">
               VIEW ALL PROJECTS
             </span>

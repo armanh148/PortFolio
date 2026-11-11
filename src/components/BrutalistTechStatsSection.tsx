@@ -55,7 +55,7 @@ const TECHNOLOGIES: TechItem[] = [
   {
     name: "Next.js",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 text-white">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 text-black">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.8 14.6l-5.6-7.3v7.3H8.5V6.8h1.8l5.5 7.2V6.8h1.7v9.8h-1.7z" />
       </svg>
     ),
@@ -144,19 +144,19 @@ const TECHNOLOGIES: TechItem[] = [
 
 export default function BrutalistTechStatsSection() {
   return (
-    <section className="relative w-full bg-black text-white border-t border-neutral-900 select-none overflow-hidden py-16 sm:py-20 md:py-28 px-5 sm:px-8 md:px-12 lg:px-16">
+    <section className="relative w-full bg-white text-black border-t border-black/10 select-none overflow-hidden py-16 sm:py-20 md:py-28 px-5 sm:px-8 md:px-12 lg:px-16">
       <div className="max-w-[1700px] mx-auto flex flex-col gap-14 sm:gap-18 md:gap-24">
         {/* ── 1. TOP SUB-SECTION: TECHNOLOGIES I WORK WITH ── */}
         <div>
           {/* Header Row */}
-          <div className="flex items-center justify-between pb-6 sm:pb-8 border-b border-neutral-800 mb-8 sm:mb-10">
+          <div className="flex items-center justify-between pb-6 sm:pb-8 border-b border-black/10 mb-8 sm:mb-10">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff4a00] shadow-[0_0_10px_#ff4a00]" />
-              <h2 className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.22em] text-white">
+              <h2 className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.22em] text-black">
                 TECHNOLOGIES I WORK WITH
               </h2>
             </div>
-            <span className="font-mono text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-neutral-400 hidden sm:block">
+            <span className="font-mono text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-neutral-500 hidden sm:block">
               ALWAYS LEARNING, ALWAYS EXPLORING
             </span>
           </div>
@@ -171,12 +171,12 @@ export default function BrutalistTechStatsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.03 }}
                 whileHover={{ y: -5, scale: 1.05 }}
-                className="group relative flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-[#ff4a00]/70 hover:shadow-[0_8px_25px_-5px_rgba(255,74,0,0.25)] transition-all cursor-pointer"
+                className="group relative flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white hover:shadow-xl transition-all cursor-pointer"
               >
                 <div className="mb-2 transition-transform duration-300 group-hover:scale-110">
                   {tech.icon}
                 </div>
-                <span className="font-['Space_Grotesk',sans-serif] text-[10px] sm:text-[11px] font-bold text-neutral-400 group-hover:text-white transition-colors text-center whitespace-nowrap">
+                <span className="font-['Space_Grotesk',sans-serif] text-[10px] sm:text-[11px] font-bold text-neutral-700 group-hover:text-black transition-colors text-center whitespace-nowrap">
                   {tech.name}
                 </span>
               </motion.div>
@@ -187,9 +187,9 @@ export default function BrutalistTechStatsSection() {
         {/* ── 2. BOTTOM SUB-SECTION: EXPERIENCE & ACHIEVEMENTS + EDITORIAL QUOTE ── */}
         <div>
           {/* Header Row */}
-          <div className="flex items-center gap-3 pb-6 sm:pb-8 border-b border-neutral-800 mb-8 sm:mb-10">
+          <div className="flex items-center gap-3 pb-6 sm:pb-8 border-b border-black/10 mb-8 sm:mb-10">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ff4a00] shadow-[0_0_10px_#ff4a00]" />
-            <h2 className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.22em] text-white">
+            <h2 className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base font-black uppercase tracking-[0.22em] text-black">
               EXPERIENCE &amp; ACHIEVEMENTS
             </h2>
           </div>
@@ -205,10 +205,10 @@ export default function BrutalistTechStatsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -4, borderColor: "#ff4a00" }}
-                className="group relative p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-[#ff4a00] transition-all flex flex-col justify-between min-h-[140px]"
+                className="group relative p-6 rounded-2xl bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between min-h-[140px]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400">
+                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-600">
                     Projects Delivered
                   </span>
                   <span className="text-[#ff4a00]">
@@ -218,7 +218,7 @@ export default function BrutalistTechStatsSection() {
                     </svg>
                   </span>
                 </div>
-                <div className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl text-white group-hover:text-[#ff4a00] transition-colors mt-4">
+                <div className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl text-black group-hover:text-[#ff4a00] transition-colors mt-4">
                   40+
                 </div>
               </motion.div>
@@ -230,10 +230,10 @@ export default function BrutalistTechStatsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 whileHover={{ y: -4, borderColor: "#ff4a00" }}
-                className="group relative p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-[#ff4a00] transition-all flex flex-col justify-between min-h-[140px]"
+                className="group relative p-6 rounded-2xl bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between min-h-[140px]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400">
+                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-600">
                     Happy Clients
                   </span>
                   <span className="text-[#ff4a00]">
@@ -245,7 +245,7 @@ export default function BrutalistTechStatsSection() {
                     </svg>
                   </span>
                 </div>
-                <div className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl text-white group-hover:text-[#ff4a00] transition-colors mt-4">
+                <div className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl text-black group-hover:text-[#ff4a00] transition-colors mt-4">
                   25+
                 </div>
               </motion.div>
@@ -257,10 +257,10 @@ export default function BrutalistTechStatsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 whileHover={{ y: -4, borderColor: "#ff4a00" }}
-                className="group relative p-6 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-[#ff4a00] transition-all flex flex-col justify-between min-h-[140px]"
+                className="group relative p-6 rounded-2xl bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between min-h-[140px]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400">
+                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs font-bold uppercase tracking-wider text-neutral-600">
                     Technologies
                   </span>
                   <span className="text-[#ff4a00]">
@@ -271,14 +271,14 @@ export default function BrutalistTechStatsSection() {
                     </svg>
                   </span>
                 </div>
-                <div className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl text-white group-hover:text-[#ff4a00] transition-colors mt-4">
+                <div className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl text-black group-hover:text-[#ff4a00] transition-colors mt-4">
                   15+
                 </div>
               </motion.div>
             </div>
 
             {/* Right Editorial Quote with Hand-Drawn Accent (Cols 8-12) */}
-            <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-neutral-800 pt-8 lg:pt-0 lg:pl-12 flex flex-col justify-center">
+            <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-black/10 pt-8 lg:pt-0 lg:pl-12 flex flex-col justify-center">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -289,7 +289,7 @@ export default function BrutalistTechStatsSection() {
                 <span className="text-4xl text-[#ff4a00] font-serif leading-none block -mb-2">
                   &ldquo;
                 </span>
-                <p className="font-['Space_Grotesk',sans-serif] italic text-xl sm:text-2xl md:text-[1.65rem] font-medium text-neutral-200 leading-snug">
+                <p className="font-['Space_Grotesk',sans-serif] italic text-xl sm:text-2xl md:text-[1.65rem] font-medium text-neutral-900 leading-snug">
                   Focused on building meaningful digital experiences that create real value.&rdquo;
                 </p>
 
