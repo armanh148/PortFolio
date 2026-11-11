@@ -10,64 +10,64 @@ interface ServicesPageContentProps {
   site: SiteData;
 }
 
-/* ─── Portfolio Neon Geometric SVG Icons (Theme-matched) ─── */
+/* ─── Brutalist SVG Icons with #ff4a00 Accents ─── */
 function FrontendIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
       <polyline points="16 18 22 12 16 6" />
       <polyline points="8 6 2 12 8 18" />
-      <line x1="14" y1="4" x2="10" y2="20" stroke="#dc2626" />
+      <line x1="14" y1="4" x2="10" y2="20" stroke="#ff4a00" strokeWidth="2.5" />
     </svg>
   );
 }
 
 function WordpressIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
       <rect x="2" y="3" width="20" height="14" rx="2" />
       <line x1="8" y1="21" x2="16" y2="21" />
       <line x1="12" y1="17" x2="12" y2="21" />
-      <circle cx="8" cy="10" r="1.5" fill="#dc2626" />
-      <circle cx="16" cy="10" r="1.5" fill="#dc2626" />
+      <circle cx="8" cy="10" r="1.5" fill="#ff4a00" />
+      <circle cx="16" cy="10" r="1.5" fill="#ff4a00" />
     </svg>
   );
 }
 
 function DesignIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
       <path d="M12 2L2 7l10 5 10-5-10-5z" />
       <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" stroke="#dc2626" />
+      <path d="M2 12l10 5 10-5" stroke="#ff4a00" strokeWidth="2.5" />
     </svg>
   );
 }
 
 function PerformanceIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#ff4a00" stroke="#ff4a00" />
     </svg>
   );
 }
 
 function MotionIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
       <path d="M12 3v18" />
       <path d="M3 12h18" />
-      <circle cx="12" cy="12" r="7" stroke="#1e3a8a" />
-      <circle cx="12" cy="12" r="3" fill="#dc2626" />
+      <circle cx="12" cy="12" r="7" stroke="currentColor" />
+      <circle cx="12" cy="12" r="3" fill="#ff4a00" stroke="#ff4a00" />
     </svg>
   );
 }
 
 function StrategyIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
       <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" stroke="#1e3a8a" />
-      <circle cx="12" cy="12" r="2" fill="#dc2626" />
+      <circle cx="12" cy="12" r="6" stroke="#ff4a00" />
+      <circle cx="12" cy="12" r="2" fill="#ff4a00" />
     </svg>
   );
 }
@@ -101,7 +101,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Dynamic data fetching, caching strategies, and SEO optimization",
       "Fluid micro-animations with Framer Motion",
     ],
-    skills: ["Next.js", "React 19", "Tailwind CSS", "TypeScript", "REST APIs", "State Management"],
+    skills: ["Next.js 16", "React 19", "Tailwind CSS", "TypeScript", "REST APIs", "State Management"],
     timeline: "2 – 4 Weeks",
     icon: <FrontendIcon />,
   },
@@ -134,10 +134,10 @@ const SERVICES_DATA: ServiceItem[] = [
       "Transforming complex workflows into intuitive, clean Figma prototypes, standardized design tokens, and pixel-perfect living component libraries that scale gracefully.",
     deliverables: [
       "Pixel-perfect 1:1 translation from Figma to production code",
-      "Scalable design token system with dark & light theme modes",
-      "Accessible component library following WCAG 2.1 standards",
+      "Scalable design token system with high contrast brutalist typography",
+      "Accessible component library following WCAG standards",
       "Interactive states, skeleton loaders, and micro-motion prototypes",
-      "Full responsive breakpoint audits for mobile, tablet, and ultra-wide",
+      "Full responsive breakpoint audits for mobile, tablet, and desktop",
     ],
     skills: ["Figma Tokens", "Tailwind CSS", "Component Kits", "User Journey", "Design Audits"],
     timeline: "1 – 3 Weeks",
@@ -174,7 +174,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Physics-based gesture animations & page transitions",
       "Smooth Lenis inertia scroll integration",
       "Scroll-driven progress indicators & reveal triggers",
-      "WebGL & canvas micro-interactions where appropriate",
+      "Interactive canvas & brutalist micro-interactions",
       "Hardware-accelerated transforms for 60fps mobile fluidity",
     ],
     skills: ["Framer Motion", "Lenis Smooth Scroll", "Scroll Parallax", "Micro-Interactions"],
@@ -193,7 +193,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Technical discovery document & system architecture blueprint",
       "Automated CI/CD deployment pipeline via GitHub Actions",
       "Staging preview environments for asynchronous client review",
-      "Security headers, SSL compliance, and OWASP audit",
+      "Security headers, SSL compliance, and API hardening",
       "Post-launch handover documentation & recorded video walkthroughs",
     ],
     skills: ["Architecture", "Vercel / AWS", "GitHub Actions", "Security", "Code Quality"],
@@ -210,11 +210,11 @@ const ENGAGEMENT_MODELS = [
     tag: "FIXED SCOPE",
     title: "Project-Based Sprint",
     badge: "MOST POPULAR",
-    badgeColor: "text-[#dc2626] border-red-500/30 bg-red-950/40",
+    badgeBg: "bg-orange-50 text-[#ff4a00] border-orange-200",
     desc: "Fixed timeline and milestones for new website builds, redesigns, or specific feature launches.",
     features: [
       "Clearly defined scope & milestones",
-      "Direct communication via Slack or email",
+      "Direct communication via WhatsApp or email",
       "End-to-end testing and performance tuning",
       "Full source code ownership & deployment",
       "30 days post-launch warranty & support",
@@ -226,7 +226,7 @@ const ENGAGEMENT_MODELS = [
     tag: "MONTHLY BANDWIDTH",
     title: "Dedicated Retainer",
     badge: "HIGH DEMAND",
-    badgeColor: "text-emerald-400 border-emerald-500/30 bg-emerald-950/40",
+    badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
     desc: "Reliable weekly frontend & full-stack development horsepower for growing startups and creative agencies.",
     features: [
       "Guaranteed weekly development hours",
@@ -242,7 +242,7 @@ const ENGAGEMENT_MODELS = [
     tag: "RAPID DIAGNOSTIC",
     title: "Speed & Performance Audit",
     badge: "48H SPRINT",
-    badgeColor: "text-amber-400 border-amber-500/30 bg-amber-950/40",
+    badgeBg: "bg-blue-50 text-blue-700 border-blue-200",
     desc: "Rapid diagnostic sprint to identify bottlenecks, boost Lighthouse scores, and recover organic SEO ranking.",
     features: [
       "Complete Core Web Vitals diagnostic breakdown",
@@ -291,67 +291,60 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       : SERVICES_DATA.filter((s) => s.filterCat === selectedCategory);
 
   return (
-    <div className="bg-[#09090b] text-white min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-x-clip selection:bg-[#dc2626] selection:text-white">
-      {/* ── Ambient Radial Glows (Exact portfolio signature) ── */}
-      <div className="fixed top-1/4 left-1/4 w-[600px] h-[500px] bg-red-500/10 blur-[170px] rounded-full pointer-events-none -z-10" />
-      <div className="fixed bottom-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none -z-10" />
+    <div className="bg-white text-black min-h-screen pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 select-none overflow-x-hidden selection:bg-[#ff4a00] selection:text-white">
+      {/* ── SECTION 1: EDITORIAL BRUTALIST HERO HEADER ── */}
+      <section className="relative pb-12 sm:pb-16 md:pb-20 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
+          {/* Breadcrumb + Status Eyebrow */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
+            <div className="flex items-center gap-2 text-xs font-['Space_Grotesk',sans-serif] font-bold text-neutral-500 uppercase tracking-wider">
+              <Link href="/" className="hover:text-[#ff4a00] transition-colors">
+                HOME
+              </Link>
+              <span>/</span>
+              <span className="text-black">SERVICES</span>
+            </div>
 
-      {/* ── SECTION 1: HERO HEADER ── */}
-      <section className="relative py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        {/* Subtle Grid Crosshairs */}
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f8f8f9] border border-black/10 text-xs font-['Space_Grotesk',sans-serif] font-bold text-black uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#ff4a00] animate-pulse" />
+              CAPABILITIES &amp; ENGINEERING OFFERINGS
+            </span>
+          </div>
 
-        <div className="max-w-[1500px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 sm:gap-12 mb-10 sm:mb-16">
+          {/* Monumental Headline */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 sm:gap-10 mb-10 sm:mb-14">
             <div>
               <Reveal>
-                <div className="flex items-center gap-2 mb-4 text-xs font-mono text-zinc-400">
-                  <Link href="/" className="hover:text-[#dc2626] transition-colors">
-                    HOME
-                  </Link>
-                  <span>/</span>
-                  <span className="text-[#dc2626] font-semibold">SERVICES</span>
-                </div>
-
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                  Capabilities &amp; Offerings
-                </span>
-
-                {/* Giant Bold Headline with Glowing Dot */}
-                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none flex items-baseline">
-                  <span>SERVICES</span>
-                  <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#dc2626] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(220,38,38,0.7)]" />
+                <h1 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(3.5rem,9.5vw,9.5rem)] leading-[0.88] tracking-[-0.02em] uppercase text-black">
+                  SERVICES &amp;<br />
+                  <span className="text-[#ff4a00]">CAPABILITIES.</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={0.1}>
-                <p className="text-sm sm:text-base md:text-lg text-zinc-400 font-light max-w-2xl leading-relaxed mt-6">
-                  End-to-end full-stack engineering, bespoke WordPress architectures, and pixel-perfect design systems crafted with obsessive attention to detail for founders, brands, and agencies worldwide.
+                <p className="font-['Space_Grotesk',sans-serif] text-sm sm:text-base md:text-lg text-neutral-700 max-w-2xl leading-relaxed mt-6">
+                  End-to-end full-stack engineering, bespoke WordPress &amp; Shopify architectures, and pixel-perfect design systems crafted with obsessive attention to detail for founders, brands, and agencies worldwide.
                 </p>
               </Reveal>
             </div>
 
-            {/* Category Filter Pills in ONE SINGLE LINE */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar py-1 shrink-0 max-w-full">
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 shrink-0 max-w-full">
               {CATEGORIES.map((cat) => {
                 const active = selectedCategory === cat;
                 return (
-                  <motion.button
+                  <button
                     key={cat}
                     type="button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`text-[11px] sm:text-[12px] font-bold uppercase tracking-wider px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                    className={`font-['Space_Grotesk',sans-serif] text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl border transition-all cursor-pointer whitespace-nowrap shrink-0 shadow-sm ${
                       active
-                        ? "bg-[#dc2626] border-[#dc2626] text-white shadow-lg shadow-red-600/30"
-                        : "bg-[#0e0f15] border-white/10 text-zinc-300 hover:border-white/20 hover:text-white"
+                        ? "bg-[#ff4a00] border-[#ff4a00] text-white shadow-md shadow-orange-500/20"
+                        : "bg-[#f8f8f9] border-black/10 text-neutral-700 hover:border-black/30 hover:text-black hover:bg-white"
                     }`}
                   >
                     {cat}
-                  </motion.button>
+                  </button>
                 );
               })}
             </div>
@@ -359,35 +352,31 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
 
           {/* Quick Metrics Strip */}
           <Reveal delay={0.15}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-white/10">
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f15] border border-white/10 shadow-lg">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-white block">3+</span>
-                <span className="text-xs sm:text-sm text-zinc-400 font-medium mt-1 block">Real Projects</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-black/10">
+              <div className="p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+                <span className="font-['Anton',Impact,sans-serif] text-3xl sm:text-4xl text-black block">40+</span>
+                <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 font-bold mt-1 block">Shipped Projects</span>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f15] border border-white/10 shadow-lg">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-[#dc2626] block">100%</span>
-                <span className="text-xs sm:text-sm text-zinc-400 font-medium mt-1 block">Client Satisfaction</span>
+              <div className="p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+                <span className="font-['Anton',Impact,sans-serif] text-3xl sm:text-4xl text-[#ff4a00] block">100%</span>
+                <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 font-bold mt-1 block">Client Satisfaction</span>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f15] border border-white/10 shadow-lg">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-white block">1+</span>
-                <span className="text-xs sm:text-sm text-zinc-400 font-medium mt-1 block">Year of Craft</span>
+              <div className="p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+                <span className="font-['Anton',Impact,sans-serif] text-3xl sm:text-4xl text-black block">1+ YRS</span>
+                <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 font-bold mt-1 block">Professional Craft</span>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#0e0f15] border border-white/10 shadow-lg">
-                <span className="text-2xl sm:text-4xl font-mono font-black text-emerald-400 block">&lt; 1s</span>
-                <span className="text-xs sm:text-sm text-zinc-400 font-medium mt-1 block">Core Web Vitals</span>
+              <div className="p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+                <span className="font-['Anton',Impact,sans-serif] text-3xl sm:text-4xl text-emerald-600 block">&lt; 1s</span>
+                <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 font-bold mt-1 block">Core Web Vitals</span>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── SECTION 2: BENTO SERVICES GRID (Matching CapabilitiesGrid style) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        {/* Intersection Crosshairs */}
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
-
-        <div className="max-w-[1500px] mx-auto">
+      {/* ── SECTION 2: BENTO SERVICES GRID ── */}
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <AnimatePresence mode="popLayout">
               {filteredServices.map((service, idx) => (
@@ -398,42 +387,39 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.94, y: -20 }}
                   transition={{ duration: 0.35, delay: idx * 0.05 }}
-                  className="bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-xl hover:bg-[#13141c]"
+                  className="bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white rounded-3xl p-7 sm:p-8 flex flex-col justify-between group transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer"
                 >
-                  {/* Top subtle glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
-
                   <div>
                     {/* Top Row: Icon + Category Badge */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-red-950/60 border border-red-500/30 text-[#dc2626] flex items-center justify-center group-hover:scale-105 transition-all">
+                      <div className="w-12 h-12 rounded-2xl bg-white border border-black/10 flex items-center justify-center group-hover:scale-105 transition-all shadow-sm">
                         {service.icon}
                       </div>
 
-                      <span className="text-[10px] font-mono font-bold tracking-wider text-blue-400 bg-blue-950/50 border border-blue-500/30 px-3 py-1 rounded-full uppercase">
+                      <span className="font-mono text-xs font-bold tracking-wider text-[#ff4a00] bg-orange-50 border border-orange-200 px-3 py-1 rounded-full uppercase">
                         {service.num} / {service.categoryTag}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white group-hover:text-[#dc2626] transition-colors mb-3">
+                    <h3 className="font-['Anton',Impact,sans-serif] text-2xl uppercase tracking-tight text-black group-hover:text-[#ff4a00] transition-colors mb-3 leading-tight">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed mb-6">
+                    <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
                       {service.description}
                     </p>
 
                     {/* Deliverables Bullet List */}
-                    <div className="pt-4 border-t border-white/10 mb-6">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-2.5">
-                        Key Deliverables:
+                    <div className="pt-4 border-t border-black/10 mb-6">
+                      <span className="font-['Space_Grotesk',sans-serif] text-[11px] uppercase tracking-widest text-black font-bold block mb-3">
+                        KEY DELIVERABLES:
                       </span>
                       <ul className="space-y-2">
                         {service.deliverables.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-xs text-zinc-300 font-light">
-                            <span className="text-[#dc2626] font-bold text-xs mt-0.5">✦</span>
+                          <li key={i} className="flex items-start gap-2 font-['Space_Grotesk',sans-serif] text-xs text-neutral-700">
+                            <span className="text-[#ff4a00] font-bold text-xs mt-0.5 shrink-0">✦</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -443,11 +429,11 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
 
                   <div>
                     {/* Tech Stack Tags */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10 mb-6">
+                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-black/10 mb-6">
                       {service.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="text-[10px] sm:text-[11px] font-mono px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-zinc-300 shadow-2xs"
+                          className="font-mono text-[10.5px] px-2.5 py-1 rounded-md bg-white border border-black/10 text-neutral-800 font-semibold shadow-2xs group-hover:border-black/20"
                         >
                           {skill}
                         </span>
@@ -455,17 +441,17 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
                     </div>
 
                     {/* Footer: Timeline & Inquire CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                      <span className="text-[11px] font-mono text-zinc-400">
-                        Est: <strong className="text-white">{service.timeline}</strong>
+                    <div className="flex items-center justify-between pt-4 border-t border-black/10">
+                      <span className="font-mono text-xs text-neutral-500">
+                        Est: <strong className="text-black font-bold">{service.timeline}</strong>
                       </span>
 
                       <Link
                         href={`/contact?service=${service.id}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#dc2626] hover:text-[#b91c1c] transition-colors group/link"
+                        className="inline-flex items-center gap-1.5 font-['Space_Grotesk',sans-serif] text-xs font-black uppercase tracking-wider text-black group-hover:text-[#ff4a00] transition-colors"
                       >
-                        <span>Inquire</span>
-                        <span className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform">
+                        <span>INQUIRE</span>
+                        <span className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
                           ↗
                         </span>
                       </Link>
@@ -478,22 +464,18 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
         </div>
       </section>
 
-      {/* ── SECTION 3: COLLABORATION MODELS (Styled to theme) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
-
-        <div className="max-w-[1500px] mx-auto">
+      {/* ── SECTION 3: COLLABORATION MODELS ── */}
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
           <div className="mb-10 sm:mb-16 max-w-2xl">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                Engagement Terms
+              <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.2em] uppercase text-[#ff4a00] block mb-2">
+                ENGAGEMENT TERMS
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                Transparent <span className="text-[#dc2626]">Collaboration</span>
+              <h2 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-black leading-[1] mb-3">
+                TRANSPARENT <span className="text-[#ff4a00]">COLLABORATION</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed">
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed">
                 Clear deliverables, fixed timelines, and direct engineering access without hidden overheads.
               </p>
             </Reveal>
@@ -502,46 +484,43 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {ENGAGEMENT_MODELS.map((model, idx) => (
               <Reveal key={model.title} delay={idx * 0.1}>
-                <div className="h-full bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-xl hover:bg-[#13141c]">
-                  {/* Top glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
-
+                <div className="h-full bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white rounded-3xl p-7 sm:p-8 flex flex-col justify-between group transition-all duration-300 shadow-sm hover:shadow-xl">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-zinc-400">
+                      <span className="font-mono text-xs font-bold tracking-widest uppercase text-neutral-500">
                         {model.num} / {model.tag}
                       </span>
-                      <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${model.badgeColor}`}>
+                      <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${model.badgeBg}`}>
                         {model.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3 group-hover:text-[#dc2626] transition-colors">
+                    <h3 className="font-['Anton',Impact,sans-serif] text-2xl uppercase tracking-tight text-black mb-3 group-hover:text-[#ff4a00] transition-colors leading-tight">
                       {model.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed mb-6">
+                    <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
                       {model.desc}
                     </p>
 
-                    <div className="space-y-2.5 pt-4 border-t border-white/10 mb-8">
+                    <div className="space-y-2.5 pt-4 border-t border-black/10 mb-8">
                       {model.features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2 text-xs text-zinc-300 font-light">
-                          <span className="text-[#dc2626] font-bold text-xs">✓</span>
+                        <div key={i} className="flex items-start gap-2 font-['Space_Grotesk',sans-serif] text-xs text-neutral-700">
+                          <span className="text-[#ff4a00] font-bold text-xs">✓</span>
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-xs font-mono text-zinc-400 font-medium">
+                  <div className="pt-4 border-t border-black/10 flex items-center justify-between">
+                    <span className="font-mono text-xs text-neutral-500 font-bold">
                       {model.turnaround}
                     </span>
 
                     <Link
                       href="/contact"
-                      className="px-4 py-2 rounded-full bg-white/5 hover:bg-[#dc2626] text-white border border-white/10 hover:border-transparent text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-2xs"
+                      className="px-5 py-2.5 rounded-xl bg-white hover:bg-[#ff4a00] hover:text-white border border-black/15 text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
                     >
                       Inquire ↗
                     </Link>
@@ -553,42 +532,38 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
         </div>
       </section>
 
-      {/* ── SECTION 4: 4-PHASE PROCESS (Matching ProcessGrid) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
-
-        <div className="max-w-[1500px] mx-auto">
+      {/* ── SECTION 4: 4-PHASE PROCESS ── */}
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
           <div className="mb-10 sm:mb-16 text-center max-w-3xl mx-auto">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                Execution Framework
+              <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.2em] uppercase text-[#ff4a00] block mb-2">
+                EXECUTION FRAMEWORK
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                How Projects <span className="text-[#dc2626]">Come to Life</span>
+              <h2 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-black leading-[1] mb-3">
+                HOW PROJECTS <span className="text-[#ff4a00]">COME TO LIFE</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed max-w-xl mx-auto">
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto">
                 A disciplined four-phase delivery cycle engineered for transparency, velocity, and zero surprises.
               </p>
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {PROCESS_STEPS.map((step, idx) => (
               <Reveal key={step.num} delay={idx * 0.08}>
-                <div className="h-full p-4 sm:p-7 rounded-xl sm:rounded-2xl bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/50 transition-all flex flex-col justify-between shadow-xl">
+                <div className="h-full p-6 sm:p-8 rounded-2xl bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white transition-all flex flex-col justify-between shadow-sm hover:shadow-xl">
                   <div>
-                    <span className="text-xl sm:text-3xl font-mono font-black text-[#dc2626] block mb-2 sm:mb-3">
+                    <span className="font-['Anton',Impact,sans-serif] text-4xl text-[#ff4a00] block mb-2">
                       {step.num}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-400 block mb-1.5 sm:mb-2">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-500 block mb-2">
                       {step.tag}
                     </span>
-                    <h4 className="text-xs sm:text-base font-bold uppercase text-white mb-1.5 sm:mb-2 leading-snug">
+                    <h4 className="font-['Anton',Impact,sans-serif] text-xl uppercase text-black mb-2 leading-tight">
                       {step.title}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-light leading-relaxed">
+                    <p className="font-['Space_Grotesk',sans-serif] text-xs text-neutral-600 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -600,37 +575,37 @@ export default function ServicesPageContent({ site }: ServicesPageContentProps) 
       </section>
 
       {/* ── SECTION 5: HIGH-IMPACT CTA BANNER ── */}
-      <section className="pt-16 sm:pt-24 px-4 sm:px-6 md:px-12 lg:px-16 select-none">
-        <div className="max-w-[1500px] mx-auto">
+      <section className="pt-16 sm:pt-24 pb-8 sm:pb-12 px-5 sm:px-8 md:px-12 lg:px-16">
+        <div className="max-w-[1600px] mx-auto">
           <Reveal>
-            <div className="relative rounded-3xl p-8 sm:p-14 bg-[#0e0f15] border-2 border-red-500/30 overflow-hidden shadow-2xl text-center">
-              {/* Decorative radial blur */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-red-500/15 blur-[120px] pointer-events-none" />
-
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-bold uppercase tracking-widest mb-4">
-                ✦ Ready to Start?
+            <div className="relative rounded-3xl p-8 sm:p-14 lg:p-16 bg-[#f8f8f9] border border-black/10 overflow-hidden shadow-xl text-center">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/10 text-xs font-['Space_Grotesk',sans-serif] font-bold text-black uppercase tracking-wider mb-5">
+                <span className="w-2 h-2 rounded-full bg-[#ff4a00] animate-pulse" />
+                READY TO START?
               </span>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white max-w-3xl mx-auto mb-4 leading-tight">
-                HAVE A PROJECT OR SPRINT IN MIND?
+              <h2 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-4xl sm:text-6xl lg:text-7xl uppercase tracking-[-0.02em] text-black max-w-4xl mx-auto mb-5 leading-[0.95]">
+                HAVE A PROJECT OR SPRINT <span className="text-[#ff4a00]">IN MIND?</span>
               </h2>
 
-              <p className="text-xs sm:text-base text-zinc-400 font-light max-w-xl mx-auto mb-8 leading-relaxed">
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-base text-neutral-600 max-w-xl mx-auto mb-8 leading-relaxed">
                 Whether you need a full-stack platform, custom e-commerce storefront, or dedicated engineering bandwidth on retainer, let&rsquo;s connect.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-red-600/30 hover:scale-105"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#ff4a00] hover:bg-[#e04000] text-white font-['Space_Grotesk',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg hover:scale-[1.02] cursor-pointer"
                 >
-                  Start a Project ↗
+                  <span>START A PROJECT</span>
+                  <span>↗</span>
                 </Link>
                 <a
                   href={`mailto:${site.email}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/15 text-xs font-bold uppercase tracking-widest transition-all shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white hover:bg-neutral-50 text-black border border-black/15 font-['Space_Grotesk',sans-serif] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-sm"
                 >
-                  Direct Email ✉
+                  <span>DIRECT EMAIL</span>
+                  <span>✉</span>
                 </a>
               </div>
             </div>

@@ -9,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesPageContent site={siteData} />;
+  return (
+    <div className="bg-white text-black min-h-screen pt-20">
+      <ServicesPageContent site={siteData} />
+    </div>
+  );
 }

@@ -4,12 +4,13 @@ import ProjectsFilter from "@/components/ProjectsFilter";
 
 export const metadata: Metadata = {
   title: `Projects — ${siteData.name}`,
-  description: "A selection of frontend builds, WordPress experiences, and design systems shipped for clients around the world.",
+  description:
+    "A selection of frontend builds, WordPress experiences, and design systems shipped for clients around the world.",
 };
 
 export default function ProjectsPage() {
   return (
-    <div className="bg-[#09090b] text-white min-h-screen pt-24 pb-16">
+    <div className="bg-white text-black min-h-screen pt-20">
       <ProjectsFilter />
     </div>
   );
