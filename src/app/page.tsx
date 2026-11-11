@@ -3,9 +3,9 @@ import { siteData } from "@/lib/siteData";
 import HeroSection from "@/components/HeroSection";
 import BrutalistServicesSection from "@/components/BrutalistServicesSection";
 import BrutalistProjectsGrid from "@/components/BrutalistProjectsGrid";
+import BrutalistTechStatsSection from "@/components/BrutalistTechStatsSection";
 import BrandTicker from "@/components/BrandTicker";
 import AboutSectionRef from "@/components/AboutSectionRef";
-import StatsCounter from "@/components/StatsCounter";
 import CapabilitiesGrid from "@/components/CapabilitiesGrid";
 import ProcessGrid from "@/components/ProcessGrid";
 import ClientTestimonialsSection from "@/components/ClientTestimonialsSection";
@@ -35,16 +35,18 @@ export default function HomePage() {
         <BrutalistProjectsGrid />
       </section>
 
-      {/* 4. BRAND TRUST LOGOS */}
+      {/* 4. TECHNOLOGIES & EXPERIENCE STATS */}
+      <section id="tech-stats">
+        <BrutalistTechStatsSection />
+      </section>
+
+      {/* 5. BRAND TRUST LOGOS */}
       <BrandTicker />
 
-      {/* 5. ABOUT SECTION */}
+      {/* 6. ABOUT SECTION */}
       <section id="about">
         <AboutSectionRef site={siteData} />
       </section>
-
-      {/* 6. IMPACT STATS COUNTERS */}
-      <StatsCounter />
 
       {/* 7. CAPABILITIES GRID */}
       <CapabilitiesGrid />
