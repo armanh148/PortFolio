@@ -4,17 +4,12 @@ import HeroSection from "@/components/HeroSection";
 import BrutalistServicesSection from "@/components/BrutalistServicesSection";
 import BrutalistProjectsGrid from "@/components/BrutalistProjectsGrid";
 import BrutalistTechStatsSection from "@/components/BrutalistTechStatsSection";
-import BrandTicker from "@/components/BrandTicker";
-import AboutSectionRef from "@/components/AboutSectionRef";
-import CapabilitiesGrid from "@/components/CapabilitiesGrid";
-import ProcessGrid from "@/components/ProcessGrid";
-import ModernFaqSection from "@/components/ModernFaqSection";
 import BrutalistReviewsContactSection from "@/components/BrutalistReviewsContactSection";
 
 export const metadata: Metadata = {
   title: `${siteData.name} — ${siteData.role}`,
   description:
-    "Frontend & WordPress Developer crafting high-performance, purposeful web experiences.",
+    "Full-Stack Web Developer & Frontend Specialist crafting high-performance, purposeful web experiences.",
 };
 
 export default function HomePage() {
@@ -36,32 +31,14 @@ export default function HomePage() {
       </section>
 
       {/* 4. TECHNOLOGIES & EXPERIENCE STATS */}
-      <section id="tech-stats">
+      <section id="about">
         <BrutalistTechStatsSection />
       </section>
 
-      {/* 5. BRAND TRUST LOGOS */}
-      <BrandTicker />
-
-      {/* 6. ABOUT SECTION */}
-      <section id="about">
-        <AboutSectionRef site={siteData} />
-      </section>
-
-      {/* 7. CAPABILITIES GRID */}
-      <CapabilitiesGrid />
-
-      {/* 8. DESIGN PROCESS GRID */}
-      <ProcessGrid />
-
-      {/* 9. FAQ SECTION */}
-      <ModernFaqSection />
-
-      {/* 10. REVIEWS & GET IN TOUCH CONTACT */}
+      {/* 5. REVIEWS & GET IN TOUCH CONTACT */}
       <section id="contact">
         <BrutalistReviewsContactSection />
       </section>
     </>
   );
 }
-

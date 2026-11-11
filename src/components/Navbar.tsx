@@ -17,7 +17,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: "about", label: "ABOUT", href: "#about" },
   { id: "services", label: "SERVICES", href: "#services" },
   { id: "projects", label: "PROJECTS", href: "/projects" },
-  { id: "contact", label: "CONTACT", href: "/contact" },
+  { id: "contact", label: "CONTACT", href: "#contact" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -98,7 +98,7 @@ export default function Navbar({ site }: { site: SiteData }) {
           {/* ── Right Side: Solid Orange Rectangular CTA + Mobile Toggle ── */}
           <div className="flex items-center gap-3">
             <Link
-              href="/contact"
+              href="#contact"
               className="inline-flex items-center gap-2 bg-[#ff4a00] hover:bg-[#e04000] text-white text-[11px] sm:text-xs md:text-sm font-['Space_Grotesk',sans-serif] font-black uppercase tracking-wider px-4 sm:px-6 py-2.5 sm:py-3 transition-all hover:shadow-md cursor-pointer select-none"
             >
               <span>START A PROJECT</span>
