@@ -9,9 +9,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-[#09090b] text-white pt-24">
+    <div className="min-h-screen bg-white text-black pt-20">
       <ModernContactSection email={siteData.email} />
     </div>
   );
 }
-

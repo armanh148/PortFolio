@@ -10,43 +10,43 @@ interface AboutPageContentProps {
   site: SiteData;
 }
 
-/* ─── Geometric Neon SVG Icons matching Portfolio Theme ─── */
+/* ─── Geometric Brutalist SVG Icons with #ff4a00 Accents ─── */
 function CodeIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 text-black">
       <polyline points="16 18 22 12 16 6" />
       <polyline points="8 6 2 12 8 18" />
-      <line x1="14" y1="4" x2="10" y2="20" stroke="#dc2626" />
+      <line x1="14" y1="4" x2="10" y2="20" stroke="#ff4a00" strokeWidth="2.5" />
     </svg>
   );
 }
 
 function CmsIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 text-black">
       <rect x="2" y="3" width="20" height="14" rx="2" />
       <line x1="8" y1="21" x2="16" y2="21" />
       <line x1="12" y1="17" x2="12" y2="21" />
-      <circle cx="8" cy="10" r="1.5" fill="#dc2626" />
-      <circle cx="16" cy="10" r="1.5" fill="#dc2626" />
+      <circle cx="8" cy="10" r="1.5" fill="#ff4a00" />
+      <circle cx="16" cy="10" r="1.5" fill="#ff4a00" />
     </svg>
   );
 }
 
 function PaletteIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 text-black">
       <path d="M12 2L2 7l10 5 10-5-10-5z" />
       <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" stroke="#dc2626" />
+      <path d="M2 12l10 5 10-5" stroke="#ff4a00" strokeWidth="2.5" />
     </svg>
   );
 }
 
 function SpeedIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 text-black">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#ff4a00" stroke="#ff4a00" />
     </svg>
   );
 }
@@ -58,7 +58,7 @@ const TOOLKIT_CATEGORIES = [
     tag: "FRONTEND",
     desc: "Building ultra-fast, responsive web interfaces with modern component hierarchies, clean state management, and fluid micro-interactions.",
     icon: <CodeIcon />,
-    tools: ["React", "Next.js", "Tailwind CSS", "TypeScript", "JavaScript (ES6+)", "HTML5 / CSS3"],
+    tools: ["React 19", "Next.js 16", "Tailwind CSS", "TypeScript", "JavaScript (ES6+)", "Framer Motion"],
   },
   {
     num: "02",
@@ -82,7 +82,7 @@ const TOOLKIT_CATEGORIES = [
     tag: "DEVOPS",
     desc: "Automating deployment pipelines, version control standards, and performance profiling for optimal Core Web Vitals.",
     icon: <PaletteIcon />,
-    tools: ["Git & GitHub", "Vercel", "Vite", "Postman", "Lighthouse", "Figma", "VS Code"],
+    tools: ["Git & GitHub", "Vercel", "Vite", "Postman", "Google Lighthouse", "Figma", "VS Code"],
   },
 ];
 
@@ -159,61 +159,86 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
   const firstName = site.name ? site.name.split(" ")[0] : "Arman";
 
   return (
-    <div className="bg-[#09090b] text-white min-h-screen pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-x-clip selection:bg-[#dc2626] selection:text-white">
-      {/* ── Ambient Radial Glows (Exact portfolio signature) ── */}
-      <div className="fixed top-1/4 left-1/4 w-[600px] h-[500px] bg-red-500/10 blur-[170px] rounded-full pointer-events-none -z-10" />
-      <div className="fixed bottom-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none -z-10" />
+    <div className="bg-white text-black min-h-screen pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 select-none overflow-x-hidden selection:bg-[#ff4a00] selection:text-white">
+      {/* ── SECTION 1: EDITORIAL BRUTALIST HERO HEADER ── */}
+      <section className="relative pb-12 sm:pb-16 md:pb-20 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
+          {/* Breadcrumb + Status Eyebrow */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
+            <div className="flex items-center gap-2 text-xs font-['Space_Grotesk',sans-serif] font-bold text-neutral-500 uppercase tracking-wider">
+              <Link href="/" className="hover:text-[#ff4a00] transition-colors">
+                HOME
+              </Link>
+              <span>/</span>
+              <span className="text-black">ABOUT</span>
+            </div>
 
-      {/* ── SECTION 1: HERO HEADER ── */}
-      <section className="relative py-12 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        {/* Subtle Grid Crosshairs */}
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f8f8f9] border border-black/10 text-xs font-['Space_Grotesk',sans-serif] font-bold text-black uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#ff4a00] animate-pulse" />
+              FULL-STACK DEVELOPER &amp; FRONTEND SPECIALIST
+            </span>
+          </div>
 
-        <div className="max-w-[1500px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 sm:gap-12 mb-10 sm:mb-16">
-            <div>
+          {/* Monumental Headline */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8">
               <Reveal>
-                <div className="flex items-center gap-2 mb-4 text-xs font-mono text-zinc-400">
-                  <Link href="/" className="hover:text-[#dc2626] transition-colors">
-                    HOME
-                  </Link>
-                  <span>/</span>
-                  <span className="text-[#dc2626] font-semibold">ABOUT</span>
-                </div>
-
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                  The Craft &amp; Story
-                </span>
-
-                {/* Giant Bold Headline with Glowing Dot */}
-                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-none flex items-baseline">
-                  <span>ABOUT</span>
-                  <span className="inline-block w-3 h-3 sm:w-5 sm:h-5 md:w-7 md:h-7 bg-[#dc2626] ml-2 sm:ml-4 rounded-xs shadow-[0_0_24px_rgba(220,38,38,0.7)]" />
+                <h1 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(3.5rem,9.5vw,9.5rem)] leading-[0.88] tracking-[-0.02em] uppercase text-black">
+                  THE CRAFT.<br />
+                  THE VISION.<br />
+                  <span className="text-[#ff4a00]">THE CODE.</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={0.1}>
-                <p className="text-sm sm:text-base md:text-lg text-zinc-400 font-light max-w-2xl leading-relaxed mt-6">
-                  Full-Stack Web Developer and Frontend Specialist based in Karachi, Pakistan, currently working at Techmire Solutions. Crafting high-performance digital experiences where aesthetic refinement meets bulletproof architecture.
+                <p className="font-['Space_Grotesk',sans-serif] text-sm sm:text-base md:text-lg font-medium text-neutral-700 max-w-2xl leading-relaxed mt-6 sm:mt-8">
+                  Full-Stack Web Developer and Frontend Specialist based in Karachi, Pakistan, currently engineering high-performance web applications at <span className="text-black font-bold">Techmire Solutions</span>. Bridging meticulous design systems with robust, scalable software architecture.
                 </p>
               </Reveal>
             </div>
 
-            {/* Quick Metrics Badges */}
-            <div className="flex items-center gap-3 sm:gap-4 self-start lg:self-end">
-              <div className="px-4 py-2.5 rounded-2xl bg-[#0e0f15] border border-white/10 flex items-center gap-3 shadow-lg">
-                <span className="text-2xl sm:text-3xl font-mono font-black text-[#dc2626]">1+</span>
-                <span className="text-[11px] font-mono uppercase text-zinc-400 font-bold leading-tight">
-                  Year of<br />Experience
-                </span>
+            {/* Quick Metrics Cards */}
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 self-start lg:self-end w-full">
+              <div className="flex-1 p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 flex items-center justify-between shadow-sm">
+                <div>
+                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 block mb-1">
+                    Projects Delivered
+                  </span>
+                  <span className="font-['Anton',Impact,sans-serif] text-4xl text-black">
+                    40+
+                  </span>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm">
+                  🚀
+                </div>
               </div>
-              <div className="px-4 py-2.5 rounded-2xl bg-[#0e0f15] border border-white/10 flex items-center gap-3 shadow-lg">
-                <span className="text-2xl sm:text-3xl font-mono font-black text-white">3+</span>
-                <span className="text-[11px] font-mono uppercase text-zinc-400 font-bold leading-tight">
-                  Real Projects<br />Shipped
-                </span>
+
+              <div className="flex-1 p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 flex items-center justify-between shadow-sm">
+                <div>
+                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 block mb-1">
+                    Happy Clients
+                  </span>
+                  <span className="font-['Anton',Impact,sans-serif] text-4xl text-[#ff4a00]">
+                    25+
+                  </span>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-[#ff4a00] text-white flex items-center justify-center font-bold text-sm">
+                  ★
+                </div>
+              </div>
+
+              <div className="flex-1 p-5 rounded-2xl bg-[#f8f8f9] border border-black/10 flex items-center justify-between shadow-sm">
+                <div>
+                  <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 block mb-1">
+                    Experience
+                  </span>
+                  <span className="font-['Anton',Impact,sans-serif] text-4xl text-black">
+                    1+ <span className="text-sm font-['Space_Grotesk'] text-neutral-500">YEARS</span>
+                  </span>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm">
+                  ⚡
+                </div>
               </div>
             </div>
           </div>
@@ -221,49 +246,46 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
       </section>
 
       {/* ── SECTION 2: BIOGRAPHY & PHILOSOPHY (Editorial Bento) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
-
-        <div className="max-w-[1500px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
             {/* Left Column: Portrait Showcase Card */}
             <div className="lg:col-span-5">
               <Reveal>
-                <div className="relative rounded-3xl bg-[#0e0f15] border border-white/10 p-5 sm:p-7 overflow-hidden shadow-2xl">
-                  {/* Top glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#dc2626]/50 to-transparent" />
-
+                <div className="relative rounded-3xl bg-[#f8f8f9] border border-black/10 p-5 sm:p-7 shadow-xl overflow-hidden group">
                   {/* Status header */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-3 py-1 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="inline-flex items-center gap-2 text-xs font-['Space_Grotesk',sans-serif] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                       Available for projects
                     </span>
-                    <span className="text-xs font-mono text-zinc-400 font-bold">
+                    <span className="text-xs font-mono text-neutral-500 font-bold">
                       {site.location || "Karachi, PK"}
                     </span>
                   </div>
 
                   {/* Portrait photo */}
-                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#13141c] mb-5 shadow-inner">
+                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-black/10 bg-white mb-5 shadow-inner">
                     <Image
                       src={site.heroImage || "/hero-img.png"}
                       alt={site.name}
                       fill
                       priority
                       loading="eager"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 400px"
-                      className="object-cover object-top filter contrast-105 brightness-95"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 500px"
+                      className="object-contain object-bottom filter contrast-105 brightness-100 group-hover:scale-102 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70" />
                   </div>
 
                   {/* Name caption & social links */}
-                  <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center justify-between pt-2 border-t border-black/10">
                     <div>
-                      <h3 className="text-lg font-bold text-white leading-tight">{site.name}</h3>
-                      <p className="text-xs text-zinc-400 font-light mt-0.5">{site.role}</p>
+                      <h3 className="font-['Anton',Impact,sans-serif] text-2xl uppercase tracking-tight text-black leading-tight">
+                        {site.name}
+                      </h3>
+                      <p className="font-mono text-xs text-[#ff4a00] font-bold mt-0.5">
+                        {site.company || "Techmire Solutions"}
+                      </p>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -279,7 +301,7 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1, y: -2 }}
                           whileTap={{ scale: 0.95 }}
-                          className="w-8 h-8 rounded-full bg-white/5 hover:bg-[#dc2626] hover:text-white border border-white/10 flex items-center justify-center text-xs font-bold text-zinc-300 transition-all shadow-2xs"
+                          className="w-8 h-8 rounded-full bg-white hover:bg-[#ff4a00] hover:text-white border border-black/15 flex items-center justify-center text-xs font-bold text-black transition-all shadow-sm"
                         >
                           {s.label}
                         </motion.a>
@@ -294,24 +316,24 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <Reveal delay={0.1}>
-                  <span className="text-[10px] font-mono font-bold tracking-[0.25em] uppercase text-[#dc2626] block mb-3">
-                    Philosophy &amp; Background
+                  <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.2em] uppercase text-[#ff4a00] block mb-3">
+                    PHILOSOPHY &amp; BACKGROUND
                   </span>
-                  <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-6">
-                    Engineering where <span className="text-[#dc2626]">function</span> blends with <span className="text-blue-400">emotion</span>.
+                  <h2 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-black leading-[1] mb-6">
+                    ENGINEERING WHERE <span className="text-[#ff4a00]">FUNCTION</span> BLENDS WITH <span className="text-black underline decoration-[#ff4a00] decoration-wavy decoration-2">PURPOSE</span>.
                   </h2>
                 </Reveal>
 
                 <Reveal delay={0.15}>
-                  <div className="space-y-4 text-xs sm:text-sm md:text-base text-zinc-400 font-light leading-relaxed mb-8">
+                  <div className="space-y-4 font-['Space_Grotesk',sans-serif] text-sm sm:text-base text-neutral-700 font-normal leading-relaxed mb-8">
                     <p>
-                      Hello, I&rsquo;m {firstName}. As a passionate Full-Stack Web Developer and Frontend Specialist at Techmire Solutions (Karachi, Pakistan), I specialize in turning complex requirements into clean, high-performance web applications using modern JavaScript frameworks, robust backends, and headless CMS solutions.
+                      Hello, I&rsquo;m {firstName}. As a dedicated Full-Stack Web Developer and Frontend Specialist at <strong className="text-black">Techmire Solutions</strong> in Karachi, Pakistan, I specialize in crafting ultra-responsive web applications, modern headless e-commerce storefronts, and robust backend architectures.
                     </p>
                     <p>
-                      I have a strong eye for minimalist modern aesthetics, dark-mode styling, and optimized user experiences. I write clean, maintainable code across React, Next.js, Node.js, Express, Django, and modern e-commerce architectures.
+                      I believe the web should be lightning fast, uncompromisingly bold, and memorable. Rather than relying on heavy bloated themes or sluggish visual page builders, every solution I build is engineered from the ground up with clean, maintainable, production-ready code.
                     </p>
                     <p>
-                      Every millisecond of latency and every pixel of misaligned layout represents friction. My goal is simple: deliver web experiences that load instantly, feel remarkably tactile through fluid motion, and convert visitors into long-term champions.
+                      Whether building cinematic brand portfolios, complex logistics management portals, or high-converting custom Shopify storefronts, I ensure sub-second page loads, flawless mobile responsiveness, and 95+ Google Lighthouse scores across the board.
                     </p>
                   </div>
                 </Reveal>
@@ -319,17 +341,17 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                 {/* Key Specialization Badges */}
                 <Reveal delay={0.2}>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-                    <div className="p-3.5 rounded-xl bg-[#0e0f15] border border-white/10 shadow-2xs">
-                      <span className="text-xs font-mono font-bold text-[#dc2626] block mb-1">01 / TECH</span>
-                      <span className="text-xs font-bold text-white">Next.js &amp; React 19</span>
+                    <div className="p-4 rounded-xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+                      <span className="font-mono text-[11px] font-bold text-[#ff4a00] block mb-1">01 / FRONTEND</span>
+                      <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-bold text-black">React 19 &amp; Next.js 16</span>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-[#0e0f15] border border-white/10 shadow-2xs">
-                      <span className="text-xs font-mono font-bold text-[#dc2626] block mb-1">02 / CMS</span>
-                      <span className="text-xs font-bold text-white">Zero-Bloat WordPress</span>
+                    <div className="p-4 rounded-xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+                      <span className="font-mono text-[11px] font-bold text-[#ff4a00] block mb-1">02 / E-COMMERCE</span>
+                      <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-bold text-black">Shopify &amp; WordPress</span>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-[#0e0f15] border border-white/10 col-span-2 sm:col-span-1 shadow-2xs">
-                      <span className="text-xs font-mono font-bold text-[#dc2626] block mb-1">03 / DESIGN</span>
-                      <span className="text-xs font-bold text-white">Figma to Code 1:1</span>
+                    <div className="p-4 rounded-xl bg-[#f8f8f9] border border-black/10 col-span-2 sm:col-span-1 shadow-sm">
+                      <span className="font-mono text-[11px] font-bold text-[#ff4a00] block mb-1">03 / BACKEND</span>
+                      <span className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-bold text-black">Node, Django &amp; APIs</span>
                     </div>
                   </div>
                 </Reveal>
@@ -337,18 +359,20 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
 
               {/* Action Buttons */}
               <Reveal delay={0.25}>
-                <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/10">
+                <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-black/10">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-red-600/30 hover:scale-105"
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#ff4a00] hover:bg-[#e04000] text-white font-['Space_Grotesk',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg hover:scale-[1.02] cursor-pointer"
                   >
-                    Start a Project ↗
+                    <span>START A PROJECT</span>
+                    <span>↗</span>
                   </Link>
                   <a
                     href={`mailto:${site.email}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold text-xs uppercase tracking-wider transition-all"
+                    className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-[#f8f8f9] hover:bg-neutral-100 text-black border border-black/15 font-['Space_Grotesk',sans-serif] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-sm"
                   >
-                    Direct Email ✉
+                    <span>DIRECT EMAIL</span>
+                    <span>✉</span>
                   </a>
                 </div>
               </Reveal>
@@ -358,56 +382,49 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
       </section>
 
       {/* ── SECTION 3: SKILLS & TOOLKIT (Bento Grid) ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
-
-        <div className="max-w-[1500px] mx-auto">
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
           <div className="mb-10 sm:mb-16 max-w-2xl">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                Arsenal
+              <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.2em] uppercase text-[#ff4a00] block mb-2">
+                TECHNICAL ARSENAL
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                Skills &amp; <span className="text-[#dc2626]">Technologies</span>
+              <h2 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-black leading-[1] mb-3">
+                SKILLS &amp; <span className="text-[#ff4a00]">TECHNOLOGIES</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed">
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed">
                 A focused selection of modern tools, libraries, and languages utilized daily to ship production-ready applications.
               </p>
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {TOOLKIT_CATEGORIES.map((cat, idx) => (
               <Reveal key={cat.title} delay={idx * 0.08}>
-                <div className="h-full bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/60 hover:bg-[#13141c] rounded-xl sm:rounded-3xl p-4 sm:p-7 flex flex-col justify-between group transition-all duration-300 relative overflow-hidden shadow-xl">
-                  {/* Top subtle glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#dc2626]/50 transition-colors" />
-
+                <div className="h-full bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between group transition-all duration-300 shadow-sm hover:shadow-xl">
                   <div>
-                    <div className="flex items-center justify-between mb-3 sm:mb-5">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-red-950/60 border border-red-500/30 text-[#dc2626] flex items-center justify-center group-hover:scale-105 transition-all">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-11 h-11 rounded-xl bg-white border border-black/10 flex items-center justify-center group-hover:scale-105 transition-all shadow-sm">
                         {cat.icon}
                       </div>
-                      <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-blue-400 bg-blue-950/50 border border-blue-500/30 px-2 py-0.5 rounded-full uppercase">
+                      <span className="font-mono text-xs font-bold tracking-wider text-[#ff4a00] bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-full uppercase">
                         {cat.num}
                       </span>
                     </div>
 
-                    <h3 className="text-sm sm:text-xl font-bold uppercase tracking-tight text-white mb-1.5 sm:mb-2 group-hover:text-[#dc2626] transition-colors">
+                    <h3 className="font-['Anton',Impact,sans-serif] text-xl sm:text-2xl uppercase tracking-tight text-black mb-2 group-hover:text-[#ff4a00] transition-colors">
                       {cat.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-light leading-relaxed mb-4 sm:mb-6">
+                    <p className="font-['Space_Grotesk',sans-serif] text-xs text-neutral-600 leading-relaxed mb-6">
                       {cat.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 sm:pt-4 border-t border-white/10 flex flex-wrap gap-1 sm:gap-1.5">
+                  <div className="pt-4 border-t border-black/10 flex flex-wrap gap-1.5">
                     {cat.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="text-[9px] sm:text-[10px] font-mono px-1.5 sm:px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-zinc-300 shadow-2xs"
+                        className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-white border border-black/10 text-neutral-800 font-semibold shadow-2xs group-hover:border-black/20"
                       >
                         {tool}
                       </span>
@@ -421,22 +438,18 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
       </section>
 
       {/* ── SECTION 4: CAREER TIMELINE & EXPERIENCE ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <span className="cross-mark text-white/20" style={{ left: "24px", top: "24px" }}>+</span>
-        <span className="cross-mark text-white/20" style={{ right: "24px", top: "24px" }}>+</span>
-
-        <div className="max-w-[1500px] mx-auto">
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
           <div className="mb-10 sm:mb-16 max-w-2xl">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                Track Record
+              <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.2em] uppercase text-[#ff4a00] block mb-2">
+                TRACK RECORD &amp; EXPERIENCE
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                Experience &amp; <span className="text-[#dc2626]">Milestones</span>
+              <h2 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-black leading-[1] mb-3">
+                EXPERIENCE &amp; <span className="text-[#ff4a00]">MILESTONES</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed">
-                A chronology of real-world roles, shipped platforms, and architectural contributions.
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed">
+                A chronology of real-world production engineering, shipped client platforms, and architectural contributions.
               </p>
             </Reveal>
           </div>
@@ -444,41 +457,38 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
           <div className="space-y-6 sm:space-y-8">
             {TIMELINE_EXPERIENCES.map((exp, idx) => (
               <Reveal key={exp.period} delay={idx * 0.1}>
-                <div className="bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-300 relative overflow-hidden group shadow-xl">
-                  {/* Top glare line */}
-                  <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-[#dc2626]/60 transition-colors" />
-
+                <div className="bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-300 shadow-sm hover:shadow-xl group">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
                     {/* Left Meta Column: Period, Status, Company, Location */}
                     <div className="lg:col-span-4 flex flex-col justify-between h-full">
                       <div>
                         <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-                          <span className="text-xs sm:text-sm font-mono font-bold text-[#dc2626] bg-red-950/40 border border-red-500/30 px-3 py-1 rounded-full">
+                          <span className="text-xs font-mono font-bold text-white bg-black px-3 py-1 rounded-full">
                             {exp.period}
                           </span>
                           <span className={`text-[10px] font-mono px-2.5 py-1 rounded-full border uppercase tracking-wider font-bold ${
                             exp.status === "Active Role"
-                              ? "bg-emerald-950/40 text-emerald-400 border-emerald-500/30"
-                              : "bg-white/5 text-zinc-400 border-white/10"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                              : "bg-white text-neutral-600 border-black/10"
                           }`}>
                             {exp.status === "Active Role" ? "● Active Role" : "✓ Shipped"}
                           </span>
                         </div>
 
-                        <h4 className="text-base sm:text-lg font-bold text-white uppercase tracking-tight">
+                        <h4 className="font-['Anton',Impact,sans-serif] text-2xl uppercase tracking-tight text-black">
                           {exp.company}
                         </h4>
-                        <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                        <p className="font-mono text-xs text-neutral-500 mt-1">
                           {exp.location}
                         </p>
                       </div>
 
                       {/* Tech stack tags */}
-                      <div className="mt-4 sm:mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
+                      <div className="mt-6 pt-4 border-t border-black/10 flex flex-wrap gap-1.5">
                         {exp.technologies.map((t) => (
                           <span
                             key={t}
-                            className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-zinc-300 font-medium shadow-2xs"
+                            className="font-mono text-[10px] px-2 py-0.5 rounded-md bg-white border border-black/10 text-neutral-700 font-semibold shadow-2xs"
                           >
                             {t}
                           </span>
@@ -487,23 +497,23 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
                     </div>
 
                     {/* Right Narrative Column: Role Title, Description & Milestones */}
-                    <div className="lg:col-span-8 lg:border-l lg:border-white/10 lg:pl-8">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mb-2 group-hover:text-[#dc2626] transition-colors leading-tight">
+                    <div className="lg:col-span-8 lg:border-l border-black/10 lg:pl-8">
+                      <h3 className="font-['Anton',Impact,sans-serif] text-2xl sm:text-3xl uppercase tracking-tight text-black mb-2 group-hover:text-[#ff4a00] transition-colors leading-tight">
                         {exp.role}
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed mb-5">
+                      <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 leading-relaxed mb-5">
                         {exp.desc}
                       </p>
 
-                      <div className="bg-[#13141c] rounded-xl sm:rounded-2xl border border-white/10 p-4 sm:p-5 shadow-2xs">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-400 block mb-2.5">
-                          Key Impact &amp; Deliverables
+                      <div className="bg-white rounded-2xl border border-black/10 p-5 shadow-sm">
+                        <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-widest text-[#ff4a00] block mb-3">
+                          KEY DELIVERABLES &amp; IMPACT
                         </span>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2.5">
                           {exp.achievements.map((ach, i) => (
-                            <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300 font-normal">
-                              <span className="text-[#dc2626] font-bold text-xs mt-0.5 shrink-0">✦</span>
+                            <li key={i} className="flex items-start gap-2.5 font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-800">
+                              <span className="text-[#ff4a00] font-bold text-sm mt-0.5 shrink-0">✦</span>
                               <span>{ach}</span>
                             </li>
                           ))}
@@ -519,35 +529,34 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
       </section>
 
       {/* ── SECTION 5: CORE VALUES & WORK ETHIC ── */}
-      <section className="relative py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 border-b border-white/10 select-none">
-        <div className="max-w-[1500px] mx-auto">
+      <section className="relative py-16 sm:py-24 px-5 sm:px-8 md:px-12 lg:px-16 border-b border-black/10">
+        <div className="max-w-[1600px] mx-auto">
           <div className="mb-10 sm:mb-16 text-center max-w-3xl mx-auto">
             <Reveal>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-semibold uppercase tracking-widest mb-3 sm:mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                Foundations
+              <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.2em] uppercase text-[#ff4a00] block mb-2">
+                FOUNDATIONS
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-3">
-                Core Engineering <span className="text-[#dc2626]">Principles</span>
+              <h2 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-black leading-[1] mb-3">
+                CORE ENGINEERING <span className="text-[#ff4a00]">PRINCIPLES</span>
               </h2>
-              <p className="text-xs sm:text-sm md:text-base font-light text-zinc-400 leading-relaxed max-w-xl mx-auto">
-                The non-negotiable standards that guide every line of code, component design, and client engagement.
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto">
+                The non-negotiable standards that guide every line of code, component hierarchy, and client engagement.
               </p>
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {CORE_VALUES.map((val, idx) => (
               <Reveal key={val.num} delay={idx * 0.08}>
-                <div className="h-full p-4 sm:p-7 rounded-xl sm:rounded-2xl bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/50 transition-all flex flex-col justify-between shadow-xl">
+                <div className="h-full p-6 sm:p-8 rounded-2xl bg-[#f8f8f9] border border-black/10 hover:border-[#ff4a00] hover:bg-white transition-all flex flex-col justify-between shadow-sm hover:shadow-xl">
                   <div>
-                    <span className="text-xl sm:text-3xl font-mono font-black text-[#dc2626] block mb-2 sm:mb-3">
+                    <span className="font-['Anton',Impact,sans-serif] text-4xl text-[#ff4a00] block mb-3">
                       {val.num}
                     </span>
-                    <h4 className="text-xs sm:text-lg font-bold uppercase text-white mb-1.5 sm:mb-2 leading-snug">
+                    <h4 className="font-['Anton',Impact,sans-serif] text-xl uppercase text-black mb-2 leading-tight">
                       {val.title}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-light leading-relaxed">
+                    <p className="font-['Space_Grotesk',sans-serif] text-xs text-neutral-600 leading-relaxed">
                       {val.desc}
                     </p>
                   </div>
@@ -558,38 +567,38 @@ export default function AboutPageContent({ site }: AboutPageContentProps) {
         </div>
       </section>
 
-      {/* ── SECTION 6: HIGH-IMPACT CTA BANNER ── */}
-      <section className="pt-16 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-16 select-none">
-        <div className="max-w-[1500px] mx-auto">
+      {/* ── SECTION 6: HIGH-IMPACT BRUTALIST CTA BANNER ── */}
+      <section className="pt-16 sm:pt-24 pb-8 sm:pb-12 px-5 sm:px-8 md:px-12 lg:px-16">
+        <div className="max-w-[1600px] mx-auto">
           <Reveal>
-            <div className="relative rounded-3xl p-8 sm:p-14 bg-[#0e0f15] border-2 border-red-500/30 overflow-hidden shadow-2xl text-center">
-              {/* Decorative radial blur */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-red-500/15 blur-[120px] pointer-events-none" />
-
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/30 bg-red-950/40 text-xs text-[#dc2626] font-bold uppercase tracking-widest mb-4">
-                ✦ Let&rsquo;s Connect
+            <div className="relative rounded-3xl p-8 sm:p-14 lg:p-16 bg-[#f8f8f9] border border-black/10 overflow-hidden shadow-xl text-center">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/10 text-xs font-['Space_Grotesk',sans-serif] font-bold text-black uppercase tracking-wider mb-5">
+                <span className="w-2 h-2 rounded-full bg-[#ff4a00] animate-pulse" />
+                LET&rsquo;S COLLABORATE
               </span>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white max-w-3xl mx-auto mb-4 leading-tight">
-                READY TO BUILD SOMETHING REMARKABLE?
+              <h2 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-4xl sm:text-6xl lg:text-7xl uppercase tracking-[-0.02em] text-black max-w-4xl mx-auto mb-5 leading-[0.95]">
+                READY TO BUILD SOMETHING <span className="text-[#ff4a00]">REMARKABLE?</span>
               </h2>
 
-              <p className="text-xs sm:text-base text-zinc-400 font-light max-w-xl mx-auto mb-8 leading-relaxed">
+              <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-base text-neutral-600 max-w-xl mx-auto mb-8 leading-relaxed">
                 Whether you have an upcoming project, need full-stack engineering horsepower on retainer, or want a high-performance Next.js application, let&rsquo;s talk.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-red-600/30 hover:scale-105"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#ff4a00] hover:bg-[#e04000] text-white font-['Space_Grotesk',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg hover:scale-[1.02] cursor-pointer"
                 >
-                  Start a Conversation ↗
+                  <span>START A CONVERSATION</span>
+                  <span>↗</span>
                 </Link>
                 <Link
                   href="/projects"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/15 text-xs font-bold uppercase tracking-widest transition-all shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white hover:bg-neutral-50 text-black border border-black/15 font-['Space_Grotesk',sans-serif] font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-sm"
                 >
-                  Explore Shipped Works ↗
+                  <span>EXPLORE SHIPPED WORKS</span>
+                  <span>↗</span>
                 </Link>
               </div>
             </div>

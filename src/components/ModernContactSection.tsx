@@ -10,25 +10,23 @@ interface DropdownOption {
   label: string;
 }
 
-const COUNTRY_OPTIONS: DropdownOption[] = [
-  { value: "USA", label: "United States (US)" },
-  { value: "UK", label: "United Kingdom (UK)" },
-  { value: "Pakistan", label: "Pakistan (PK)" },
-  { value: "UAE", label: "United Arab Emirates (UAE)" },
-  { value: "Germany", label: "Germany (DE)" },
-  { value: "Canada", label: "Canada (CA)" },
-  { value: "Other", label: "International / Other" },
+const PROJECT_TYPES: DropdownOption[] = [
+  { value: "Next.js Web Application", label: "Next.js / React Web Application" },
+  { value: "E-Commerce / Shopify", label: "Custom Shopify / E-Commerce Store" },
+  { value: "Full-Stack Development", label: "Full-Stack Web Engineering (Node/Django)" },
+  { value: "UI/UX & Frontend Optimization", label: "UI/UX & Frontend Optimization" },
+  { value: "WordPress / Headless CMS", label: "WordPress / Headless CMS Platform" },
+  { value: "Other / Consultation", label: "Other / General Consultation" },
 ];
 
-const ROLE_OPTIONS: DropdownOption[] = [
-  { value: "Client / Founder", label: "Client / Founder" },
-  { value: "Agency Owner", label: "Agency Owner" },
-  { value: "Recruiter", label: "Recruiter / Talent Partner" },
-  { value: "UI/UX Designer", label: "UI/UX Designer" },
-  { value: "Other", label: "Other" },
+const BUDGET_OPTIONS: DropdownOption[] = [
+  { value: "Under $1,000", label: "Under $1,000" },
+  { value: "$1,000 - $3,000", label: "$1,000 - $3,000" },
+  { value: "$3,000 - $5,000", label: "$3,000 - $5,000" },
+  { value: "$5,000+", label: "$5,000+ (Enterprise / Retainer)" },
 ];
 
-function CustomSelect({
+function BrutalistSelect({
   label,
   value,
   options,
@@ -59,23 +57,23 @@ function CustomSelect({
 
   return (
     <div className="relative" ref={ref}>
-      <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
+      <label className="text-xs font-['Space_Grotesk',sans-serif] uppercase tracking-wider font-bold text-neutral-600 block mb-2">
         {label}
       </label>
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className={`w-full bg-[#13141c] border rounded-xl px-4 py-3 sm:py-3.5 text-left text-base sm:text-sm text-white outline-none transition-all flex items-center justify-between cursor-pointer ${
-          open ? "border-[#dc2626] ring-2 ring-red-500/20" : "border-white/10 hover:border-white/20"
+        className={`w-full bg-[#f8f8f9] border rounded-xl px-4 py-3.5 text-left text-sm text-black outline-none transition-all flex items-center justify-between cursor-pointer ${
+          open ? "border-[#ff4a00] ring-2 ring-orange-500/20 bg-white" : "border-black/10 hover:border-black/30"
         }`}
       >
-        <span className={!selectedOption ? "text-zinc-500" : "text-white font-medium"}>
+        <span className={!selectedOption ? "text-neutral-400 font-medium" : "text-black font-semibold"}>
           {displayText}
         </span>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-zinc-400 text-xs shrink-0 ml-2"
+          className="text-neutral-500 text-xs shrink-0 ml-2 font-bold"
         >
           ▼
         </motion.span>
@@ -88,7 +86,7 @@ function CustomSelect({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-full mt-1.5 bg-[#13141c] border border-white/15 rounded-xl shadow-2xl z-50 overflow-hidden max-h-60 overflow-y-auto py-1"
+            className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-black/15 rounded-xl shadow-2xl z-50 overflow-hidden max-h-60 overflow-y-auto py-1"
           >
             {options.map((opt) => {
               const isSelected = opt.value === value;
@@ -100,14 +98,14 @@ function CustomSelect({
                     onChange(opt.value);
                     setOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-2.5 text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
+                  className={`w-full text-left px-4 py-2.5 text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer font-['Space_Grotesk',sans-serif] ${
                     isSelected
-                      ? "bg-red-950/60 text-[#dc2626] font-bold"
-                      : "text-zinc-300 hover:bg-white/5 hover:text-white"
+                      ? "bg-orange-50 text-[#ff4a00] font-bold"
+                      : "text-neutral-700 hover:bg-neutral-100 hover:text-black"
                   }`}
                 >
                   <span>{opt.label}</span>
-                  {isSelected && <span className="text-[#dc2626] text-xs">✓</span>}
+                  {isSelected && <span className="text-[#ff4a00] text-xs font-bold">✓</span>}
                 </button>
               );
             })}
@@ -127,11 +125,18 @@ export default function ModernContactSection({
     firstName: "",
     lastName: "",
     email: "",
-    country: "USA",
-    role: "Select your role",
+    projectType: "Next.js Web Application",
+    budget: "$1,000 - $3,000",
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   const update =
     (field: keyof typeof form) =>
@@ -150,290 +155,280 @@ export default function ModernContactSection({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const mailSubject = encodeURIComponent(
-      `New Portfolio Enquiry from ${form.firstName} ${form.lastName}`
+      `New Project Inquiry from ${form.firstName} ${form.lastName} [${form.projectType}]`
     );
     const mailBody = encodeURIComponent(
-      `Name: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nCountry: ${form.country}\nRole: ${form.role}\n\nMessage:\n${form.message}`
+      `Name: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nProject Type: ${form.projectType}\nEstimated Budget: ${form.budget}\n\nProject Details:\n${form.message}`
     );
     window.location.href = `mailto:${email}?subject=${mailSubject}&body=${mailBody}`;
     setSent(true);
   };
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-28 px-4 sm:px-6 md:px-12 bg-[#09090b] text-white overflow-hidden border-t border-white/10">
-      {/* Dynamic Background Glow with Float Motion */}
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.08, 0.16, 0.08],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-1/4 w-[800px] h-[500px] bg-red-500 blur-[140px] rounded-full pointer-events-none"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.06, 0.12, 0.06],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-0 right-1/4 w-[600px] h-[400px] bg-blue-600 blur-[120px] rounded-full pointer-events-none"
-      />
-
-      <div className="max-w-[1500px] mx-auto relative z-10">
-        {/* Main 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-start mb-12 sm:mb-20">
-          {/* Left Column: Heading & Description */}
-          <div className="lg:col-span-6 pt-2 sm:pt-6">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-950/40 text-xs font-semibold uppercase tracking-widest text-[#dc2626] mb-5 sm:mb-8">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] animate-pulse" />
-                Let&rsquo;s Connect
-              </div>
-              <h2 className="text-3xl sm:text-5xl lg:text-[64px] font-black uppercase tracking-tight leading-[1.05] mb-5 sm:mb-8 text-white">
-                Let&rsquo;s build high-performance web experiences
-              </h2>
-              <p className="text-zinc-400 font-normal text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xl">
-                Reach out to discuss new projects, custom Next.js builds, full-stack web applications, or scalable UI architectures. I personalize experiences and deliver quality at every touchpoint.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} className="w-full sm:w-auto">
-                  <Link
-                    href="/projects"
-                    className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-[#dc2626] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#b91c1c] transition-all shadow-lg shadow-red-600/30"
-                  >
-                    Explore Works ↗
-                  </Link>
-                </motion.div>
-                <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-semibold text-emerald-400 uppercase tracking-widest">
-                    Available for work
-                  </span>
-                </div>
-              </div>
-            </Reveal>
+    <section className="relative py-12 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16 bg-white text-black select-none overflow-hidden">
+      <div className="max-w-[1600px] mx-auto relative z-10">
+        {/* ── TOP BAR: Breadcrumb + Status ── */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-12">
+          <div className="flex items-center gap-2 text-xs font-['Space_Grotesk',sans-serif] font-bold text-neutral-500 uppercase tracking-wider">
+            <Link href="/" className="hover:text-[#ff4a00] transition-colors">
+              HOME
+            </Link>
+            <span>/</span>
+            <span className="text-black">CONTACT</span>
           </div>
 
-          {/* Right Column: Dark Glass Form Card */}
-          <div className="lg:col-span-6">
-            <Reveal delay={0.15}>
-              <div className="bg-[#0e0f15] p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#dc2626]/40 to-transparent" />
-
-                {sent ? (
-                  <div className="text-center py-12 sm:py-16">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#dc2626] to-[#b91c1c] text-white flex items-center justify-center mx-auto mb-5 font-bold text-2xl shadow-xl shadow-red-500/40"
-                    >
-                      ✓
-                    </motion.div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
-                      Message Ready!
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-400 max-w-xs mx-auto mb-6 sm:mb-8 leading-relaxed">
-                      Thank you for reaching out. Your default email client has been opened to finalize the message.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => setSent(false)}
-                      className="text-xs font-bold text-[#dc2626] uppercase tracking-wider underline underline-offset-4 hover:opacity-80 transition-opacity cursor-pointer"
-                    >
-                      Send Another Enquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-6 relative z-10">
-                    {/* Row 1: First Name & Last Name */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                      <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
-                          First Name
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={form.firstName}
-                          onChange={update("firstName")}
-                          placeholder="James"
-                          className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all shadow-2xs"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={form.lastName}
-                          onChange={update("lastName")}
-                          placeholder="Smith"
-                          className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all shadow-2xs"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Row 2: Email & Country */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                      <div>
-                        <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          value={form.email}
-                          onChange={update("email")}
-                          placeholder="james@company.com"
-                          className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all shadow-2xs"
-                        />
-                      </div>
-                      <div>
-                        <CustomSelect
-                          label="Country"
-                          value={form.country}
-                          options={COUNTRY_OPTIONS}
-                          onChange={(val) => setFormField("country", val)}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Row 3: Your Role */}
-                    <div>
-                      <CustomSelect
-                        label="Your Role"
-                        value={form.role}
-                        options={ROLE_OPTIONS}
-                        placeholder="Select your role"
-                        onChange={(val) => setFormField("role", val)}
-                      />
-                    </div>
-
-                    {/* Row 4: Message */}
-                    <div>
-                      <label className="text-[11px] uppercase tracking-widest font-semibold text-zinc-400 block mb-1.5 ml-1">
-                        Message
-                      </label>
-                      <textarea
-                        required
-                        rows={4}
-                        value={form.message}
-                        onChange={update("message")}
-                        placeholder="Tell me about your project..."
-                        className="w-full bg-[#13141c] border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#dc2626] hover:border-white/20 transition-all resize-none shadow-2xs"
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <div className="flex justify-end pt-2 sm:pt-3">
-                      <motion.button
-                        type="submit"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl bg-[#dc2626] text-white font-bold text-xs uppercase tracking-widest hover:bg-[#b91c1c] transition-all shadow-lg shadow-red-600/30 cursor-pointer"
-                      >
-                        Send Message ↗
-                      </motion.button>
-                    </div>
-                  </form>
-                )}
-              </div>
-            </Reveal>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f8f8f9] border border-black/10 text-xs font-['Space_Grotesk',sans-serif] font-bold text-black uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-[#ff4a00] animate-pulse" />
+            OPEN FOR Q1/Q2 2026 ENGAGEMENTS
           </div>
         </div>
 
-        {/* Middle Banner: Testimonials Row with Hover Lift */}
-        <div className="py-8 sm:py-12 border-y border-white/10 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-12 sm:mb-16">
+        {/* ── HERO HEADLINE ROW ── */}
+        <div className="mb-12 sm:mb-16 pb-10 border-b border-black/10">
+          <Reveal>
+            <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff4a00] block mb-3">
+              LET&rsquo;S COLLABORATE
+            </span>
+            <h1 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(3.5rem,9.5vw,9.5rem)] leading-[0.88] tracking-[-0.02em] uppercase text-black max-w-5xl">
+              LET&rsquo;S BUILD<br />
+              SOMETHING <span className="text-[#ff4a00]">ICONIC.</span>
+            </h1>
+          </Reveal>
+
           <Reveal delay={0.1}>
-            <motion.div
-              whileHover={{ y: -6, backgroundColor: "#13141c" }}
-              className="bg-[#0e0f15] border border-white/10 p-5 sm:p-8 rounded-2xl flex items-start gap-4 sm:gap-5 transition-all shadow-xl cursor-pointer"
-            >
-              <div className="relative shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-                  alt="Client avatar"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-white/15 shadow-sm"
-                />
-                <span className="absolute -bottom-1 -right-1 bg-[#dc2626] text-white w-5 h-5 sm:w-6 sm:h-6 rounded-full text-xs flex items-center justify-center font-bold shadow-md">
-                  💬
-                </span>
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed italic mb-3 sm:mb-4">
-                  &ldquo;Arman&rsquo;s Next.js and GSAP implementation gave CGPlux Studios a truly cinematic showcase with instant load times and fluid editorial workflows.&rdquo;
-                </p>
-                <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-white">Farhan Siddiqui</span>
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#dc2626] font-semibold">
-                    Creative Producer &middot; CGPlux Studios
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <motion.div
-              whileHover={{ y: -6, backgroundColor: "#13141c" }}
-              className="bg-[#0e0f15] border border-white/10 p-5 sm:p-8 rounded-2xl flex items-start gap-4 sm:gap-5 transition-all shadow-xl cursor-pointer"
-            >
-              <div className="relative shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-                  alt="Client avatar"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-white/15 shadow-sm"
-                />
-                <span className="absolute -bottom-1 -right-1 bg-[#dc2626] text-white w-5 h-5 sm:w-6 sm:h-6 rounded-full text-xs flex items-center justify-center font-bold shadow-md">
-                  ⚡
-                </span>
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed italic mb-3 sm:mb-4">
-                  &ldquo;The custom full-stack logistics management platform engineered by Arman streamlined our operations tracking with bulletproof backend reliability.&rdquo;
-                </p>
-                <div className="flex flex-col">
-                  <span className="text-xs sm:text-sm font-bold text-white">Kashif Al-Hadi</span>
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[#dc2626] font-semibold">
-                    Managing Director &middot; Al-Hadi Logistics
-                  </span>
-                </div>
-              </div>
-            </motion.div>
+            <p className="font-['Space_Grotesk',sans-serif] text-sm sm:text-base md:text-lg text-neutral-700 max-w-2xl leading-relaxed mt-6">
+              Have a high-impact web project, bespoke e-commerce store, or full-stack software challenge? Reach out directly and let&rsquo;s craft an unforgettable digital experience.
+            </p>
           </Reveal>
         </div>
 
-        {/* Bottom Grid: 4 Feature / Value Columns */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
-          {[
-            { icon: "🕒", title: "Fast Response", desc: "Guaranteed response within 24 hours for all project enquiries." },
-            { icon: "📊", title: "Actionable Insights", desc: "Employ performance profiling to optimize load times and conversion." },
-            { icon: "🎛️", title: "Design Systems", desc: "Live Figma component libraries and Tailwind tokens to scale layouts." },
-            { icon: "🌍", title: "Global Reach", desc: "Collaborating with creative studios, agencies, and founders worldwide." },
-          ].map((item, idx) => (
-            <Reveal key={item.title} delay={0.08 * (idx + 1)}>
-              <motion.div
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#0e0f15] border border-white/10 hover:border-[#dc2626]/40 hover:bg-[#13141c] transition-all group cursor-pointer flex flex-col justify-between h-full shadow-xl"
-              >
-                <div>
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-950/60 border border-red-500/30 text-[#dc2626] flex items-center justify-center text-lg sm:text-xl font-bold mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
-                    {item.icon}
-                  </div>
-                  <h4 className="text-xs sm:text-base font-bold text-white mb-1.5 sm:mb-2 group-hover:text-[#dc2626] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
-                    {item.title}
-                  </h4>
+        {/* ── MAIN 2-COLUMN GRID: DIRECT INFO + INQUIRY FORM ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* ══════════════════════════════════════════════════════════
+              LEFT COLUMN: CONTACT CARDS & CHANNELS
+             ══════════════════════════════════════════════════════════ */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {/* 1. Direct Email Card */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm flex flex-col justify-between">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-10 h-10 rounded-xl bg-white border border-black/10 text-[#ff4a00] flex items-center justify-center font-bold text-base shadow-sm">
+                  ✉
                 </div>
-                <p className="text-[11px] sm:text-sm text-zinc-400 font-normal leading-relaxed line-clamp-2 sm:line-clamp-none">
-                  {item.desc}
-                </p>
-              </motion.div>
-            </Reveal>
-          ))}
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-600 hover:text-black bg-white border border-black/10 px-2.5 py-1 rounded-md transition-colors cursor-pointer"
+                >
+                  {copied ? "✓ Copied" : "Copy Email"}
+                </button>
+              </div>
+
+              <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+                Direct Email
+              </span>
+              <a
+                href={`mailto:${email}`}
+                className="font-mono text-sm sm:text-base font-bold text-black hover:text-[#ff4a00] transition-colors break-all"
+              >
+                {email}
+              </a>
+            </div>
+
+            {/* 2. Direct Phone & WhatsApp Card */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm flex flex-col justify-between">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-10 h-10 rounded-xl bg-white border border-black/10 text-[#ff4a00] flex items-center justify-center font-bold text-base shadow-sm">
+                  📞
+                </div>
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">
+                  WhatsApp Available
+                </span>
+              </div>
+
+              <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+                Direct Phone / WhatsApp
+              </span>
+              <a
+                href="tel:+923001234567"
+                className="font-mono text-sm sm:text-base font-bold text-black hover:text-[#ff4a00] transition-colors"
+              >
+                +92 300 1234567
+              </a>
+            </div>
+
+            {/* 3. Location & Office Card */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm flex flex-col justify-between">
+              <div className="w-10 h-10 rounded-xl bg-white border border-black/10 text-[#ff4a00] flex items-center justify-center font-bold text-base shadow-sm mb-4">
+                📍
+              </div>
+
+              <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-1">
+                Headquarters &amp; Office
+              </span>
+              <h4 className="font-['Anton',Impact,sans-serif] text-xl uppercase tracking-tight text-black">
+                Karachi, Pakistan
+              </h4>
+              <p className="font-mono text-xs text-neutral-600 mt-0.5">
+                On-site Full-Stack Engineer @ Techmire Solutions (PKT / UTC+5)
+              </p>
+            </div>
+
+            {/* 4. Social Links Bar */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#f8f8f9] border border-black/10 shadow-sm">
+              <span className="font-['Space_Grotesk',sans-serif] text-[11px] font-bold uppercase tracking-wider text-neutral-500 block mb-3">
+                Connect on Social Networks
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  { label: "LinkedIn", href: "https://linkedin.com/in/arman-naqvi" },
+                  { label: "GitHub", href: "https://github.com/armanh148" },
+                  { label: "X (Twitter)", href: "https://x.com" },
+                ].map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-['Space_Grotesk',sans-serif] text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl bg-white hover:bg-[#ff4a00] hover:text-white border border-black/10 text-black transition-all shadow-2xs"
+                  >
+                    {s.label} ↗
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ══════════════════════════════════════════════════════════
+              RIGHT COLUMN: EDITORIAL BRUTALIST INQUIRY FORM
+             ══════════════════════════════════════════════════════════ */}
+          <div className="lg:col-span-7">
+            <div className="p-7 sm:p-10 md:p-12 rounded-3xl bg-[#f8f8f9] border border-black/10 shadow-xl relative overflow-hidden">
+              {sent ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-12 sm:py-16"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-[#ff4a00] text-white flex items-center justify-center mx-auto mb-6 font-bold text-3xl shadow-xl shadow-orange-500/30">
+                    ✓
+                  </div>
+                  <h3 className="font-['Anton',Impact,sans-serif] text-3xl sm:text-4xl uppercase tracking-tight text-black mb-3">
+                    MESSAGE READY TO SEND!
+                  </h3>
+                  <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-600 max-w-sm mx-auto mb-8 leading-relaxed">
+                    Thank you for reaching out! Your default email client has been prepared with your project details. We will respond within 24 hours.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSent(false)}
+                    className="font-['Space_Grotesk',sans-serif] text-xs font-black uppercase tracking-wider text-[#ff4a00] hover:text-black transition-colors underline underline-offset-4 cursor-pointer"
+                  >
+                    Send Another Project Inquiry
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6">
+                  <div>
+                    <span className="font-['Space_Grotesk',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff4a00] block mb-1">
+                      PROJECT INQUIRY FORM
+                    </span>
+                    <h2 className="font-['Anton',Impact,sans-serif] text-2xl sm:text-3xl uppercase tracking-tight text-black">
+                      TELL ME ABOUT YOUR PROJECT
+                    </h2>
+                  </div>
+
+                  {/* Row 1: First Name & Last Name */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-['Space_Grotesk',sans-serif] uppercase tracking-wider font-bold text-neutral-600 block mb-2">
+                        First Name <span className="text-[#ff4a00]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Alex"
+                        value={form.firstName}
+                        onChange={update("firstName")}
+                        className="w-full bg-white border border-black/10 focus:border-[#ff4a00] focus:ring-2 focus:ring-orange-500/20 rounded-xl px-4 py-3.5 text-sm text-black placeholder-neutral-400 outline-none transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-['Space_Grotesk',sans-serif] uppercase tracking-wider font-bold text-neutral-600 block mb-2">
+                        Last Name <span className="text-[#ff4a00]">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Morgan"
+                        value={form.lastName}
+                        onChange={update("lastName")}
+                        className="w-full bg-white border border-black/10 focus:border-[#ff4a00] focus:ring-2 focus:ring-orange-500/20 rounded-xl px-4 py-3.5 text-sm text-black placeholder-neutral-400 outline-none transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 2: Email Address */}
+                  <div>
+                    <label className="text-xs font-['Space_Grotesk',sans-serif] uppercase tracking-wider font-bold text-neutral-600 block mb-2">
+                      Work Email <span className="text-[#ff4a00]">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="alex@company.com"
+                      value={form.email}
+                      onChange={update("email")}
+                      className="w-full bg-white border border-black/10 focus:border-[#ff4a00] focus:ring-2 focus:ring-orange-500/20 rounded-xl px-4 py-3.5 text-sm text-black placeholder-neutral-400 outline-none transition-all"
+                    />
+                  </div>
+
+                  {/* Row 3: Project Type Select */}
+                  <BrutalistSelect
+                    label="What service or build are you looking for?"
+                    value={form.projectType}
+                    options={PROJECT_TYPES}
+                    onChange={(val) => setFormField("projectType", val)}
+                  />
+
+                  {/* Row 4: Budget Select */}
+                  <BrutalistSelect
+                    label="Estimated Budget Range"
+                    value={form.budget}
+                    options={BUDGET_OPTIONS}
+                    onChange={(val) => setFormField("budget", val)}
+                  />
+
+                  {/* Row 5: Message Textarea */}
+                  <div>
+                    <label className="text-xs font-['Space_Grotesk',sans-serif] uppercase tracking-wider font-bold text-neutral-600 block mb-2">
+                      Project Goals &amp; Timeline <span className="text-[#ff4a00]">*</span>
+                    </label>
+                    <textarea
+                      required
+                      rows={4}
+                      placeholder="Share a brief overview of what you want to achieve, your target timeline, and any reference links..."
+                      value={form.message}
+                      onChange={update("message")}
+                      className="w-full bg-white border border-black/10 focus:border-[#ff4a00] focus:ring-2 focus:ring-orange-500/20 rounded-xl px-4 py-3.5 text-sm text-black placeholder-neutral-400 outline-none transition-all resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center gap-3 bg-[#ff4a00] hover:bg-[#e04000] text-white font-['Space_Grotesk',sans-serif] font-black text-sm uppercase tracking-wider px-8 py-4.5 rounded-xl transition-all hover:scale-[1.01] shadow-xl shadow-orange-500/20 cursor-pointer"
+                  >
+                    <span>SEND MESSAGE</span>
+                    <span className="text-lg">✈</span>
+                  </button>
+
+                  <p className="text-center font-['Space_Grotesk',sans-serif] text-[11px] text-neutral-500">
+                    Typically responds within 24 hours • Direct communication with Arman Naqvi
+                  </p>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>
