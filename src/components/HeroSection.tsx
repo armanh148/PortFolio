@@ -12,43 +12,19 @@ export default function HeroSection({ site }: { site: SiteData }) {
   // Scroll Parallax Effects
   const portraitY = useTransform(scrollY, [0, 600], [0, 60]);
   const textY = useTransform(scrollY, [0, 600], [0, 35]);
-  const graphicY = useTransform(scrollY, [0, 600], [0, 25]);
 
   return (
     <section
       ref={containerRef}
       className="relative w-full min-h-[100svh] bg-white text-black overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-16 select-none"
     >
-      {/* ── 1. RIGHT ARCHITECTURAL ELEMENT (Monumental Electric Orange Letterform Graphic) ── */}
-      <motion.div
-        style={{ y: graphicY }}
-        aria-hidden="true"
-        className="hidden md:block absolute top-0 right-0 h-full w-[26vw] lg:w-[22vw] xl:w-[20vw] min-w-[220px] max-w-[340px] pointer-events-none z-10"
-      >
-        <svg
-          viewBox="0 0 320 900"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover"
-          preserveAspectRatio="none"
-        >
-          {/* Monumental Architectural Letterform */}
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M 0 0 H 210 C 270 0 320 50 320 110 V 370 C 320 430 270 480 210 480 H 80 V 900 H 0 V 0 Z M 80 80 H 200 C 235 80 260 105 260 140 V 340 C 260 375 235 400 200 400 H 80 V 80 Z"
-            fill="#ff4a00"
-          />
-        </svg>
-      </motion.div>
-
-      {/* ── 2. CENTER-RIGHT CUTOUT PORTRAIT (Extra Large Editorial Scale) ── */}
+      {/* ── 1. CENTER-RIGHT CUTOUT PORTRAIT (Extra Large Editorial Scale) ── */}
       <motion.div
         style={{ y: portraitY }}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        className="absolute bottom-0 right-0 sm:right-[2%] md:right-[8%] lg:right-[12%] xl:right-[14%] z-20 pointer-events-none w-[85vw] sm:w-[70vw] md:w-[58vw] lg:w-[50vw] xl:w-[46vw] max-w-[780px] h-[75vh] sm:h-[86vh] md:h-[93vh] lg:h-[97vh] xl:h-[100vh] flex items-end justify-center"
+        className="absolute bottom-0 right-0 sm:right-[2%] md:right-[5%] lg:right-[8%] xl:right-[10%] z-20 pointer-events-none w-[85vw] sm:w-[70vw] md:w-[58vw] lg:w-[50vw] xl:w-[46vw] max-w-[800px] h-[75vh] sm:h-[86vh] md:h-[93vh] lg:h-[97vh] xl:h-[100vh] flex items-end justify-center"
       >
         <div className="relative w-full h-full transform scale-110 sm:scale-115 md:scale-120 lg:scale-125 origin-bottom">
           <Image
@@ -104,17 +80,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
                 transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em] uppercase text-black"
               >
-                DON&rsquo;T
-              </motion.div>
-
-              {/* Row 3: "DO" */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em] uppercase text-black"
-              >
-                DO
+                DON&rsquo;T DO
               </motion.div>
 
               {/* Row 4: "AVERAGE." in Electric Orange */}
