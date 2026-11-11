@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { siteData } from "@/lib/siteData";
 import HeroSection from "@/components/HeroSection";
+import BrutalistServicesSection from "@/components/BrutalistServicesSection";
 import BrandTicker from "@/components/BrandTicker";
 import AboutSectionRef from "@/components/AboutSectionRef";
 import StatsCounter from "@/components/StatsCounter";
-import ServicesRows from "@/components/ServicesRows";
 import CapabilitiesGrid from "@/components/CapabilitiesGrid";
 import ProcessGrid from "@/components/ProcessGrid";
 import AccordionProjectsSection from "@/components/AccordionProjectsSection";
@@ -25,21 +25,21 @@ export default function HomePage() {
         <HeroSection site={siteData} />
       </section>
 
-      {/* 2. BRAND TRUST LOGOS */}
+      {/* 2. WHAT WE DO & MANIFESTO BANNER */}
+      <section id="services">
+        <BrutalistServicesSection />
+      </section>
+
+      {/* 3. BRAND TRUST LOGOS */}
       <BrandTicker />
 
-      {/* 3. ABOUT SECTION */}
+      {/* 4. ABOUT SECTION */}
       <section id="about">
         <AboutSectionRef site={siteData} />
       </section>
 
-      {/* 4. IMPACT STATS COUNTERS */}
+      {/* 5. IMPACT STATS COUNTERS */}
       <StatsCounter />
-
-      {/* 5. SERVICES SECTION */}
-      <section id="services">
-        <ServicesRows />
-      </section>
 
       {/* 6. CAPABILITIES GRID */}
       <CapabilitiesGrid />
