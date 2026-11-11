@@ -18,22 +18,22 @@ export default function HeroSection({ site }: { site: SiteData }) {
       ref={containerRef}
       className="relative w-full min-h-[100svh] bg-white text-black overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-16 select-none"
     >
-      {/* ── 1. CENTER-RIGHT CUTOUT PORTRAIT (Positioned Cleanly Below Navbar) ── */}
+      {/* ── 1. CENTER-RIGHT CUTOUT PORTRAIT (Enlarged & Positioned Cleanly Below Navbar) ── */}
       <motion.div
         style={{ y: portraitY }}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        className="absolute bottom-0 right-0 sm:right-[3%] md:right-[6%] lg:right-[8%] xl:right-[10%] z-20 pointer-events-none w-[80vw] sm:w-[65vw] md:w-[52vw] lg:w-[44vw] xl:w-[40vw] max-w-[620px] h-[60vh] sm:h-[68vh] md:h-[75vh] lg:h-[80vh] xl:h-[82vh] max-h-[680px] flex items-end justify-center"
+        className="absolute -bottom-8 sm:-bottom-12 md:-bottom-16 lg:-bottom-20 right-0 sm:right-[2%] md:right-[4%] lg:right-[6%] xl:right-[8%] z-20 pointer-events-none w-[90vw] sm:w-[75vw] md:w-[64vw] lg:w-[56vw] xl:w-[50vw] max-w-[850px] h-[75vh] sm:h-[86vh] md:h-[92vh] lg:h-[96vh] max-h-[920px] flex items-end justify-center"
       >
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full transform scale-105 sm:scale-110 md:scale-115 lg:scale-120 origin-bottom">
           <Image
             src={site.heroImage || "/hero-img.png"}
             alt={site.name || "Arman Naqvi"}
             fill
             priority
             loading="eager"
-            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 620px"
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 65vw, 850px"
             className="object-contain object-bottom filter contrast-110 brightness-105"
           />
         </div>
