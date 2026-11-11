@@ -42,22 +42,22 @@ export default function HeroSection({ site }: { site: SiteData }) {
         </svg>
       </motion.div>
 
-      {/* ── 2. CENTER-RIGHT CUTOUT PORTRAIT ── */}
+      {/* ── 2. CENTER-RIGHT CUTOUT PORTRAIT (Extra Large Editorial Scale) ── */}
       <motion.div
         style={{ y: portraitY }}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        className="absolute bottom-0 right-[2%] sm:right-[5%] md:right-[15%] lg:right-[17%] xl:right-[19%] z-20 pointer-events-none w-[75vw] sm:w-[55vw] md:w-[46vw] lg:w-[38vw] xl:w-[33vw] max-w-[560px] h-[65vh] sm:h-[75vh] md:h-[84vh] lg:h-[90vh] flex items-end justify-center"
+        className="absolute bottom-0 right-0 sm:right-[2%] md:right-[8%] lg:right-[12%] xl:right-[14%] z-20 pointer-events-none w-[85vw] sm:w-[70vw] md:w-[58vw] lg:w-[50vw] xl:w-[46vw] max-w-[780px] h-[75vh] sm:h-[86vh] md:h-[93vh] lg:h-[97vh] xl:h-[100vh] flex items-end justify-center"
       >
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full transform scale-110 sm:scale-115 md:scale-120 lg:scale-125 origin-bottom">
           <Image
             src={site.heroImage || "/hero-img.png"}
             alt={site.name || "Arman Naqvi"}
             fill
             priority
             loading="eager"
-            sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 550px"
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 65vw, 750px"
             className="object-contain object-bottom filter contrast-110 brightness-105"
           />
         </div>
