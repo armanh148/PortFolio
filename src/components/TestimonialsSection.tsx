@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Review {
   quote: string;
@@ -13,21 +13,21 @@ interface Review {
 const REVIEWS: Review[] = [
   {
     quote:
-      "Arman completely transformed our online presence. The Next.js architecture, speed, and design execution were next level. Our conversion rate increased by 3x within 60 days.",
+      "Noah completely transformed our online presence. The strategy, design and execution were next level. Our leads increased by 3x within 60 days.",
     name: "JAMES CARTER",
     role: "Founder, Shift Fitness",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80",
   },
   {
     quote:
-      "Professional, creative and results-driven. Arman delivered a web platform that not only looks amazing but performs incredibly well under heavy traffic.",
+      "Professional, creative and results-driven. Noah delivered a website that not only looks amazing but performs incredibly well.",
     name: "OLIVIA MARTIN",
     role: "Marketing Director, Verda Studio",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
   },
   {
     quote:
-      "Working with Arman was a game changer. His engineering brought us massive growth, sub-second load times, and a rock solid tech foundation.",
+      "Working with Noah was a game changer. His marketing campaigns brought us massive growth and a strong ROI.",
     name: "DANIEL REYES",
     role: "CEO, Volt Energy",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80",
@@ -48,12 +48,12 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative w-full bg-[#f4f1ea] text-black border-t border-black/10 select-none overflow-hidden"
+      className="relative w-full bg-[#f4f1ea] text-black border-t border-black/10 select-none overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
     >
       <div className="w-full flex flex-col md:flex-row min-h-[380px] lg:min-h-[440px]">
         {/* ── 1. LEFT VERTICAL ORANGE TAB: "TESTIMONIALS" ── */}
         <div className="w-full md:w-16 lg:w-20 shrink-0 bg-[#ff3d00] py-4 md:py-8 px-4 flex items-center justify-center">
-          <span className="font-['Anton',Impact,sans-serif] text-sm sm:text-base font-bold uppercase tracking-[0.22em] text-white md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
+          <span className="font-['Bebas_Neue','Oswald',sans-serif] text-xl sm:text-2xl font-bold uppercase tracking-[0.25em] text-white md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
             TESTIMONIALS
           </span>
         </div>
@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
                   </span>
 
                   {/* Review Quote Text */}
-                  <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-700 leading-relaxed mb-6 font-normal">
+                  <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed mb-6 font-normal">
                     {review.quote}
                   </p>
                 </div>
@@ -91,10 +91,10 @@ export default function TestimonialsSection() {
                     className="w-10 h-10 rounded-full object-cover grayscale border border-black/20"
                   />
                   <div>
-                    <h4 className="font-['Anton',Impact,sans-serif] text-sm sm:text-base uppercase tracking-tight text-black leading-tight">
+                    <h4 className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-wider text-black leading-tight">
                       {review.name}
                     </h4>
-                    <p className="font-['Space_Grotesk',sans-serif] text-[10px] text-neutral-500 font-bold mt-0.5">
+                    <p className="text-[10px] text-neutral-500 font-medium mt-0.5">
                       {review.role}
                     </p>
                   </div>
@@ -127,4 +127,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-

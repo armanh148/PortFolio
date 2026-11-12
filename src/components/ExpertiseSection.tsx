@@ -29,7 +29,7 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
   {
     num: "02",
     title: "WEB DESIGN & DEV",
-    desc: "Crafting high-performance React & Next.js applications that are sub-second fast, responsive and impactful.",
+    desc: "Crafting high-performance websites and React/Next.js platforms that are fast, responsive and impactful.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
         <polyline points="16 18 22 12 16 6" />
@@ -40,8 +40,8 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
   },
   {
     num: "03",
-    title: "PERFORMANCE & E-COMMERCE",
-    desc: "Custom Shopify Liquid storefronts & speed tuning that maximize conversion rates and Core Web Vitals.",
+    title: "PERFORMANCE MARKETING",
+    desc: "Data-driven campaigns and conversion tuning that increase visibility, generate leads and maximize ROI.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
         <line x1="18" y1="20" x2="18" y2="10" />
@@ -54,7 +54,7 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
   {
     num: "04",
     title: "BRAND & VISUAL IDENTITY",
-    desc: "Building bold design tokens, living UI components and visual systems that leave an unforgettable impression.",
+    desc: "Building bold brands and visual design systems that connect with users and leave a lasting impression.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
         <polygon points="12 2 2 7 12 12 22 7 12 2" />
@@ -69,23 +69,23 @@ export default function ExpertiseSection() {
   return (
     <section
       id="services"
-      className="relative w-full bg-[#0a0a0a] text-white border-t border-white/10 select-none py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16"
+      className="relative w-full bg-[#0a0a0a] text-white border-t border-white/10 select-none py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16 font-['Plus_Jakarta_Sans',sans-serif]"
     >
       <div className="max-w-[1700px] mx-auto">
         {/* Top Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 sm:pb-12 border-b border-white/10 mb-10 sm:mb-14">
           <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] block mb-2">
+            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] block mb-2">
               WHAT I DO
             </span>
-            <h2 className="font-['Anton',Impact,sans-serif] text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none">
+            <h2 className="font-['Bebas_Neue','Oswald',sans-serif] text-5xl sm:text-6xl lg:text-7xl uppercase tracking-wider text-white leading-none">
               EXPERTISE
             </h2>
           </div>
 
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 font-['Space_Grotesk',sans-serif] text-xs font-bold uppercase tracking-wider text-neutral-400 hover:text-[#ff3d00] transition-colors"
+            className="group inline-flex items-center gap-2 font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-wider text-neutral-400 hover:text-[#ff3d00] transition-colors"
           >
             <span>VIEW ALL SERVICES</span>
             <span className="w-5 h-5 rounded-full border border-neutral-600 group-hover:border-[#ff3d00] flex items-center justify-center text-xs transition-colors">
@@ -112,12 +112,12 @@ export default function ExpertiseSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-['Anton',Impact,sans-serif] text-xl sm:text-2xl uppercase tracking-tight text-white mb-3 group-hover:text-[#ff3d00] transition-colors">
+                <h3 className="font-['Bebas_Neue','Oswald',sans-serif] text-2xl sm:text-3xl uppercase tracking-wide text-white mb-3 group-hover:text-[#ff3d00] transition-colors leading-tight">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-400 leading-relaxed font-normal">
+                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-sm text-neutral-400 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
@@ -128,4 +128,3 @@ export default function ExpertiseSection() {
     </section>
   );
 }
-

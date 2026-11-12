@@ -8,7 +8,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100svh] bg-[#0a0a0a] text-white overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-16 select-none"
+      className="relative w-full min-h-[100svh] bg-[#0a0a0a] text-white overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-16 select-none font-['Plus_Jakarta_Sans',sans-serif]"
     >
       <div className="w-full max-w-[1700px] mx-auto flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
         {/* ══════════════════════════════════════════════════════════
@@ -21,7 +21,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,13vw,12.5rem)] leading-[0.84] tracking-[-0.02em] uppercase text-white">
+            <h1 className="font-['Bebas_Neue','Oswald',sans-serif] text-[clamp(5.5rem,15vw,14rem)] leading-[0.86] tracking-[0.02em] uppercase text-white">
               ARMAN<br />
               NAQVI
             </h1>
@@ -32,9 +32,9 @@ export default function HeroSection({ site }: { site: SiteData }) {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-4 sm:mt-6 self-start"
+            className="mt-4 sm:mt-5 self-start"
           >
-            <span className="inline-block bg-[#ff3d00] text-white font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-black uppercase tracking-[0.18em] px-4 py-1.5 shadow-md">
+            <span className="inline-block bg-[#ff3d00] text-white font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-sm font-black uppercase tracking-[0.16em] px-3.5 py-1.5 shadow-md">
               FULL-STACK SPECIALIST
             </span>
           </motion.div>
@@ -44,7 +44,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-['Space_Grotesk',sans-serif] text-sm sm:text-base md:text-lg text-neutral-300 max-w-lg leading-relaxed mt-6 sm:mt-8 font-normal"
+            className="font-['Plus_Jakarta_Sans',sans-serif] text-sm sm:text-base md:text-lg text-neutral-300 max-w-lg leading-relaxed mt-6 sm:mt-8 font-normal"
           >
             I help brands stand out and scale up with bold digital experiences and data-driven solutions.
           </motion.p>
@@ -58,13 +58,13 @@ export default function HeroSection({ site }: { site: SiteData }) {
           >
             <a
               href="#work"
-              className="inline-flex items-center gap-3 bg-[#ff3d00] hover:bg-[#e03500] text-white font-['Space_Grotesk',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider px-7 sm:px-8 py-3.5 sm:py-4 transition-all hover:scale-[1.02] shadow-xl shadow-orange-600/30 cursor-pointer"
+              className="inline-flex items-center gap-3 bg-[#ff3d00] hover:bg-[#e03500] text-white font-['Plus_Jakarta_Sans',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider px-7 sm:px-8 py-3.5 sm:py-4 transition-all hover:scale-[1.02] shadow-xl shadow-orange-600/30 cursor-pointer"
             >
               <span>VIEW MY WORK</span>
               <span className="text-base font-bold">↗</span>
             </a>
 
-            <div className="inline-flex items-center gap-2.5 text-xs font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-wider text-neutral-300">
+            <div className="inline-flex items-center gap-2.5 text-xs font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-wider text-neutral-300">
               <span>AVAILABLE FOR PROJECTS</span>
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff3d00] animate-pulse" />
             </div>
@@ -103,7 +103,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
                     d="M 70, 70 m -48, 0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"
                   />
                 </defs>
-                <text className="text-[9px] font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-[0.24em] fill-white">
+                <text className="text-[9px] font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-[0.22em] fill-white">
                   <textPath xlinkHref="#heroStampPath" startOffset="0%">
                     • STRATEGY • DESIGN • CODE • DEV •
                   </textPath>
@@ -142,7 +142,7 @@ export default function HeroSection({ site }: { site: SiteData }) {
           >
             <a
               href="#about"
-              className="group flex flex-col items-center gap-1.5 text-[10px] font-mono font-bold tracking-widest uppercase text-neutral-400 hover:text-[#ff3d00] transition-colors"
+              className="group flex flex-col items-center gap-1.5 text-[10px] font-['Plus_Jakarta_Sans',sans-serif] font-bold tracking-widest uppercase text-neutral-400 hover:text-[#ff3d00] transition-colors"
             >
               <span>SCROLL</span>
               <span>DOWN</span>

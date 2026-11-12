@@ -6,19 +6,19 @@ import type { SiteData } from "@/lib/siteData";
 
 export default function ModernFooter({ site }: { site?: SiteData }) {
   return (
-    <footer className="relative w-full bg-[#0a0a0a] text-white border-t border-white/10 select-none overflow-hidden pt-16 sm:pt-20 pb-8 px-5 sm:px-8 md:px-12 lg:px-16">
+    <footer className="relative w-full bg-[#0a0a0a] text-white border-t border-white/10 select-none overflow-hidden pt-16 sm:pt-20 pb-8 px-5 sm:px-8 md:px-12 lg:px-16 font-['Plus_Jakarta_Sans',sans-serif]">
       <div className="max-w-[1700px] mx-auto">
         {/* ── TOP ROW: 4 COLUMNS + ROTATING STAMP ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 sm:pb-16 border-b border-white/10 items-start">
           {/* Col 1: Brand & Tagline & Socials (Cols 1-4) */}
           <div className="lg:col-span-4 flex flex-col items-start">
             <Link href="#hero" className="flex items-center gap-2 mb-4 group">
-              <span className="font-['Anton',Impact,sans-serif] text-3xl tracking-tight text-white uppercase group-hover:text-[#ff3d00] transition-colors leading-none">
+              <span className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl sm:text-4xl tracking-wider text-white uppercase group-hover:text-[#ff3d00] transition-colors leading-none">
                 AN
               </span>
             </Link>
 
-            <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm text-neutral-400 max-w-sm leading-relaxed mb-6 font-normal">
+            <p className="text-xs sm:text-sm text-neutral-400 max-w-sm leading-relaxed mb-6 font-normal">
               Helping brands grow with strategy, bold design and high-performance digital excellence.
             </p>
 
@@ -45,7 +45,7 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
 
           {/* Col 2: Navigation Links (Cols 5-6) */}
           <div className="lg:col-span-2 flex flex-col">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
+            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
               NAVIGATION
             </span>
             <ul className="flex flex-col gap-2.5">
@@ -60,7 +60,7 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="font-['Space_Grotesk',sans-serif] text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-medium"
+                    className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
                   >
                     {item.label}
                   </a>
@@ -71,7 +71,7 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
 
           {/* Col 3: Services (Cols 7-8) */}
           <div className="lg:col-span-2 flex flex-col">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
+            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
               SERVICES
             </span>
             <ul className="flex flex-col gap-2.5">
@@ -84,7 +84,7 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
                 <li key={serv}>
                   <a
                     href="#services"
-                    className="font-['Space_Grotesk',sans-serif] text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-medium"
+                    className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
                   >
                     {serv}
                   </a>
@@ -95,10 +95,10 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
 
           {/* Col 4: Let's Connect (Cols 9-10) */}
           <div className="lg:col-span-2 flex flex-col">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
+            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
               LET&rsquo;S CONNECT
             </span>
-            <div className="flex flex-col gap-2 font-['Space_Grotesk',sans-serif] text-xs text-neutral-400">
+            <div className="flex flex-col gap-2 text-xs text-neutral-400 font-medium">
               <a
                 href={`mailto:${site?.email || "armannaqvi.tms@gmail.com"}`}
                 className="hover:text-white transition-colors break-all"
@@ -127,13 +127,13 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
                     d="M 70, 70 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"
                   />
                 </defs>
-                <text className="text-[9px] font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-[0.22em] fill-[#ff3d00]">
+                <text className="text-[9px] font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-[0.22em] fill-[#ff3d00]">
                   <textPath xlinkHref="#footerStampPath" startOffset="0%">
                     • STRATEGY • DESIGN • DEV • VISION •
                   </textPath>
                 </text>
               </motion.svg>
-              <span className="font-['Anton',Impact,sans-serif] text-xl font-bold text-white">
+              <span className="font-['Bebas_Neue','Oswald',sans-serif] text-2xl font-bold text-white tracking-wider">
                 AN
               </span>
             </div>
@@ -141,7 +141,7 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
         </div>
 
         {/* ── BOTTOM BAR: COPYRIGHT & POLICIES ── */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-['Space_Grotesk',sans-serif] text-[11px] text-neutral-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500 font-medium">
           <p>© 2026 {site?.name || "Arman Naqvi"}. All rights reserved.</p>
           <div className="flex items-center gap-6 font-bold uppercase tracking-wider text-neutral-400">
             <span className="hover:text-white transition-colors cursor-pointer">PRIVACY POLICY</span>

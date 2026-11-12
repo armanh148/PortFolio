@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -25,7 +24,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full border-t border-black/10 select-none overflow-hidden"
+      className="relative w-full border-t border-black/10 select-none overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
         {/* ══════════════════════════════════════════════════════════
@@ -36,19 +35,19 @@ export default function ContactSection() {
           <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px]" />
 
           <div className="relative z-10">
-            <h2 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-5xl sm:text-6xl lg:text-7xl leading-[0.88] uppercase tracking-tight text-black mb-4">
+            <h2 className="font-['Bebas_Neue','Oswald',sans-serif] text-5xl sm:text-6xl lg:text-7xl leading-[0.88] uppercase tracking-wide text-black mb-4">
               HAVE A PROJECT<br />
               IN MIND?
             </h2>
 
-            <p className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff3d00] mb-8">
+            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff3d00] mb-8">
               LET&rsquo;S BUILD SOMETHING BOLD TOGETHER.
             </p>
 
             <div className="flex flex-wrap items-center gap-6 mt-8">
               <a
                 href="mailto:armannaqvi.tms@gmail.com"
-                className="inline-flex items-center gap-3 bg-black hover:bg-neutral-800 text-white font-['Space_Grotesk',sans-serif] font-black text-xs uppercase tracking-wider px-6 py-3.5 transition-all cursor-pointer"
+                className="inline-flex items-center gap-3 bg-black hover:bg-neutral-800 text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs uppercase tracking-wider px-6 py-3.5 transition-all cursor-pointer"
               >
                 <span>LET&rsquo;S TALK</span>
                 <span className="text-sm font-bold text-[#ff3d00]">→</span>
@@ -74,10 +73,10 @@ export default function ContactSection() {
                 <span className="w-12 h-12 rounded-full bg-[#ff3d00] text-white flex items-center justify-center font-bold text-xl mx-auto mb-4">
                   ✓
                 </span>
-                <h3 className="font-['Anton'] text-2xl uppercase tracking-tight text-white mb-2">
+                <h3 className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl uppercase tracking-wider text-white mb-2">
                   MESSAGE PREPARED!
                 </h3>
-                <p className="font-['Space_Grotesk'] text-xs text-neutral-400">
+                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs text-neutral-400">
                   Thank you! Your default email client has been opened.
                 </p>
               </div>
@@ -86,7 +85,7 @@ export default function ContactSection() {
                 {/* Name & Email Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
+                    <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
                       YOUR NAME
                     </label>
                     <input
@@ -100,7 +99,7 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
+                    <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
                       YOUR EMAIL
                     </label>
                     <input
@@ -116,7 +115,7 @@ export default function ContactSection() {
 
                 {/* Project Type */}
                 <div>
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
+                  <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
                     PROJECT TYPE
                   </label>
                   <select
@@ -134,7 +133,7 @@ export default function ContactSection() {
 
                 {/* Project Message */}
                 <div>
-                  <label className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
+                  <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
                     TELL ME ABOUT YOUR PROJECT
                   </label>
                   <textarea
@@ -150,7 +149,7 @@ export default function ContactSection() {
                 {/* Send Message Button */}
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-3 bg-[#ff3d00] hover:bg-[#e03500] text-white font-['Space_Grotesk',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider py-4 px-6 transition-all shadow-lg hover:scale-[1.01] cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-3 bg-[#ff3d00] hover:bg-[#e03500] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs uppercase tracking-wider py-4 px-6 transition-all shadow-lg hover:scale-[1.01] cursor-pointer"
                 >
                   <span>SEND MESSAGE</span>
                   <span className="text-base font-bold">→</span>
@@ -161,7 +160,7 @@ export default function ContactSection() {
 
           {/* Right Vertical Rail: "FAST REPLY. REAL SOLUTIONS." */}
           <div className="w-full md:w-12 shrink-0 border-t md:border-t-0 md:border-l border-white/10 py-3 md:py-6 px-3 flex items-center justify-center bg-[#0a0a0a]">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff3d00] md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
+            <span className="font-['Bebas_Neue','Oswald',sans-serif] text-base font-bold uppercase tracking-[0.25em] text-[#ff3d00] md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
               FAST REPLY. REAL SOLUTIONS.
             </span>
           </div>
@@ -170,4 +169,3 @@ export default function ContactSection() {
     </section>
   );
 }
-

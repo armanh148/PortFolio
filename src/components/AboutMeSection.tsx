@@ -6,12 +6,12 @@ export default function AboutMeSection() {
   return (
     <section
       id="about"
-      className="relative w-full bg-[#f4f1ea] text-black border-t border-black/10 select-none overflow-hidden"
+      className="relative w-full bg-[#f4f1ea] text-black border-t border-black/10 select-none overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
     >
       <div className="w-full flex flex-col md:flex-row min-h-[380px] lg:min-h-[440px]">
         {/* ── 1. LEFT VERTICAL ORANGE RAIL: "ABOUT ME" ── */}
         <div className="w-full md:w-16 lg:w-20 shrink-0 bg-[#ff3d00] py-4 md:py-8 px-4 flex items-center justify-center">
-          <span className="font-['Anton',Impact,sans-serif] text-sm sm:text-base font-bold uppercase tracking-[0.22em] text-white md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
+          <span className="font-['Bebas_Neue','Oswald',sans-serif] text-xl sm:text-2xl font-bold uppercase tracking-[0.25em] text-white md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
             ABOUT ME
           </span>
         </div>
@@ -25,7 +25,7 @@ export default function AboutMeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="font-['Anton',Impact,'Arial_Black',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.08] uppercase tracking-tight text-black mb-6"
+              className="font-['Plus_Jakarta_Sans',sans-serif] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.12] uppercase tracking-tight text-black mb-6"
             >
               I&rsquo;M A FULL-STACK SPECIALIST WHO BUILDS BRANDS, WEBSITES &amp; GROWTH SYSTEMS THAT DELIVER{" "}
               <span className="text-[#ff3d00]">REAL RESULTS.</span>
@@ -36,7 +36,7 @@ export default function AboutMeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-['Space_Grotesk',sans-serif] text-xs sm:text-sm md:text-base text-neutral-700 leading-relaxed max-w-xl mb-8"
+              className="text-xs sm:text-sm md:text-base text-neutral-700 leading-relaxed max-w-xl mb-8 font-normal"
             >
               With 1+ years of intense production experience across full-stack engineering, web design, and high-performance frontend architecture at Techmire Solutions, I bridge creativity with technical precision to help businesses grow with purpose.
             </motion.p>
@@ -49,7 +49,7 @@ export default function AboutMeSection() {
             >
               <a
                 href="#services"
-                className="inline-flex items-center gap-3 bg-black hover:bg-neutral-800 text-white font-['Space_Grotesk',sans-serif] font-black text-xs uppercase tracking-wider px-6 py-3.5 transition-all hover:scale-[1.02] cursor-pointer"
+                className="inline-flex items-center gap-3 bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <span>MORE ABOUT ME</span>
                 <span className="text-sm font-bold text-[#ff3d00]">+</span>
@@ -70,11 +70,11 @@ export default function AboutMeSection() {
 
             {/* Giant Monogram Stencil "AN" */}
             <div className="relative z-10 flex items-center gap-2">
-              <span className="font-['Anton',Impact,sans-serif] text-[7rem] sm:text-[9rem] md:text-[10rem] leading-none text-white font-black tracking-tighter select-none">
+              <span className="font-['Bebas_Neue','Oswald',sans-serif] text-[8rem] sm:text-[10rem] md:text-[11rem] leading-none text-white font-bold tracking-tight select-none">
                 A
               </span>
               <div className="w-12 sm:w-16 h-28 sm:h-36 bg-[#ff3d00] flex items-center justify-center">
-                <span className="font-['Anton',Impact,sans-serif] text-5xl sm:text-6xl text-black font-black">
+                <span className="font-['Bebas_Neue','Oswald',sans-serif] text-6xl sm:text-7xl text-black font-bold">
                   N
                 </span>
               </div>
@@ -92,4 +92,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-

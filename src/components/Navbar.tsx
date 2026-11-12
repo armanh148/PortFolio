@@ -56,19 +56,19 @@ export default function Navbar({ site }: { site: SiteData }) {
       >
         <div className="w-full flex items-center justify-between max-w-[1700px] mx-auto">
           {/* ── Left Side: "AN" Monogram Logo ── */}
-          <Link href="#hero" className="flex items-center gap-3 group">
-            <span className="font-['Anton',Impact,sans-serif] text-2xl sm:text-3xl tracking-tight text-white group-hover:text-[#ff3d00] transition-colors leading-none uppercase">
+          <Link href="#hero" className="flex items-center gap-2 group">
+            <span className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl sm:text-4xl tracking-wider text-white group-hover:text-[#ff3d00] transition-colors leading-none uppercase">
               AN
             </span>
           </Link>
 
           {/* ── Center: Desktop Navigation Links ── */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
-                className="font-['Space_Grotesk',sans-serif] text-xs font-bold tracking-[0.16em] uppercase text-neutral-300 hover:text-[#ff3d00] transition-colors cursor-pointer"
+                className="font-['Plus_Jakarta_Sans',sans-serif] text-[11.5px] font-bold tracking-[0.15em] uppercase text-neutral-300 hover:text-[#ff3d00] transition-colors cursor-pointer"
               >
                 {item.label}
               </a>
@@ -79,7 +79,7 @@ export default function Navbar({ site }: { site: SiteData }) {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-[#ff3d00] hover:bg-[#ff3d00] text-white text-[11px] sm:text-xs font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-wider px-5 py-2.5 rounded-full transition-all cursor-pointer select-none"
+              className="inline-flex items-center gap-2 border border-white/25 hover:border-[#ff3d00] hover:bg-[#ff3d00] text-white text-[11px] font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-wider px-5 py-2.5 rounded-full transition-all cursor-pointer select-none"
             >
               <span>LET&rsquo;S TALK</span>
             </a>
@@ -136,10 +136,10 @@ export default function Navbar({ site }: { site: SiteData }) {
               {/* Drawer Top */}
               <div className="flex justify-between items-center pb-6 border-b border-white/10">
                 <div className="flex flex-col">
-                  <span className="font-['Anton',Impact,sans-serif] text-2xl tracking-tight text-white uppercase">
+                  <span className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl tracking-wider text-white uppercase">
                     ARMAN NAQVI
                   </span>
-                  <span className="font-mono text-[9px] font-bold tracking-widest text-[#ff3d00] uppercase">
+                  <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[10px] font-bold tracking-widest text-[#ff3d00] uppercase">
                     FULL-STACK SPECIALIST
                   </span>
                 </div>
@@ -169,7 +169,7 @@ export default function Navbar({ site }: { site: SiteData }) {
                       onClick={() => setOpen(false)}
                       className="group flex items-center justify-between py-3 px-2 border-b border-white/5 hover:bg-white/5 transition-all cursor-pointer text-neutral-300 hover:text-[#ff3d00]"
                     >
-                      <span className="font-['Anton',Impact,sans-serif] text-2xl uppercase tracking-tight transition-transform duration-300 group-hover:translate-x-2">
+                      <span className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl uppercase tracking-wider transition-transform duration-300 group-hover:translate-x-2">
                         {item.label}
                       </span>
                       <span className="text-xs font-mono text-neutral-500 group-hover:text-[#ff3d00] transition-colors">
@@ -181,8 +181,8 @@ export default function Navbar({ site }: { site: SiteData }) {
               </div>
 
               {/* Drawer Footer Contact */}
-              <div className="flex flex-col gap-3 border-t border-white/10 pt-6">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#ff3d00]">
+              <div className="flex flex-col gap-3 border-t border-white/10 pt-6 font-['Plus_Jakarta_Sans',sans-serif]">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#ff3d00]">
                   Available for work
                 </span>
                 <a
@@ -196,7 +196,7 @@ export default function Navbar({ site }: { site: SiteData }) {
                     href="https://github.com/armanh148"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-neutral-400 hover:text-white uppercase font-bold"
+                    className="text-xs text-neutral-400 hover:text-white uppercase font-bold"
                   >
                     GitHub ↗
                   </a>
@@ -204,7 +204,7 @@ export default function Navbar({ site }: { site: SiteData }) {
                     href="https://linkedin.com/in/arman-naqvi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-neutral-400 hover:text-white uppercase font-bold"
+                    className="text-xs text-neutral-400 hover:text-white uppercase font-bold"
                   >
                     LinkedIn ↗
                   </a>

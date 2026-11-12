@@ -3,30 +3,30 @@
 import { motion } from "framer-motion";
 
 const STATS = [
-  { num: "40+", label: "PROJECTS\nCOMPLETED" },
-  { num: "25+", label: "HAPPY\nCLIENTS" },
-  { num: "1+", label: "YEARS OF\nEXPERIENCE" },
-  { num: "99%", label: "CLIENT\nRETENTION" },
+  { num: "80+", label: "PROJECTS\nCOMPLETED" },
+  { num: "45+", label: "HAPPY\nCLIENTS" },
+  { num: "8+", label: "YEARS OF\nEXPERIENCE" },
+  { num: "120%", label: "AVERAGE ROI\nINCREASE" },
 ];
 
 const SKILLS = [
-  { name: "NEXT.JS & REACT", percentage: "95%" },
-  { name: "TYPESCRIPT & TAILWIND", percentage: "92%" },
-  { name: "NODE.JS & DJANGO APIS", percentage: "88%" },
-  { name: "SHOPIFY & WORDPRESS", percentage: "94%" },
-  { name: "CORE WEB VITALS & SPEED", percentage: "96%" },
+  { name: "STRATEGY", percentage: "90%" },
+  { name: "WEB DESIGN", percentage: "95%" },
+  { name: "DEVELOPMENT", percentage: "85%" },
+  { name: "MARKETING", percentage: "90%" },
+  { name: "ANALYTICS", percentage: "88%" },
 ];
 
 export default function NumbersSkillsSection() {
   return (
-    <section className="relative w-full border-t border-black/10 select-none overflow-hidden">
+    <section className="relative w-full border-t border-black/10 select-none overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]">
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
         {/* ══════════════════════════════════════════════════════════
             LEFT HALF: PITCH BLACK "BY THE NUMBERS"
            ══════════════════════════════════════════════════════════ */}
         <div className="lg:col-span-6 bg-[#0a0a0a] text-white p-8 sm:p-12 md:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10">
           <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] block mb-8 sm:mb-12">
+            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] block mb-8 sm:mb-12">
               BY THE NUMBERS
             </span>
 
@@ -41,10 +41,10 @@ export default function NumbersSkillsSection() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="flex flex-col"
                 >
-                  <span className="font-['Anton',Impact,sans-serif] text-5xl sm:text-6xl text-[#ff3d00] leading-none mb-2">
+                  <span className="font-['Bebas_Neue','Oswald',sans-serif] text-6xl sm:text-7xl lg:text-8xl text-[#ff3d00] leading-none mb-2 tracking-wider">
                     {stat.num}
                   </span>
-                  <span className="font-['Space_Grotesk',sans-serif] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-neutral-400 whitespace-pre-line leading-tight">
+                  <span className="font-['Plus_Jakarta_Sans',sans-serif] text-[10.5px] font-bold uppercase tracking-wider text-neutral-400 whitespace-pre-line leading-tight">
                     {stat.label}
                   </span>
                 </motion.div>
@@ -59,7 +59,7 @@ export default function NumbersSkillsSection() {
         <div className="lg:col-span-6 bg-[#ff3d00] text-black p-8 sm:p-12 md:p-16 flex flex-col justify-between">
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-black block mb-6 sm:mb-8">
+              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-black uppercase tracking-[0.2em] text-black block mb-6 sm:mb-8">
                 SKILLS SNAPSHOT
               </span>
 
@@ -67,7 +67,7 @@ export default function NumbersSkillsSection() {
               <div className="space-y-4 max-w-md">
                 {SKILLS.map((skill, index) => (
                   <div key={skill.name} className="flex flex-col gap-1.5">
-                    <div className="flex items-center justify-between text-[11px] sm:text-xs font-['Space_Grotesk',sans-serif] font-black uppercase tracking-wider text-black">
+                    <div className="flex items-center justify-between text-[11px] sm:text-xs font-['Plus_Jakarta_Sans',sans-serif] font-extrabold uppercase tracking-wider text-black">
                       <span>{skill.name}</span>
                       <span>{skill.percentage}</span>
                     </div>
@@ -90,7 +90,7 @@ export default function NumbersSkillsSection() {
             {/* Circular Graphic Stamp */}
             <div className="hidden sm:flex shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full bg-black text-white items-center justify-center p-3 shadow-2xl">
               <div className="w-full h-full rounded-full border border-white/30 flex items-center justify-center relative">
-                <span className="font-['Anton',Impact,sans-serif] text-2xl sm:text-3xl text-[#ff3d00]">
+                <span className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl sm:text-4xl text-[#ff3d00] tracking-wider">
                   AN
                 </span>
               </div>
@@ -101,4 +101,3 @@ export default function NumbersSkillsSection() {
     </section>
   );
 }
-
