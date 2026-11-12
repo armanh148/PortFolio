@@ -1,44 +1,42 @@
 import type { Metadata } from "next";
 import { siteData } from "@/lib/siteData";
 import HeroSection from "@/components/HeroSection";
-import BrutalistServicesSection from "@/components/BrutalistServicesSection";
-import BrutalistProjectsGrid from "@/components/BrutalistProjectsGrid";
-import BrutalistTechStatsSection from "@/components/BrutalistTechStatsSection";
-import BrutalistReviewsContactSection from "@/components/BrutalistReviewsContactSection";
+import AboutMeSection from "@/components/AboutMeSection";
+import ExpertiseSection from "@/components/ExpertiseSection";
+import FeaturedWorkSection from "@/components/FeaturedWorkSection";
+import NumbersSkillsSection from "@/components/NumbersSkillsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
-  title: `${siteData.name} — ${siteData.role}`,
+  title: `${siteData.name} — Full-Stack Specialist`,
   description:
-    "Full-Stack Web Developer & Frontend Specialist crafting high-performance, purposeful web experiences.",
+    "I help brands stand out and scale up with bold digital experiences and data-driven solutions.",
 };
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. HERO SECTION */}
-      <section id="hero">
-        <HeroSection site={siteData} />
-      </section>
+      {/* 1. HERO SECTION (Dark Canvas with Fiery Orange Sun & Monumental Typography) */}
+      <HeroSection site={siteData} />
 
-      {/* 2. WHAT WE DO & MANIFESTO BANNER */}
-      <section id="services">
-        <BrutalistServicesSection />
-      </section>
+      {/* 2. ABOUT ME SECTION (Warm Cream Canvas with Vertical Rail & Signature Collage) */}
+      <AboutMeSection />
 
-      {/* 3. FEATURED WORK BENTO GRID */}
-      <section id="projects">
-        <BrutalistProjectsGrid />
-      </section>
+      {/* 3. EXPERTISE SECTION (Pitch Black Canvas with Wireframe Orange Icons) */}
+      <ExpertiseSection />
 
-      {/* 4. TECHNOLOGIES & EXPERIENCE STATS */}
-      <section id="about">
-        <BrutalistTechStatsSection />
-      </section>
+      {/* 4. FEATURED WORK SECTION (Warm Sand Canvas with 3 Large Project Cards) */}
+      <FeaturedWorkSection />
 
-      {/* 5. REVIEWS & GET IN TOUCH CONTACT */}
-      <section id="contact">
-        <BrutalistReviewsContactSection />
-      </section>
+      {/* 5. NUMBERS & SKILLS SECTION (Dual Split: Pitch Black Stats + Solid Orange Skills) */}
+      <NumbersSkillsSection />
+
+      {/* 6. TESTIMONIALS SECTION (Warm Cream Canvas with Vertical Rail & 3 Client Reviews) */}
+      <TestimonialsSection />
+
+      {/* 7. CONTACT SECTION (Asymmetric Split: Cream "HAVE A PROJECT IN MIND?" + Black Form) */}
+      <ContactSection />
     </>
   );
 }

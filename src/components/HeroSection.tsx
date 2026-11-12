@@ -1,159 +1,160 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import type { SiteData } from "@/lib/siteData";
 
 export default function HeroSection({ site }: { site: SiteData }) {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-
-  // Scroll Parallax Effects
-  const portraitY = useTransform(scrollY, [0, 600], [0, 60]);
-  const textY = useTransform(scrollY, [0, 600], [0, 35]);
-
   return (
     <section
-      ref={containerRef}
-      className="relative w-full min-h-[100svh] bg-white text-black overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-16 select-none"
+      id="hero"
+      className="relative w-full min-h-[100svh] bg-[#0a0a0a] text-white overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 px-5 sm:px-8 md:px-12 lg:px-16 select-none"
     >
-      {/* ── 1. CENTER-RIGHT CUTOUT PORTRAIT (Enlarged & Positioned Cleanly Below Navbar) ── */}
-      <motion.div
-        style={{ y: portraitY }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        className="absolute -bottom-8 sm:-bottom-12 md:-bottom-16 lg:-bottom-20 right-0 sm:right-[2%] md:right-[4%] lg:right-[6%] xl:right-[8%] z-20 pointer-events-none w-[90vw] sm:w-[75vw] md:w-[64vw] lg:w-[56vw] xl:w-[50vw] max-w-[850px] h-[75vh] sm:h-[86vh] md:h-[92vh] lg:h-[96vh] max-h-[920px] flex items-end justify-center"
-      >
-        <div className="relative w-full h-full transform scale-105 sm:scale-110 md:scale-115 lg:scale-120 origin-bottom">
-          <Image
-            src={site.heroImage || "/hero-img.png"}
-            alt={site.name || "Arman Naqvi"}
-            fill
-            priority
-            loading="eager"
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 65vw, 850px"
-            className="object-contain object-bottom filter contrast-110 brightness-105"
-          />
-        </div>
-      </motion.div>
+      <div className="w-full max-w-[1700px] mx-auto flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+        {/* ══════════════════════════════════════════════════════════
+            LEFT COLUMN: MONUMENTAL TYPOGRAPHY, BADGE & CTA
+           ══════════════════════════════════════════════════════════ */}
+        <div className="lg:col-span-7 flex flex-col justify-center z-20 pt-4 sm:pt-6">
+          {/* Monumental Stacked Headline: "ARMAN NAQVI" */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h1 className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,13vw,12.5rem)] leading-[0.84] tracking-[-0.02em] uppercase text-white">
+              ARMAN<br />
+              NAQVI
+            </h1>
+          </motion.div>
 
-      {/* ── 3. MAIN HERO CONTENT GRID (Left Column + Embedded Subtitle) ── */}
-      <motion.div
-        style={{ y: textY }}
-        className="relative z-30 w-full max-w-[1600px] mx-auto flex-1 flex flex-col justify-between"
-      >
-        {/* Top & Middle Grid: Massive Stacked Headline + Subtitle */}
-        <div className="pt-2 sm:pt-4 md:pt-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start">
-            {/* The Monumental Stacked Headline */}
-            <div className="lg:col-span-8 flex flex-col">
-              {/* Row 1: "WE" + Subtext Block beside it */}
-              <div className="flex flex-col sm:flex-row sm:items-start sm:gap-8 md:gap-12">
-                <motion.h1
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em] uppercase text-black"
-                >
-                  WE
-                </motion.h1>
+          {/* Electric Orange Rectangular Badge: "FULL-STACK SPECIALIST" */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-4 sm:mt-6 self-start"
+          >
+            <span className="inline-block bg-[#ff3d00] text-white font-['Space_Grotesk',sans-serif] text-xs sm:text-sm font-black uppercase tracking-[0.18em] px-4 py-1.5 shadow-md">
+              FULL-STACK SPECIALIST
+            </span>
+          </motion.div>
 
-                {/* Subtitle paragraph block (Beside "WE" like reference) */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.85, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  className="mt-3 sm:mt-5 max-w-[280px] sm:max-w-[310px] md:max-w-[340px]"
-                >
-                  <p className="font-['Space_Grotesk',sans-serif] text-[11px] sm:text-xs md:text-[13px] font-bold uppercase tracking-wider text-black leading-snug">
-                    A FULL-STACK DEVELOPER &amp; FRONTEND SPECIALIST BUILDING BOLD, SCALABLE WEB APPLICATIONS AND UNFORGETTABLE DIGITAL EXPERIENCES.
-                  </p>
-                </motion.div>
-              </div>
+          {/* Subtitle Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="font-['Space_Grotesk',sans-serif] text-sm sm:text-base md:text-lg text-neutral-300 max-w-lg leading-relaxed mt-6 sm:mt-8 font-normal"
+          >
+            I help brands stand out and scale up with bold digital experiences and data-driven solutions.
+          </motion.p>
 
-              {/* Row 2: "DON'T" */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em] uppercase text-black"
-              >
-                DON&rsquo;T DO
-              </motion.div>
-
-              {/* Row 4: "AVERAGE." in Electric Orange */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="font-['Anton',Impact,'Arial_Black',sans-serif] text-[clamp(4.5rem,12.5vw,13rem)] leading-[0.84] tracking-[-0.02em] uppercase text-[#ff4a00]"
-              >
-                AVERAGE.
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* ── 4. BOTTOM ROW: "VIEW OUR WORK ↗" + ROTATING CIRCULAR STAMP BADGE ── */}
-        <div className="w-full flex items-end justify-between pt-8 sm:pt-12 md:pt-16">
-          {/* Bottom-Left: VIEW OUR WORK ↗ */}
+          {/* CTA Row: "VIEW MY WORK" + "AVAILABLE FOR PROJECTS" */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap items-center gap-5 sm:gap-8 mt-8 sm:mt-10"
           >
             <a
-              href="#projects"
-              className="group inline-flex items-center gap-2.5 text-xs sm:text-sm md:text-base font-['Space_Grotesk',sans-serif] font-black uppercase tracking-wider text-black hover:text-[#ff4a00] transition-colors cursor-pointer"
+              href="#work"
+              className="inline-flex items-center gap-3 bg-[#ff3d00] hover:bg-[#e03500] text-white font-['Space_Grotesk',sans-serif] font-black text-xs sm:text-sm uppercase tracking-wider px-7 sm:px-8 py-3.5 sm:py-4 transition-all hover:scale-[1.02] shadow-xl shadow-orange-600/30 cursor-pointer"
             >
-              <span>VIEW OUR WORK</span>
-              <span className="text-base sm:text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
-              </span>
+              <span>VIEW MY WORK</span>
+              <span className="text-base font-bold">↗</span>
             </a>
-          </motion.div>
 
-          {/* Bottom-Right: ROTATING CIRCULAR STAMP BADGE */}
+            <div className="inline-flex items-center gap-2.5 text-xs font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-wider text-neutral-300">
+              <span>AVAILABLE FOR PROJECTS</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ff3d00] animate-pulse" />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ══════════════════════════════════════════════════════════
+            RIGHT COLUMN: GIANT ORANGE SUN + CUTOUT PORTRAIT + STAMP
+           ══════════════════════════════════════════════════════════ */}
+        <div className="lg:col-span-5 relative flex items-end justify-center min-h-[460px] sm:min-h-[540px] md:min-h-[620px] lg:min-h-[680px]">
+          {/* 1. Giant Fiery Electric Orange Sun / Moon Behind Portrait */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-1/2 left-1/2 -translate-x-[45%] -translate-y-1/2 w-[320px] sm:w-[420px] md:w-[480px] lg:w-[540px] h-[320px] sm:h-[420px] md:h-[480px] lg:h-[540px] rounded-full bg-gradient-to-tr from-[#d32f00] via-[#ff3d00] to-[#ff5722] shadow-[0_0_120px_rgba(255,61,0,0.45)] z-0 pointer-events-none"
+          />
+
+          {/* 2. Top-Right Rotating Circular Stamp Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-30"
+            transition={{ duration: 0.9, delay: 0.4 }}
+            className="absolute top-4 sm:top-8 right-2 sm:right-6 z-30"
           >
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center bg-white rounded-full border border-black shadow-lg">
-              {/* Rotating Circular Text SVG */}
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center rounded-full border border-white/20 bg-black/40 backdrop-blur-sm">
               <motion.svg
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
                 viewBox="0 0 140 140"
                 className="absolute inset-0 w-full h-full pointer-events-none"
               >
                 <defs>
                   <path
                     id="heroStampPath"
-                    d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"
+                    d="M 70, 70 m -48, 0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"
                   />
                 </defs>
-                <text
-                  className="text-[9.5px] font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-[0.24em] fill-black"
-                >
+                <text className="text-[9px] font-['Space_Grotesk',sans-serif] font-bold uppercase tracking-[0.24em] fill-white">
                   <textPath xlinkHref="#heroStampPath" startOffset="0%">
-                    ARMAN NAQVI • FULL-STACK • VISION • CODE •
+                    • STRATEGY • DESIGN • CODE • DEV •
                   </textPath>
                 </text>
               </motion.svg>
-
-              {/* Bold Center Monogram: "A." with Electric Orange Dot */}
-              <div className="font-['Anton',Impact,sans-serif] text-3xl sm:text-4xl text-black flex items-baseline select-none">
-                <span>A</span>
-                <span className="text-[#ff4a00] -ml-0.5">.</span>
-              </div>
+              <span className="text-xl sm:text-2xl font-bold text-white">↗</span>
             </div>
           </motion.div>
+
+          {/* 3. The Developer Portrait Cutout (High Contrast Grayscale Matching Noah Brooks) */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none"
+          >
+            <div className="relative w-[340px] sm:w-[420px] md:w-[480px] lg:w-[520px] h-[440px] sm:h-[540px] md:h-[620px] lg:h-[680px]">
+              <Image
+                src={site.heroImage || "/hero-img.png"}
+                alt={site.name || "Arman Naqvi"}
+                fill
+                priority
+                loading="eager"
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 550px"
+                className="object-contain object-bottom filter grayscale contrast-125 brightness-105 drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+              />
+            </div>
+          </motion.div>
+
+          {/* 4. Bottom-Right "SCROLL DOWN" Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="absolute bottom-2 right-2 sm:right-6 z-30 flex flex-col items-center gap-2 pointer-events-auto"
+          >
+            <a
+              href="#about"
+              className="group flex flex-col items-center gap-1.5 text-[10px] font-mono font-bold tracking-widest uppercase text-neutral-400 hover:text-[#ff3d00] transition-colors"
+            >
+              <span>SCROLL</span>
+              <span>DOWN</span>
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-[1.5px] h-6 bg-gradient-to-b from-[#ff3d00] to-transparent mt-1"
+              />
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
