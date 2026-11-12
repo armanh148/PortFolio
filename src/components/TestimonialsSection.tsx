@@ -13,21 +13,21 @@ interface Review {
 const REVIEWS: Review[] = [
   {
     quote:
-      "Noah completely transformed our online presence. The strategy, design and execution were next level. Our leads increased by 3x within 60 days.",
+      "Arman completely transformed our online presence. The strategy, design and execution were next level. Our leads increased by 3x within 60 days.",
     name: "JAMES CARTER",
     role: "Founder, Shift Fitness",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80",
   },
   {
     quote:
-      "Professional, creative and results-driven. Noah delivered a website that not only looks amazing but performs incredibly well.",
+      "Professional, creative and results-driven. Arman delivered a website that not only looks amazing but performs incredibly well.",
     name: "OLIVIA MARTIN",
     role: "Marketing Director, Verda Studio",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
   },
   {
     quote:
-      "Working with Noah was a game changer. His marketing campaigns brought us massive growth and a strong ROI.",
+      "Working with Arman was a game changer. His marketing campaigns and full-stack solutions brought us massive growth and a strong ROI.",
     name: "DANIEL REYES",
     role: "CEO, Volt Energy",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80",
@@ -72,10 +72,14 @@ export default function TestimonialsSection() {
                 className="flex flex-col justify-between"
               >
                 <div>
-                  {/* Big Orange Quotation Mark */}
-                  <span className="font-serif text-4xl sm:text-5xl text-[#ff3d00] leading-none block mb-3 select-none">
-                    ““
-                  </span>
+                  {/* Big Orange Quotation Mark (Only on first review, matching editorial reference) */}
+                  {i === 0 ? (
+                    <span className="font-serif text-4xl sm:text-5xl text-[#ff3d00] leading-none block mb-3 select-none">
+                      “
+                    </span>
+                  ) : (
+                    <div className="h-6 sm:h-9 mb-3" />
+                  )}
 
                   {/* Review Quote Text */}
                   <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed mb-6 font-normal">

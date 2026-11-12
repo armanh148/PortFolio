@@ -34,6 +34,12 @@ export default function ContactSection() {
           {/* Subtle concrete / grunge grain background */}
           <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px]" />
 
+          {/* Brutalist Asymmetric Diagonal Slice in bottom right matching reference layout */}
+          <div
+            className="hidden lg:block absolute bottom-0 right-0 w-40 h-40 bg-[#0a0a0a] pointer-events-none z-0"
+            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+          />
+
           <div className="relative z-10">
             <h2 className="font-['Bebas_Neue','Oswald',sans-serif] text-5xl sm:text-6xl lg:text-7xl leading-[0.88] uppercase tracking-wide text-black mb-4">
               HAVE A PROJECT<br />
