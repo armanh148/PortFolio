@@ -15,25 +15,25 @@ const SERVICES: ServiceItem[] = [
     num: "01",
     title: "BRANDING\n& IDENTITY",
     subtitle: "STRATEGIC BRANDING THAT BUILDS CONNECTIONS.",
-    href: "/services",
+    href: "#contact",
   },
   {
     num: "02",
     title: "WEB DESIGN\n& DEVELOPMENT",
     subtitle: "CRAFTING DIGITAL EXPERIENCES THAT PERFORM.",
-    href: "/services",
+    href: "#contact",
   },
   {
     num: "03",
     title: "CONTENT\n& CAMPAIGNS",
     subtitle: "STORYTELLING THAT ENGAGES AND INSPIRES.",
-    href: "/services",
+    href: "#contact",
   },
   {
     num: "04",
     title: "STRATEGY\n& CONSULTING",
     subtitle: "DATA-DRIVEN STRATEGIES THAT DRIVE GROWTH.",
-    href: "/services",
+    href: "#contact",
   },
 ];
 

@@ -319,7 +319,7 @@ export default function BrutalistProjectsGrid() {
 
         {/* ── 3. RIGHT VERTICAL RAIL: "VIEW ALL PROJECTS ↗" ── */}
         <Link
-          href="/projects"
+          href="#contact"
           className="group w-full md:w-16 lg:w-20 shrink-0 bg-[#ff4a00] hover:bg-[#e04000] border-t md:border-t-0 md:border-l border-black/10 py-5 md:py-8 px-4 flex items-center justify-center transition-colors cursor-pointer select-none"
         >
           <div className="flex items-center md:[writing-mode:vertical-rl] gap-2 md:gap-3 text-white">

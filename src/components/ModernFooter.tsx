@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 import type { SiteData } from "@/lib/siteData";
 
 const QUICK_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "#hero" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
