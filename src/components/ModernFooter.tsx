@@ -96,49 +96,52 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
             </div>
           </div>
 
-          {/* Col 4: Let's Connect (Cols 9-10) */}
-          <div className="lg:col-span-2 flex flex-col">
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
-              LET&rsquo;S CONNECT
-            </span>
-            <div className="flex flex-col gap-2 text-xs text-neutral-400 font-medium">
-              <a
-                href={`mailto:${site?.email || "armannaqvi.tms@gmail.com"}`}
-                className="hover:text-white transition-colors break-all"
-              >
-                {site?.email || "armannaqvi.tms@gmail.com"}
-              </a>
-              <a href="tel:+923001234567" className="hover:text-white transition-colors">
-                +92 300 1234567
-              </a>
-              <span className="text-neutral-500 mt-1">Available Worldwide</span>
-            </div>
-          </div>
-
-          {/* Col 5: Rotating Circular Stamp Badge (Cols 11-12) */}
-          <div className="lg:col-span-2 flex items-center justify-start lg:justify-end">
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center rounded-full border border-white/20">
-              <motion.svg
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                viewBox="0 0 140 140"
-                className="absolute inset-0 w-full h-full pointer-events-none"
-              >
-                <defs>
-                  <path
-                    id="footerStampPath"
-                    d="M 70, 70 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"
-                  />
-                </defs>
-                <text className="text-[9px] font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-[0.22em] fill-[#ff3d00]">
-                  <textPath xlinkHref="#footerStampPath" startOffset="0%">
-                    • STRATEGY • DESIGN • DEV • VISION •
-                  </textPath>
-                </text>
-              </motion.svg>
-              <span className="font-['Bebas_Neue','Oswald',sans-serif] text-2xl font-bold text-white tracking-wider">
-                AN
+          {/* Combined Let's Connect & Circular Stamp: 2 columns in 1 row on mobile, integrated into 12 cols on desktop */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 items-center lg:contents">
+            {/* Col 4: Let's Connect (Cols 9-10) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
+                LET&rsquo;S CONNECT
               </span>
+              <div className="flex flex-col gap-2 text-xs text-neutral-400 font-medium">
+                <a
+                  href={`mailto:${site?.email || "armannaqvi.tms@gmail.com"}`}
+                  className="hover:text-white transition-colors break-all"
+                >
+                  {site?.email || "armannaqvi.tms@gmail.com"}
+                </a>
+                <a href="tel:+923001234567" className="hover:text-white transition-colors">
+                  +92 300 1234567
+                </a>
+                <span className="text-neutral-500 mt-1">Available Worldwide</span>
+              </div>
+            </div>
+
+            {/* Col 5: Rotating Circular Stamp Badge (Cols 11-12) */}
+            <div className="lg:col-span-2 flex items-center justify-end">
+              <div className="relative w-22 h-22 sm:w-28 sm:h-28 flex items-center justify-center rounded-full border border-white/20 shrink-0">
+                <motion.svg
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                  viewBox="0 0 140 140"
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                >
+                  <defs>
+                    <path
+                      id="footerStampPath"
+                      d="M 70, 70 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"
+                    />
+                  </defs>
+                  <text className="text-[9px] font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-[0.22em] fill-[#ff3d00]">
+                    <textPath xlinkHref="#footerStampPath" startOffset="0%">
+                      • STRATEGY • DESIGN • DEV • VISION •
+                    </textPath>
+                  </text>
+                </motion.svg>
+                <span className="font-['Bebas_Neue','Oswald',sans-serif] text-xl sm:text-2xl font-bold text-white tracking-wider">
+                  AN
+                </span>
+              </div>
             </div>
           </div>
         </div>
