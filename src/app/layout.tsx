@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { siteData } from "@/lib/siteData";
 import TransitionWrapper from "@/components/TransitionWrapper";
-import CustomCursor from "@/components/CustomCursor";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
@@ -38,7 +37,6 @@ export default function RootLayout({
     >
       <body className="grain min-h-screen flex flex-col" suppressHydrationWarning>
         <SmoothScrolling>
-          <CustomCursor />
           <LayoutWrapper>
             <TransitionWrapper>{children}</TransitionWrapper>
           </LayoutWrapper>
