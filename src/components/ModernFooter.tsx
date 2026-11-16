@@ -1,158 +1,45 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import type { SiteData } from "@/lib/siteData";
 
 export default function ModernFooter({ site }: { site?: SiteData }) {
   return (
-    <footer className="relative w-full bg-[#0a0a0a] text-white border-t border-white/10 select-none overflow-hidden pt-16 sm:pt-20 pb-8 px-5 sm:px-8 md:px-12 lg:px-16 font-['Plus_Jakarta_Sans',sans-serif]">
-      <div className="max-w-[1700px] mx-auto">
-        {/* ── TOP ROW: 4 COLUMNS + ROTATING STAMP ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 sm:pb-16 border-b border-white/10 items-start">
-          {/* Col 1: Brand & Tagline & Socials (Cols 1-4) */}
-          <div className="lg:col-span-4 flex flex-col items-start">
-            <Link href="#hero" className="flex items-center gap-2 mb-4 group">
-              <span className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl sm:text-4xl tracking-wider text-white uppercase group-hover:text-[#ff3d00] transition-colors leading-none">
-                AN
-              </span>
-            </Link>
+    <footer className="w-full bg-[#0d0d0d] text-white py-8 sm:py-10 px-5 sm:px-8 md:px-12 lg:px-16 font-['Plus_Jakarta_Sans',sans-serif] border-t border-white/10 select-none">
+      <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        {/* ── LEFT: MONOGRAM & NAME ── */}
+        <Link href="#hero" className="flex items-center gap-2 group">
+          <span className="font-['Bebas_Neue','Oswald',sans-serif] text-2xl tracking-tight text-white flex items-center leading-none">
+            <span className="text-[#ff4d29]">A</span>N
+          </span>
+          <span className="text-xs sm:text-sm font-bold text-neutral-200">
+            {site?.name || "Arman Naqvi"}
+          </span>
+        </Link>
 
-            <p className="text-xs sm:text-sm text-neutral-400 max-w-sm leading-relaxed mb-6 font-normal">
-              Helping brands grow with strategy, bold design and high-performance digital excellence.
-            </p>
+        {/* ── CENTER: QUICK NAVIGATION LINKS ── */}
+        <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-semibold text-neutral-400">
+          {[
+            { label: "Home", href: "#hero" },
+            { label: "About", href: "#about" },
+            { label: "Work", href: "#work" },
+            { label: "Services", href: "#services" },
+            { label: "Process", href: "#case-study" },
+            { label: "Contact", href: "#contact" },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="hover:text-[#ff4d29] transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
-            {/* Social Icons Row */}
-            <div className="flex items-center gap-3">
-              {[
-                { label: "LinkedIn", href: "https://linkedin.com/in/arman-naqvi", icon: "in" },
-                { label: "GitHub", href: "https://github.com/armanh148", icon: "gh" },
-                { label: "X", href: "https://x.com", icon: "x" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-full border border-white/20 hover:border-[#ff3d00] hover:text-[#ff3d00] text-neutral-300 flex items-center justify-center text-xs font-bold uppercase transition-colors"
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Combined Navigation & Services: 2 columns in 1 row on mobile, integrated into 12 cols on desktop */}
-          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:contents">
-            {/* Col 2: Navigation Links (Cols 5-6) */}
-            <div className="lg:col-span-2 flex flex-col">
-              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
-                NAVIGATION
-              </span>
-              <ul className="flex flex-col gap-2.5">
-                {[
-                  { label: "Home", href: "#hero" },
-                  { label: "About", href: "#about" },
-                  { label: "Services", href: "#services" },
-                  { label: "Work", href: "#work" },
-                  { label: "Testimonials", href: "#testimonials" },
-                  { label: "Contact", href: "#contact" },
-                ].map((item) => (
-                  <li key={item.label}>
-                    <a
-                      href={item.href}
-                      className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Col 3: Services (Cols 7-8) */}
-            <div className="lg:col-span-2 flex flex-col">
-              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
-                SERVICES
-              </span>
-              <ul className="flex flex-col gap-2.5">
-                {[
-                  "Digital Strategy",
-                  "Web Design & Dev",
-                  "Performance Marketing",
-                  "Brand Identity",
-                ].map((serv) => (
-                  <li key={serv}>
-                    <a
-                      href="#services"
-                      className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
-                    >
-                      {serv}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Combined Let's Connect & Circular Stamp: 2 columns in 1 row on mobile, integrated into 12 cols on desktop */}
-          <div className="grid grid-cols-2 gap-6 sm:gap-8 items-center lg:contents">
-            {/* Col 4: Let's Connect (Cols 9-10) */}
-            <div className="lg:col-span-2 flex flex-col">
-              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
-                LET&rsquo;S CONNECT
-              </span>
-              <div className="flex flex-col gap-2 text-xs text-neutral-400 font-medium">
-                <a
-                  href={`mailto:${site?.email || "armannaqvi.tms@gmail.com"}`}
-                  className="hover:text-white transition-colors break-all"
-                >
-                  {site?.email || "armannaqvi.tms@gmail.com"}
-                </a>
-                <a href="tel:+923001234567" className="hover:text-white transition-colors">
-                  +92 300 1234567
-                </a>
-                <span className="text-neutral-500 mt-1">Available Worldwide</span>
-              </div>
-            </div>
-
-            {/* Col 5: Rotating Circular Stamp Badge (Cols 11-12) */}
-            <div className="lg:col-span-2 flex items-center justify-end">
-              <div className="relative w-22 h-22 sm:w-28 sm:h-28 flex items-center justify-center rounded-full border border-white/20 shrink-0">
-                <motion.svg
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                  viewBox="0 0 140 140"
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                >
-                  <defs>
-                    <path
-                      id="footerStampPath"
-                      d="M 70, 70 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"
-                    />
-                  </defs>
-                  <text className="text-[9px] font-['Plus_Jakarta_Sans',sans-serif] font-bold uppercase tracking-[0.22em] fill-[#ff3d00]">
-                    <textPath xlinkHref="#footerStampPath" startOffset="0%">
-                      • STRATEGY • DESIGN • DEV • VISION •
-                    </textPath>
-                  </text>
-                </motion.svg>
-                <span className="font-['Bebas_Neue','Oswald',sans-serif] text-xl sm:text-2xl font-bold text-white tracking-wider">
-                  AN
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ── BOTTOM BAR: COPYRIGHT & POLICIES ── */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500 font-medium">
-          <p>© 2026 {site?.name || "Arman Naqvi"}. All rights reserved.</p>
-          <div className="flex items-center gap-6 font-bold uppercase tracking-wider text-neutral-400">
-            <span className="hover:text-white transition-colors cursor-pointer">PRIVACY POLICY</span>
-            <span className="hover:text-white transition-colors cursor-pointer">TERMS OF SERVICE</span>
-          </div>
+        {/* ── RIGHT: COPYRIGHT NOTICE ── */}
+        <div className="text-[11px] text-neutral-500 font-medium">
+          © 2026 {site?.name || "Arman Naqvi"}. All rights reserved.
         </div>
       </div>
     </footer>

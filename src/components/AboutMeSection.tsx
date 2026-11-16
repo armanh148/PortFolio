@@ -1,95 +1,116 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function AboutMeSection() {
   return (
     <section
       id="about"
-      className="relative w-full bg-[#f4f1ea] text-black border-t border-black/10 select-none overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
+      className="relative w-full bg-[#fbf9f4] text-black py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16 font-['Plus_Jakarta_Sans',sans-serif] border-t border-black/8"
     >
-      <div className="w-full flex flex-col md:flex-row items-stretch">
-        {/* ── 1. LEFT VERTICAL FULL-HEIGHT ORANGE TAB: "ABOUT ME" ── */}
-        <div className="w-full md:w-16 lg:w-20 shrink-0 bg-[#ff3d00] py-4 md:py-8 px-4 flex items-center justify-center">
-          <span className="font-['Bebas_Neue','Oswald',sans-serif] text-xl sm:text-2xl font-bold uppercase tracking-[0.25em] text-white md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
+      <div className="max-w-[1700px] mx-auto flex flex-col md:flex-row items-stretch gap-8 lg:gap-12">
+        {/* ── LEFT VERTICAL TAB: "ABOUT ME" ── */}
+        <div className="hidden md:flex flex-col items-center justify-between shrink-0 py-2 border-r border-black/10 pr-6 lg:pr-8">
+          <span className="text-xs font-black uppercase tracking-[0.25em] text-neutral-800 [writing-mode:vertical-rl] rotate-180 whitespace-nowrap">
             ABOUT ME
           </span>
+          <div className="w-[1.5px] h-20 bg-neutral-300 mt-4" />
         </div>
 
-        {/* ── 2. 3-COLUMN CONTENT GRID (Matching Reference Layout) ── */}
-        <div className="flex-1 p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Col 1: Massive Stacked Headline (Cols 1-5) */}
-          <div className="lg:col-span-5">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="font-['Plus_Jakarta_Sans',sans-serif] font-black text-2xl sm:text-3xl lg:text-[2.25rem] leading-[1.1] uppercase tracking-tight text-black"
-            >
-              I&rsquo;M A DIGITAL SPECIALIST<br />
-              WHO BUILDS BRANDS,<br />
-              WEBSITES &amp; GROWTH<br />
-              SYSTEMS THAT DELIVER<br />
-              <span className="text-[#ff3d00]">REAL RESULTS.</span>
-            </motion.h2>
-          </div>
-
-          {/* Col 2: Narrative Description & Button (Cols 6-8) */}
-          <div className="lg:col-span-3 flex flex-col justify-between h-full py-1">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-medium mb-6"
-            >
-              With 1+ years of intense production experience across full-stack engineering, web design, and performance optimization, I bridge creativity with analytics to help businesses grow with purpose.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <a
-                href="#services"
-                className="inline-flex items-center gap-3 bg-black hover:bg-neutral-800 text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] uppercase tracking-wider px-5 py-3 transition-all hover:scale-[1.02] cursor-pointer"
-              >
-                <span>MORE ABOUT ME</span>
-                <span className="text-sm font-bold text-[#ff3d00]">+</span>
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Col 3: Collage & Signature Graphic Banner (Cols 9-12) */}
+        {/* ── MAIN 3-PART CONTENT GRID ── */}
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* 1. Developer Photo in Organic Warm Peach Frame (Cols 1-4) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="lg:col-span-4 w-full h-[180px] sm:h-[220px] lg:h-[240px] bg-[#111111] overflow-hidden relative border border-black/10 flex items-center justify-between p-6 shadow-xl"
+            transition={{ duration: 0.7 }}
+            className="md:col-span-4 relative flex items-center justify-center"
           >
-            {/* Background Texture & Concrete/Noise */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
+            {/* Background Organic Peach Arch */}
+            <div className="absolute inset-0 bg-[#f8d4be] rounded-3xl transform -rotate-3 z-0" />
+            <div className="relative z-10 w-full aspect-square max-w-[280px] sm:max-w-[320px] rounded-2xl overflow-hidden shadow-lg border border-[#edd1c2]">
+              <Image
+                src="/hero-img.png"
+                alt="Arman Naqvi"
+                fill
+                sizes="(max-width: 640px) 280px, 320px"
+                className="object-cover object-top"
+              />
+            </div>
+          </motion.div>
 
-            {/* Giant Monogram Stencil "A" and "N" */}
-            <div className="relative z-10 flex items-center gap-2">
-              <span className="font-['Bebas_Neue','Oswald',sans-serif] text-[7.5rem] sm:text-[9.5rem] leading-none text-white font-bold tracking-tight select-none">
-                A
-              </span>
-              <div className="w-12 sm:w-14 h-24 sm:h-32 bg-[#ff3d00] flex items-center justify-center shadow-lg">
-                <span className="font-['Bebas_Neue','Oswald',sans-serif] text-5xl sm:text-6xl text-black font-bold">
-                  N
-                </span>
+          {/* 2. Narrative & Heading (Cols 5-9) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="md:col-span-5 flex flex-col justify-center"
+          >
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#ff4d29] block mb-2">
+              A DEVELOPER WHO
+            </span>
+
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black leading-tight mb-4">
+              LOVES SOLVING PROBLEMS
+            </h3>
+
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-medium mb-6">
+              I&rsquo;m Arman Naqvi, a Software Developer and Full-Stack Specialist passionate about building modern web applications, mobile apps and intelligent solutions. I enjoy turning complex ideas into simple, beautiful and functional products.
+            </p>
+
+            <div>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 border border-black/20 hover:border-black hover:bg-black hover:text-white text-black font-bold text-xs px-6 py-3 rounded-full transition-all cursor-pointer"
+              >
+                <span>More About Me</span>
+                <span className="text-sm font-bold">↗</span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* 3. Stat Counters (Cols 10-12) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="md:col-span-3 flex flex-col justify-center gap-6 sm:gap-7 border-t md:border-t-0 md:border-l border-black/10 pt-6 md:pt-0 md:pl-8 lg:pl-10"
+          >
+            {/* Stat 1 */}
+            <div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-black text-black">3+</span>
               </div>
+              <span className="text-xs text-neutral-600 font-medium block mt-0.5 leading-snug">
+                Years of Learning &amp; Building
+              </span>
             </div>
 
-            {/* Expressive Handwritten Signature Across Bottom Right */}
-            <div className="absolute -bottom-2 right-2 sm:right-4 z-20 pointer-events-none transform -rotate-6">
-              <span className="font-['Caveat',cursive] text-5xl sm:text-6xl text-white font-bold tracking-wider drop-shadow-[0_2px_12px_rgba(255,255,255,0.45)] select-none">
-                Arman Naqvi
+            {/* Stat 2 */}
+            <div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-black text-black">40+</span>
+              </div>
+              <span className="text-xs text-neutral-600 font-medium block mt-0.5 leading-snug">
+                Projects Completed
+              </span>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center shrink-0 text-neutral-800">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+              <span className="text-xs text-neutral-700 font-bold leading-tight">
+                Happy Clients Worldwide
               </span>
             </div>
           </motion.div>

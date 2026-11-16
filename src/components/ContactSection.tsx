@@ -1,174 +1,127 @@
 "use client";
 
-import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactSection() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    projectType: "Full-Stack Web Application",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`New Inquiry from ${form.name} [${form.projectType}]`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nProject Type: ${form.projectType}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:armannaqvi.tms@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
   return (
     <section
       id="contact"
-      className="relative w-full border-t border-black/10 select-none overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
+      className="relative w-full bg-[#ff4d29] text-black overflow-hidden py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-16 font-['Plus_Jakarta_Sans',sans-serif]"
     >
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+      {/* Decorative Organic Peach Blob on Right */}
+      <div className="absolute -top-16 -right-16 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#fde5d6]/35 blur-2xl pointer-events-none" />
+      <div className="absolute -bottom-16 right-1/4 w-72 h-72 rounded-full bg-[#fde5d6]/25 blur-3xl pointer-events-none" />
+
+      <div className="max-w-[1700px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         {/* ══════════════════════════════════════════════════════════
-            LEFT HALF: WARM CREAM "HAVE A PROJECT IN MIND?"
+            LEFT COLUMN: HEADLINE, SUBTITLE & CTA BUTTON
            ══════════════════════════════════════════════════════════ */}
-        <div className="lg:col-span-6 bg-[#f4f1ea] text-black p-8 sm:p-12 md:p-16 flex flex-col justify-between relative overflow-hidden">
-          {/* Subtle concrete / grunge grain background */}
-          <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="lg:col-span-5 flex flex-col justify-center">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-black" />
+            <span className="text-[10px] font-black uppercase tracking-[0.22em] text-black/80">
+              LET&rsquo;S WORK TOGETHER
+            </span>
+          </div>
 
-          {/* Brutalist Asymmetric Diagonal Slice in bottom right matching reference layout */}
-          <div
-            className="hidden lg:block absolute bottom-0 right-0 w-40 h-40 bg-[#0a0a0a] pointer-events-none z-0"
-            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-          />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-[1.05] mb-4">
+            Have a project<br />
+            in mind?
+          </h2>
 
-          <div className="relative z-10">
-            <h2 className="font-['Bebas_Neue','Oswald',sans-serif] text-5xl sm:text-6xl lg:text-7xl leading-[0.88] uppercase tracking-wide text-black mb-4">
-              HAVE A PROJECT<br />
-              IN MIND?
-            </h2>
+          <p className="text-xs sm:text-sm text-black/80 max-w-md leading-relaxed font-medium mb-8">
+            I&rsquo;m currently available for freelance projects, collaborations and full-time opportunities. Let&rsquo;s create something amazing.
+          </p>
 
-            <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff3d00] mb-8">
-              LET&rsquo;S BUILD SOMETHING BOLD TOGETHER.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-6 mt-8">
-              <a
-                href="mailto:armannaqvi.tms@gmail.com"
-                className="inline-flex items-center gap-3 bg-black hover:bg-neutral-800 text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs uppercase tracking-wider px-6 py-3.5 transition-all cursor-pointer"
-              >
-                <span>LET&rsquo;S TALK</span>
-                <span className="text-sm font-bold text-[#ff3d00]">→</span>
-              </a>
-
-              <a
-                href="mailto:armannaqvi.tms@gmail.com"
-                className="font-mono text-xs sm:text-sm font-bold text-neutral-800 hover:text-[#ff3d00] transition-colors underline underline-offset-4"
-              >
-                armannaqvi.tms@gmail.com
-              </a>
-            </div>
+          <div>
+            <a
+              href="mailto:armannaqvi.tms@gmail.com"
+              className="inline-flex items-center gap-2.5 bg-black hover:bg-neutral-900 text-white font-bold text-xs sm:text-sm px-8 py-4 rounded-full transition-all shadow-xl hover:scale-[1.02] cursor-pointer"
+            >
+              <span>Get In Touch</span>
+              <span className="text-base font-bold">↗</span>
+            </a>
           </div>
         </div>
 
         {/* ══════════════════════════════════════════════════════════
-            RIGHT HALF: PITCH BLACK ASYMMETRIC INQUIRY FORM
+            MIDDLE COLUMN: CONTACT INFOS & SOCIALS
            ══════════════════════════════════════════════════════════ */}
-        <div className="lg:col-span-6 bg-[#0a0a0a] text-white flex flex-col md:flex-row relative">
-          <div className="flex-1 p-8 sm:p-12 md:p-16 flex flex-col justify-center">
-            {submitted ? (
-              <div className="text-center py-12">
-                <span className="w-12 h-12 rounded-full bg-[#ff3d00] text-white flex items-center justify-center font-bold text-xl mx-auto mb-4">
-                  ✓
-                </span>
-                <h3 className="font-['Bebas_Neue','Oswald',sans-serif] text-3xl uppercase tracking-wider text-white mb-2">
-                  MESSAGE PREPARED!
-                </h3>
-                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs text-neutral-400">
-                  Thank you! Your default email client has been opened.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                {/* Name & Email Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
-                      YOUR NAME
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. John Doe"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-[#141414] border border-white/10 focus:border-[#ff3d00] px-3.5 py-3 text-xs sm:text-sm text-white placeholder-neutral-600 outline-none transition-colors"
-                    />
-                  </div>
+        <div className="lg:col-span-4 flex flex-col justify-center gap-4 text-xs sm:text-sm font-semibold text-black">
+          {/* Email */}
+          <a
+            href="mailto:armannaqvi.tms@gmail.com"
+            className="flex items-center gap-3 hover:text-white transition-colors group"
+          >
+            <div className="w-9 h-9 rounded-full bg-black/10 group-hover:bg-black group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M22 7l-10 7L2 7" />
+              </svg>
+            </div>
+            <span className="break-all font-mono text-xs sm:text-sm">armannaqvi.tms@gmail.com</span>
+          </a>
 
-                  <div>
-                    <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
-                      YOUR EMAIL
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="john@example.com"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-[#141414] border border-white/10 focus:border-[#ff3d00] px-3.5 py-3 text-xs sm:text-sm text-white placeholder-neutral-600 outline-none transition-colors"
-                    />
-                  </div>
-                </div>
+          {/* Phone */}
+          <a
+            href="tel:+923001234567"
+            className="flex items-center gap-3 hover:text-white transition-colors group"
+          >
+            <div className="w-9 h-9 rounded-full bg-black/10 group-hover:bg-black group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+            <span>+92 300 1234567</span>
+          </a>
 
-                {/* Project Type */}
-                <div>
-                  <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
-                    PROJECT TYPE
-                  </label>
-                  <select
-                    value={form.projectType}
-                    onChange={(e) => setForm({ ...form, projectType: e.target.value })}
-                    className="w-full bg-[#141414] border border-white/10 focus:border-[#ff3d00] px-3.5 py-3 text-xs sm:text-sm text-white outline-none transition-colors cursor-pointer"
-                  >
-                    <option value="Full-Stack Web Application" className="bg-[#141414] text-white">Full-Stack Web Application</option>
-                    <option value="Next.js & Frontend Engineering" className="bg-[#141414] text-white">Next.js &amp; Frontend Engineering</option>
-                    <option value="Shopify & E-Commerce Platform" className="bg-[#141414] text-white">Shopify &amp; E-Commerce Platform</option>
-                    <option value="WordPress Custom Architecture" className="bg-[#141414] text-white">WordPress Custom Architecture</option>
-                    <option value="Consultation & Speed Optimization" className="bg-[#141414] text-white">Consultation &amp; Speed Optimization</option>
-                  </select>
-                </div>
-
-                {/* Project Message */}
-                <div>
-                  <label className="text-[10px] font-['Plus_Jakarta_Sans',sans-serif] uppercase tracking-widest text-neutral-400 block mb-1.5 font-bold">
-                    TELL ME ABOUT YOUR PROJECT
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Brief overview of goals, requirements and timeline..."
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-[#141414] border border-white/10 focus:border-[#ff3d00] px-3.5 py-3 text-xs sm:text-sm text-white placeholder-neutral-600 outline-none transition-colors resize-none"
-                  />
-                </div>
-
-                {/* Send Message Button */}
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-3 bg-[#ff3d00] hover:bg-[#e03500] text-white font-['Plus_Jakarta_Sans',sans-serif] font-bold text-xs uppercase tracking-wider py-4 px-6 transition-all shadow-lg hover:scale-[1.01] cursor-pointer"
-                >
-                  <span>SEND MESSAGE</span>
-                  <span className="text-base font-bold">→</span>
-                </button>
-              </form>
-            )}
+          {/* Location */}
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-black/10 flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <span>Karachi, Pakistan</span>
           </div>
 
-          {/* Right Vertical Rail: "FAST REPLY. REAL SOLUTIONS." */}
-          <div className="w-full md:w-12 shrink-0 border-t md:border-t-0 md:border-l border-white/10 py-3 md:py-6 px-3 flex items-center justify-center bg-[#0a0a0a]">
-            <span className="font-['Bebas_Neue','Oswald',sans-serif] text-base font-bold uppercase tracking-[0.25em] text-[#ff3d00] md:[writing-mode:vertical-rl] md:rotate-180 whitespace-nowrap">
-              FAST REPLY. REAL SOLUTIONS.
+          {/* Social Icons Row */}
+          <div className="flex items-center gap-2.5 pt-4">
+            {[
+              { label: "LinkedIn", href: "https://linkedin.com/in/arman-naqvi", text: "in" },
+              { label: "GitHub", href: "https://github.com/armanh148", text: "gh" },
+              { label: "X", href: "https://x.com", text: "x" },
+              { label: "Web", href: "#hero", text: "●" },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="w-8 h-8 rounded-full bg-black text-white hover:bg-white hover:text-black transition-colors flex items-center justify-center text-xs font-bold uppercase shadow-sm"
+              >
+                {s.text}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════════════════════════
+            RIGHT COLUMN: EXPRESSIVE HANDWRITTEN STATEMENT
+           ══════════════════════════════════════════════════════════ */}
+        <div className="lg:col-span-3 flex flex-col items-start lg:items-end justify-center select-none">
+          <div className="transform -rotate-6 lg:-rotate-8">
+            <span className="font-['Caveat',cursive] text-4xl sm:text-5xl md:text-6xl font-bold text-[#1f0b06] leading-[0.95] block">
+              Good<br />
+              Design<br />
+              Better<br />
+              Products.
             </span>
+            <svg viewBox="0 0 160 30" fill="none" className="w-36 sm:w-44 h-8 mt-1 text-[#1f0b06]/80">
+              <path d="M5 18 Q 80 28 155 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            </svg>
           </div>
         </div>
       </div>
