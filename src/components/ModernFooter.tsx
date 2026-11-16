@@ -43,54 +43,57 @@ export default function ModernFooter({ site }: { site?: SiteData }) {
             </div>
           </div>
 
-          {/* Col 2: Navigation Links (Cols 5-6) */}
-          <div className="lg:col-span-2 flex flex-col">
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
-              NAVIGATION
-            </span>
-            <ul className="flex flex-col gap-2.5">
-              {[
-                { label: "Home", href: "#hero" },
-                { label: "About", href: "#about" },
-                { label: "Services", href: "#services" },
-                { label: "Work", href: "#work" },
-                { label: "Testimonials", href: "#testimonials" },
-                { label: "Contact", href: "#contact" },
-              ].map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Combined Navigation & Services: 2 columns in 1 row on mobile, integrated into 12 cols on desktop */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:contents">
+            {/* Col 2: Navigation Links (Cols 5-6) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
+                NAVIGATION
+              </span>
+              <ul className="flex flex-col gap-2.5">
+                {[
+                  { label: "Home", href: "#hero" },
+                  { label: "About", href: "#about" },
+                  { label: "Services", href: "#services" },
+                  { label: "Work", href: "#work" },
+                  { label: "Testimonials", href: "#testimonials" },
+                  { label: "Contact", href: "#contact" },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Col 3: Services (Cols 7-8) */}
-          <div className="lg:col-span-2 flex flex-col">
-            <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
-              SERVICES
-            </span>
-            <ul className="flex flex-col gap-2.5">
-              {[
-                "Digital Strategy",
-                "Web Design & Dev",
-                "Performance Marketing",
-                "Brand Identity",
-              ].map((serv) => (
-                <li key={serv}>
-                  <a
-                    href="#services"
-                    className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
-                  >
-                    {serv}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Col 3: Services (Cols 7-8) */}
+            <div className="lg:col-span-2 flex flex-col">
+              <span className="font-['Plus_Jakarta_Sans',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#ff3d00] mb-4">
+                SERVICES
+              </span>
+              <ul className="flex flex-col gap-2.5">
+                {[
+                  "Digital Strategy",
+                  "Web Design & Dev",
+                  "Performance Marketing",
+                  "Brand Identity",
+                ].map((serv) => (
+                  <li key={serv}>
+                    <a
+                      href="#services"
+                      className="text-xs text-neutral-400 hover:text-white transition-colors uppercase tracking-wider font-semibold"
+                    >
+                      {serv}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Col 4: Let's Connect (Cols 9-10) */}
