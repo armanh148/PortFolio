@@ -15,7 +15,7 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
     title: "DIGITAL STRATEGY",
     desc: "Turning insights into actionable engineering strategies that drive growth and long-term value.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-7 h-7 sm:w-8 sm:h-8 text-[#ff3d00]">
         <circle cx="12" cy="12" r="10" strokeDasharray="3 3" />
         <circle cx="12" cy="12" r="5" />
         <circle cx="12" cy="12" r="2" fill="#ff3d00" />
@@ -31,7 +31,7 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
     title: "WEB DESIGN & DEV",
     desc: "Crafting high-performance websites that are fast, responsive and impactful.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-7 h-7 sm:w-8 sm:h-8 text-[#ff3d00]">
         <path d="M16 18l6-6-6-6" />
         <path d="M8 6l-6 6 6 6" />
         <line x1="14" y1="4" x2="10" y2="20" stroke="#ff3d00" />
@@ -43,7 +43,7 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
     title: "PERFORMANCE MARKETING",
     desc: "Data-driven campaigns that increase visibility, generate leads and maximize ROI.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-7 h-7 sm:w-8 sm:h-8 text-[#ff3d00]">
         <line x1="18" y1="20" x2="18" y2="10" />
         <line x1="12" y1="20" x2="12" y2="4" />
         <line x1="6" y1="20" x2="6" y2="14" />
@@ -56,7 +56,7 @@ const EXPERTISE_LIST: ExpertiseItem[] = [
     title: "BRAND & VISUAL IDENTITY",
     desc: "Building bold brands and visual systems that connect and leave a lasting impression.",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-8 h-8 text-[#ff3d00]">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-7 h-7 sm:w-8 sm:h-8 text-[#ff3d00]">
         <polygon points="12 2 2 7 12 12 22 7 12 2" />
         <polyline points="2 12 12 17 22 12" />
         <polyline points="2 17 12 22 22 17" />
@@ -94,8 +94,8 @@ export default function ExpertiseSection() {
           </a>
         </div>
 
-        {/* 4 Expertise Columns with vertical dividers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x divide-white/10">
+        {/* 4 Expertise Columns (2 per row on mobile & tablet, 4 on desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-10 lg:gap-0 lg:divide-x divide-white/10">
           {EXPERTISE_LIST.map((item, index) => (
             <motion.div
               key={item.num}
@@ -107,17 +107,17 @@ export default function ExpertiseSection() {
             >
               <div>
                 {/* Icon in Wireframe Orange */}
-                <div className="mb-5 transform group-hover:scale-105 transition-transform origin-left">
+                <div className="mb-3 sm:mb-5 transform group-hover:scale-105 transition-transform origin-left">
                   {item.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="font-['Bebas_Neue','Oswald',sans-serif] text-2xl uppercase tracking-wide text-white mb-2.5 group-hover:text-[#ff3d00] transition-colors leading-tight">
+                <h3 className="font-['Bebas_Neue','Oswald',sans-serif] text-xl sm:text-2xl uppercase tracking-wide text-white mb-2 sm:mb-2.5 group-hover:text-[#ff3d00] transition-colors leading-tight">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-xs text-neutral-400 leading-relaxed font-normal">
+                <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[11px] sm:text-xs text-neutral-400 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
